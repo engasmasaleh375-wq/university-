@@ -1,16 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  /* تخصيص الألوان */
-  --color-primary: #003366; /* الأزرق الداكن الأساسي */
-  --color-secondary: #008080; /* التركواز الثانوي */
-  --color-accent: #d4af37; /* الذهبي للتنبيهات واللمسات */
+  /* Colors */
+  --color-primary: #0B3B60; /* Deep Navy */
+  --color-primary-dark: #07243B; /* Navy Dark */
+  --color-secondary: #10B981; /* Vibrant Emerald */
+  --color-accent: #F59E0B; /* Golden Amber */
+  --color-slate-white: #F8FAFC; 
+  --color-surface: rgba(255, 255, 255, 0.75);
+  --color-border-light: #E2E8F0;
 
-  /* تخصيص الخطوط */
-  --font-cairo: 'Cairo', sans-serif;
+  /* Fonts */
+  --font-heading: 'Alexandria', sans-serif;
+  --font-body: 'IBM Plex Sans Arabic', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 body {
-    font-family: var(--font-cairo);
+  font-family: var(--font-body);
+  background-color: var(--color-slate-white);
+  color: var(--color-primary-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Scrollbar customizations */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 20px;
 }

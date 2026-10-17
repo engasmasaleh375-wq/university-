@@ -1,0 +1,39 @@
+{
+  "id": "student-001",
+  "universityId": "20260001",
+  "name": "أحمد محمد علي",
+  "major": "هندسة البرمجيات",
+  "faculty": "كلية الحاسبات وتقنية المعلومات",
+  "level": "المستوى الثالث",
+  "gpa": 3.85,
+  "completedHours": 78,
+  "totalHours": 132,
+  "academicStatus": "منتظم",
+  "financialStatus": "مسدد كلياً",
+  "todaySchedule": [
+    {
+      "id": "c1",
+      "courseName": "هندسة البرمجيات المتقدمة",
+      "courseCode": "CS301",
+      "time": "08:00 ص - 09:30 ص",
+      "hall": "قاعة 204 - مبنى ب",
+      "instructor": "د. رامي خليل"
+    },
+    {
+      "id": "c2",
+      "courseName": "أمن المعلومات",
+      "courseCode": "CS305",
+      "time": "10:00 ص - 11:30 ص",
+      "hall": "معمل الشبكات 1",
+      "instructor": "د. سارة أحمد"
+    },
+    {
+      "id": "c3",
+      "courseName": "تطوير تطبيقات الويب",
+      "courseCode": "CS310",
+      "time": "12:00 م - 01:30 م",
+      "hall": "معمل البرمجة 3",
+      "instructor": "م. خالد يوسف"
+    }
+  ]
+}

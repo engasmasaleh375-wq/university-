@@ -1,0 +1,31 @@
+[
+  {
+    "id": "sem-2025-2",
+    "title": "الفصل الدراسي الثاني 2025/2026",
+    "semesterGpa": 3.90,
+    "cumulativeGpa": 3.85,
+    "completedHours": 18,
+    "courses": [
+      { "id": "c1", "code": "CS201", "name": "برمجة كينونية (Java)", "hours": 3, "score": 95, "grade": "A+" },
+      { "id": "c2", "code": "CS202", "name": "تراكيب البيانات", "hours": 3, "score": 88, "grade": "B+" },
+      { "id": "c3", "code": "MATH201", "name": "تفاضل وتكامل 2", "hours": 3, "score": 92, "grade": "A" },
+      { "id": "c4", "code": "CS205", "name": "تصميم منطقي", "hours": 3, "score": 85, "grade": "B" },
+      { "id": "c5", "code": "ENG102", "name": "لغة إنجليزية 2", "hours": 3, "score": 96, "grade": "A+" },
+      { "id": "c6", "code": "ISLM101", "name": "ثقافة إسلامية", "hours": 3, "score": 98, "grade": "A+" }
+    ]
+  },
+  {
+    "id": "sem-2025-1",
+    "title": "الفصل الدراسي الأول 2025/2026",
+    "semesterGpa": 3.80,
+    "cumulativeGpa": 3.80,
+    "completedHours": 15,
+    "courses": [
+      { "id": "c7", "code": "CS101", "name": "مقدمة في علوم الحاسوب", "hours": 3, "score": 94, "grade": "A" },
+      { "id": "c8", "code": "MATH101", "name": "تفاضل وتكامل 1", "hours": 3, "score": 89, "grade": "B+" },
+      { "id": "c9", "code": "PHYS101", "name": "فيزياء عامة 1", "hours": 3, "score": 82, "grade": "B-" },
+      { "id": "c10", "code": "ENG101", "name": "لغة إنجليزية 1", "hours": 3, "score": 91, "grade": "A" },
+      { "id": "c11", "code": "ARB101", "name": "مهارات اللغة العربية", "hours": 3, "score": 95, "grade": "A+" }
+    ]
+  }
+]

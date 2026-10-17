@@ -1,0 +1,88 @@
+{
+  "semester": "الفصل الدراسي الأول 2025/2026",
+  "days": [
+    {
+      "id": "sunday",
+      "name": "الأحد",
+      "classes": [
+        {
+          "id": "c1",
+          "courseName": "هندسة البرمجيات المتقدمة",
+          "courseCode": "CS301",
+          "time": "08:00 ص - 09:30 ص",
+          "hall": "قاعة 204 - مبنى ب",
+          "instructor": "د. رامي خليل",
+          "type": "نظري"
+        },
+        {
+          "id": "c2",
+          "courseName": "أمن المعلومات",
+          "courseCode": "CS305",
+          "time": "10:00 ص - 11:30 ص",
+          "hall": "معمل الشبكات 1",
+          "instructor": "د. سارة أحمد",
+          "type": "عملي"
+        }
+      ]
+    },
+    {
+      "id": "monday",
+      "name": "الإثنين",
+      "classes": [
+        {
+          "id": "c3",
+          "courseName": "تطوير تطبيقات الويب",
+          "courseCode": "CS310",
+          "time": "12:00 م - 01:30 م",
+          "hall": "معمل البرمجة 3",
+          "instructor": "م. خالد يوسف",
+          "type": "عملي"
+        }
+      ]
+    },
+    {
+      "id": "tuesday",
+      "name": "الثلاثاء",
+      "classes": [
+        {
+          "id": "c4",
+          "courseName": "أمن المعلومات",
+          "courseCode": "CS305",
+          "time": "08:00 ص - 09:30 ص",
+          "hall": "قاعة 101 - مبنى أ",
+          "instructor": "د. سارة أحمد",
+          "type": "نظري"
+        },
+        {
+          "id": "c5",
+          "courseName": "هندسة البرمجيات المتقدمة",
+          "courseCode": "CS301",
+          "time": "10:00 ص - 12:00 م",
+          "hall": "معمل البرمجيات 2",
+          "instructor": "م. علي حسن",
+          "type": "عملي"
+        }
+      ]
+    },
+    {
+      "id": "wednesday",
+      "name": "الأربعاء",
+      "classes": []
+    },
+    {
+      "id": "thursday",
+      "name": "الخميس",
+      "classes": [
+        {
+          "id": "c6",
+          "courseName": "تطوير تطبيقات الويب",
+          "courseCode": "CS310",
+          "time": "09:00 ص - 11:00 ص",
+          "hall": "قاعة 302 - مبنى ج",
+          "instructor": "د. محمد علي",
+          "type": "نظري"
+        }
+      ]
+    }
+  ]
+}
