@@ -25,7 +25,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-white p-4 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-transparent p-4 relative overflow-hidden">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-secondary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
@@ -112,7 +112,7 @@ export default function Login() {
 
           <button 
             type="submit"
-            className="w-full bg-accent hover:bg-yellow-500 text-primary-dark font-extrabold py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all mt-8 flex items-center justify-center gap-2 group"
+            className="w-full bg-accent hover:bg-white text-primary-dark font-extrabold py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all mt-8 flex items-center justify-center gap-2 group border border-sky-300/40 cursor-pointer"
           >
             {t('loginBtn')}
             <LogIn className={`w-5 h-5 ${lang === 'ar' ? 'group-hover:-translate-x-1' : 'group-hover:translate-x-1'} transition-transform`} />

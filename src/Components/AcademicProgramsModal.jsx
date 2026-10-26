@@ -8,7 +8,6 @@ import {
   Globe,
   Users,
   CheckCircle2,
-  Sparkles,
   Phone,
   Mail,
   MapPin,
@@ -16,27 +15,24 @@ import {
   ArrowLeft,
   X,
   Layers,
+  Megaphone,
   ChevronLeft,
   ChevronRight,
   ShieldCheck,
   Stethoscope,
-  Smile,
   Pill,
   Building2,
   Briefcase,
   Plane,
-  Bot,
   Car,
   Activity,
   HeartPulse,
   Heart,
   ExternalLink
 } from 'lucide-react';
-import { USTOfficialContactFooter } from './ElearningAnnouncements';
 import { MedicalFacultyNewsBanner, UST30YearsProgramsBanner } from './MedicalFacultyAnnouncements';
-import { LatestUniversityNewsModalContent } from './LatestUniversityNews';
 
-export { MedicalFacultyNewsBanner, UST30YearsProgramsBanner, LatestUniversityNewsModalContent };
+export { MedicalFacultyNewsBanner, UST30YearsProgramsBanner };
 
 /**
  * Visual Banner 5: 5 Golden Programmatic Accreditations
@@ -45,24 +41,24 @@ export { MedicalFacultyNewsBanner, UST30YearsProgramsBanner, LatestUniversityNew
 export function GoldenAccreditationBanner({ isAr = true }) {
   const accreditedPrograms = [
     { nameAr: 'الطب والجراحة', nameEn: 'Medicine & Surgery (MBBS)', icon: Stethoscope },
-    { nameAr: 'طب وجراحة الفم والأسنان', nameEn: 'Dentistry (BDS)', icon: Smile },
+    { nameAr: 'طب وجراحة الفم والأسنان', nameEn: 'Dentistry (BDS)', icon: Activity },
     { nameAr: 'صيدلة', nameEn: 'Pharmacy (PharmD / BPharm)', icon: Pill },
     { nameAr: 'هندسة مدنية', nameEn: 'Civil Engineering (B.Sc.)', icon: Building2 },
     { nameAr: 'إدارة أعمال', nameEn: 'Business Administration (B.Sc.)', icon: Briefcase }
   ];
 
   return (
-    <div className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden border-2 border-primary/20 shadow-xl bg-gradient-to-b from-sky-50 via-white to-sky-50 p-5 sm:p-7 select-none">
+    <div className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden border border-white/30 shadow-lg bg-white/20 backdrop-blur-md p-5 sm:p-7 select-none">
       {/* Top 30 Years Anniversary Mark & Crest */}
       <div className="flex flex-col items-center justify-center text-center mb-6">
         <div className="flex items-center gap-4 mb-2">
           {/* 30 Years Badge */}
-          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-900 text-white shadow-md border border-amber-400/40">
-            <span className="text-amber-400 font-extrabold text-xs">30</span>
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-900/90 text-white shadow-md border border-sky-300/40 backdrop-blur-sm">
+            <span className="text-accent font-extrabold text-xs">30</span>
             <span className="text-[10px] font-bold text-sky-100">عاماً من الريادة والتميز</span>
           </div>
 
-          <div className="w-12 h-12 rounded-full bg-white p-1 border-2 border-primary/20 shadow-sm flex items-center justify-center">
+          <div className="w-12 h-12 rounded-full bg-white/30 backdrop-blur-md p-1 border border-white/30 shadow-sm flex items-center justify-center">
             <img src="/logo.png" alt="UST" className="w-full h-full object-contain" />
           </div>
         </div>
@@ -72,327 +68,50 @@ export function GoldenAccreditationBanner({ isAr = true }) {
         </h4>
       </div>
 
-      {/* The 5 Golden Shields Row matching Screenshot 5 */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 my-6">
+      {/* The 5 Golden Accredited Programs Row - Oval / Stadium Capsules */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 my-6">
         {accreditedPrograms.map((prog, idx) => (
           <div
             key={idx}
-            className="flex flex-col items-center group transition-transform duration-300 hover:-translate-y-1"
+            className="group relative flex flex-col items-center justify-between p-4 sm:p-5 text-center border border-white/30 hover:border-white/60 rounded-[44px] sm:rounded-[48px] bg-white/30 hover:bg-white/45 backdrop-blur-md shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 select-none overflow-hidden cursor-default min-h-[250px]"
           >
-            {/* Golden Shield Container */}
-            <div className="w-full max-w-[150px] aspect-[4/5] rounded-t-3xl rounded-b-xl bg-gradient-to-b from-amber-100 via-amber-200 to-amber-400 border-2 border-amber-500 shadow-md flex flex-col items-center justify-between p-2.5 relative overflow-hidden group-hover:shadow-xl transition-shadow">
-              {/* Quality Seal Ribbons */}
-              <div className="w-8 h-8 rounded-full bg-amber-500/30 border border-amber-600/50 flex items-center justify-center mt-1">
-                <prog.icon className="w-4 h-4 text-amber-900" />
-              </div>
+            {/* Concentric Inner Outline Ring */}
+            <div className="absolute inset-1.5 rounded-[36px] sm:rounded-[40px] border border-white/25 pointer-events-none group-hover:border-white/45 transition-colors z-0" />
 
-              {/* Gold Plaque Center Text */}
-              <div className="text-center my-auto px-1">
-                <span className="text-[9px] font-black text-amber-950 uppercase tracking-widest block">
-                  اعتماد ذهبي
-                </span>
-                <span className="text-[8px] font-bold text-amber-900 block leading-tight">
-                  مجلس الاعتماد الأكاديمي
-                </span>
-              </div>
-
-              {/* Shield Base */}
-              <div className="w-full text-center">
-                <span className="text-[8px] font-mono font-bold text-amber-950/80">★ GOLD ★</span>
+            {/* Top Futuristic Light Icon Container */}
+            <div className="relative z-10 my-1">
+              <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full p-1 bg-white/95 border-2 border-white shadow-[0_0_15px_rgba(0,51,102,0.15)] group-hover:shadow-[0_0_22px_rgba(0,51,102,0.25)] group-hover:scale-105 transition-all flex items-center justify-center">
+                <div className="w-full h-full rounded-full bg-white flex items-center justify-center border border-white relative overflow-hidden shadow-inner">
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(2,132,199,0.08)_0%,transparent_70%)]" />
+                  <prog.icon className="w-8 h-8 text-[#003366] group-hover:rotate-6 transition-transform drop-shadow-[0_2px_8px_rgba(0,51,102,0.12)]" strokeWidth={1.5} />
+                </div>
               </div>
             </div>
 
-            {/* Blue Pedestal Label matching ust.edu.ye */}
-            <div className="w-full max-w-[150px] mt-1.5 py-1.5 px-2 rounded-xl bg-[#0088cc] text-white text-center shadow-xs border border-sky-400/30">
-              <span className="text-[11px] sm:text-xs font-black block leading-tight truncate">
+            {/* Accreditation Badge - Pure White & Blue Palette */}
+            <div className="relative z-10 my-2 space-y-1">
+              <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full bg-blue-50/80 text-blue-900 border border-blue-200/60 text-[10px] sm:text-[11px] font-black shadow-xs">
+                <span>★ اعتماد أكاديمي كامل ★</span>
+              </span>
+              <span className="text-[10px] font-bold text-primary-dark/70 block">
+                مجلس الاعتماد الأكاديمي
+              </span>
+            </div>
+
+            {/* Pedestal Pill Label matching University Navy theme */}
+            <div className="relative z-10 w-full mt-2 py-2 px-3 rounded-full bg-gradient-to-r from-[#072541]/90 to-[#0c4a6e]/90 text-white text-center shadow-xs border border-white/30 group-hover:from-primary group-hover:to-primary-dark transition-all backdrop-blur-xs">
+              <span className="text-xs sm:text-[13px] font-black block leading-tight truncate">
                 {isAr ? prog.nameAr : prog.nameEn}
               </span>
             </div>
           </div>
         ))}
       </div>
-
-      {/* Main Cyan/Navy Announcement Banner matching Screenshot 5 */}
-      <div className="mt-8 rounded-2xl bg-gradient-to-r from-[#0077b5] via-[#0284c7] to-[#0077b5] p-4 sm:p-5 text-white text-center shadow-lg border-2 border-cyan-300/40 relative">
-        <h3 className="text-sm sm:text-lg md:text-xl font-black text-white leading-snug">
-          {isAr
-            ? 'جامعة العلوم والتكنولوجيا تحصل على الاعتماد الأكاديمي البرامجي الذهبي الكامل لـ 5 برامج'
-            : 'UST Obtains Full Golden Academic Programmatic Accreditation for 5 Programs'}
-        </h3>
-        <p className="text-[11px] sm:text-xs text-sky-100 font-semibold mt-1">
-          {isAr
-            ? 'الاعتماد الصادر عن مجلس الاعتماد الأكاديمي وضمان جودة التعليم العالي في الجمهورية اليمنية'
-            : 'Accreditation certified by the Council for Higher Education Accreditation & Quality Assurance'}
-        </p>
-      </div>
     </div>
   );
 }
 
-/**
- * Visual Banner: NEW Engineering Programs (Screenshot 1)
- * "جديد برامج بكالوريوس كلية الهندسة"
- */
-export function EngineeringNewProgramsBanner({ isAr = true, onApply }) {
-  const navigate = useNavigate();
 
-  const engineeringPrograms = [
-    {
-      titleAr: 'بكالوريوس علوم وتقنيات الطيران',
-      titleEn: 'Aviation Sciences & Technology',
-      subAr: 'صيانة وهياكل وملاحة جوية',
-      icon: Plane,
-      theme: 'from-amber-500 to-sky-600',
-      bgImg: '/hero-slide-5.jpg'
-    },
-    {
-      titleAr: 'بكالوريوس هندسة الطيران المدني',
-      titleEn: 'Civil Aviation Engineering',
-      subAr: 'كهرباء وإلكترونيات / هياكل ومحركات',
-      icon: Plane,
-      theme: 'from-blue-600 to-cyan-500',
-      bgImg: '/hero-slide-4.jpg'
-    },
-    {
-      titleAr: 'بكالوريوس هندسة الروبوتات والذكاء الاصطناعي',
-      titleEn: 'Robotics & AI Engineering',
-      subAr: 'أنظمة ذكية وأتمتة صناعية وروبوتات',
-      icon: Bot,
-      theme: 'from-purple-600 to-indigo-500',
-      bgImg: '/hero-slide-6.jpg'
-    },
-    {
-      titleAr: 'بكالوريوس هندسة السيارات الكهربائية',
-      titleEn: 'Electric Vehicles Engineering (EV)',
-      subAr: 'طاقة نظيفة ومحركات وبطاريات ذكية',
-      icon: Car,
-      theme: 'from-cyan-600 to-blue-700',
-      bgImg: '/hero-building.jpg'
-    }
-  ];
-
-  return (
-    <div className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden border-2 border-primary/20 shadow-xl bg-gradient-to-b from-white via-sky-50/40 to-white p-5 sm:p-7 select-none">
-      {/* Top Header with Crest & NEW Badge */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-slate-200">
-        <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-full bg-white p-1 border-2 border-primary/20 shadow-sm flex items-center justify-center shrink-0">
-            <img src="/logo.png" alt="UST" className="w-full h-full object-contain" />
-          </div>
-          <div className="text-right" dir={isAr ? 'rtl' : 'ltr'}>
-            <h4 className="text-sm font-black text-primary">جامعة العلوم والتكنولوجيا</h4>
-            <span className="text-[10px] text-slate-500 font-sans">كلية الهندسة والحاسبات • Faculty of Engineering</span>
-          </div>
-        </div>
-
-        {/* Big "جديد NEW" Badge */}
-        <div className="flex items-center gap-2">
-          <span className="px-4 py-1.5 rounded-full bg-[#dc2626] text-white text-xs font-black shadow-md uppercase tracking-wider animate-pulse">
-            جديد NEW
-          </span>
-        </div>
-      </div>
-
-      {/* Main Title matching Screenshot 1 */}
-      <div className="text-center my-6">
-        <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0284c7] tracking-tight">
-          {isAr ? 'جديد برامج بكالوريوس كلية الهندسة' : 'New Engineering Bachelor Programs'}
-        </h3>
-        <p className="text-xs sm:text-sm font-bold text-slate-600 mt-1 max-w-xl mx-auto">
-          {isAr
-            ? 'تخصصات نوعية مستقبلية لأول مرة في اليمن تواكب التطور التكنولوجي وصناعة الطيران والذكاء الاصطناعي'
-            : 'Cutting-edge future disciplines introduced for the first time in Yemen'}
-        </p>
-      </div>
-
-      {/* 4 Circular Programs Cards matching Screenshot 1 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 my-6">
-        {engineeringPrograms.map((prog, idx) => {
-          const Icon = prog.icon;
-          return (
-            <div
-              key={idx}
-              className="bg-white rounded-2xl border-2 border-slate-200 hover:border-[#0284c7] p-4 flex flex-col items-center text-center shadow-xs hover:shadow-xl transition-all duration-300 group"
-            >
-              {/* Circular Graphic with NEW badge */}
-              <div className="relative mb-3">
-                <span className="absolute -top-2 -right-2 z-10 px-2 py-0.5 rounded-full bg-[#dc2626] text-white text-[9px] font-black shadow-xs">
-                  جديد
-                </span>
-                <div className={`w-28 h-28 rounded-full p-1 bg-gradient-to-tr ${prog.theme} shadow-md group-hover:scale-105 transition-transform overflow-hidden relative flex items-center justify-center`}>
-                  <div className="w-full h-full rounded-full bg-slate-900/40 backdrop-blur-xs flex items-center justify-center text-white">
-                    <Icon className="w-12 h-12 text-white drop-shadow-md" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Checked circle & Title matching Screenshot 1 */}
-              <div className="flex items-start gap-1.5 mb-1.5 text-right" dir={isAr ? 'rtl' : 'ltr'}>
-                <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
-                <h4 className="text-xs sm:text-sm font-black text-slate-900 leading-snug group-hover:text-primary transition-colors">
-                  {isAr ? prog.titleAr : prog.titleEn}
-                </h4>
-              </div>
-
-              <span className="text-[10px] font-semibold text-slate-500 mt-auto pt-1">
-                {isAr ? prog.subAr : ''}
-              </span>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Bottom Bar: Apply & Phone */}
-      <div className="mt-6 pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-3 text-xs font-mono">
-          <div className="flex items-center gap-1.5 bg-primary/10 text-primary px-3.5 py-1.5 rounded-full font-bold">
-            <Phone className="w-3.5 h-3.5 text-accent" />
-            <span>7777 61 64 1</span>
-          </div>
-          <span className="text-slate-600 font-bold hidden sm:inline">www.ust.edu.ye</span>
-        </div>
-
-        <button
-          onClick={() => {
-            if (onApply) onApply();
-            else navigate('/admission');
-          }}
-          className="px-8 py-2.5 rounded-full bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs sm:text-sm font-black shadow-lg hover:shadow-xl transition-all active:scale-95 flex items-center gap-2 cursor-pointer"
-        >
-          <span>{isAr ? 'سجّل الآن في كلية الهندسة' : 'Enroll in Engineering Now'}</span>
-          {isAr ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
-        </button>
-      </div>
-    </div>
-  );
-}
-
-/**
- * Visual Banner: Clinical MD Doctorate Programs (Screenshot 2)
- * "فتح باب التسجيل في برامج الدكتوراه السريرية (MD) للعام الدراسي 2026-2027"
- */
-export function ClinicalDoctorateBanner({ isAr = true, onApply }) {
-  const navigate = useNavigate();
-
-  const specialtiesCol1 = [
-    'جراحة القلب والأوعية الدموية',
-    'الأمراض الجلدية والتناسلية',
-    'أنف وأذن وحنجرة',
-    'أمراض الغدد الصماء',
-    'الأشعة التشخيصية',
-    'التوليد وأمراض النساء',
-    'أمراض الأعصاب'
-  ];
-
-  const specialtiesCol2 = [
-    'أمراض القلب والأوعية الدموية',
-    'طب أمراض قلب الأطفال',
-    'طب الأطفال',
-    'جراحة العظام',
-    'جراحة الأورام',
-    'أمراض الجهاز الهضمي والكبد',
-    'جراحة المسالك البولية'
-  ];
-
-  return (
-    <div className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden border-2 border-primary/20 shadow-xl bg-gradient-to-br from-white via-slate-50 to-sky-50/50 p-5 sm:p-7 select-none">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-        {/* Right Half: Doctor in Clinical Coat, Hospital, Button (Screenshot 2) */}
-        <div className="lg:col-span-5 flex flex-col items-center text-center p-4 rounded-2xl bg-gradient-to-b from-sky-50 to-white border border-sky-200/80 shadow-sm order-1 lg:order-2">
-          {/* Top red badge */}
-          <div className="mb-3">
-            <span className="px-3.5 py-1 rounded-md bg-[#dc2626] text-white text-xs font-black shadow-xs">
-              جديد NEW
-            </span>
-          </div>
-
-          {/* Doctor Portrait representation */}
-          <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden border-4 border-white shadow-xl mb-3 bg-gradient-to-br from-[#0c4a6e] to-[#0369a1] flex items-center justify-center">
-            <img
-              src="/hero-slide-2.jpg"
-              alt="Clinical Doctor"
-              className="w-full h-full object-cover mix-blend-luminosity opacity-90"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-sky-900/60 via-transparent to-transparent" />
-            <Stethoscope className="absolute bottom-3 text-white w-8 h-8 drop-shadow-md" />
-          </div>
-
-          <div className="w-10 h-10 rounded-full bg-white p-1 shadow-sm border border-slate-200 mb-1 flex items-center justify-center">
-            <img src="/logo.png" alt="UST" className="w-full h-full object-contain" />
-          </div>
-          <h4 className="text-sm font-black text-primary">جامعة العلوم والتكنولوجيا</h4>
-          <span className="text-[10px] text-slate-500 font-bold block mb-3">
-            مستشفى جامعة العلوم والتكنولوجيا التعليمي
-          </span>
-
-          <span className="text-xs font-black text-sky-800 bg-sky-100 px-3 py-1 rounded-full mb-3">
-            للعام الدراسي 2026-2027
-          </span>
-
-          <button
-            onClick={() => {
-              if (onApply) onApply();
-              else navigate('/admission');
-            }}
-            className="w-full max-w-[200px] py-2.5 rounded-full bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs sm:text-sm font-black shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer"
-          >
-            {isAr ? 'سجّل الآن' : 'Apply Now'}
-          </button>
-
-          <div className="mt-3 text-[11px] font-mono text-slate-600 flex items-center justify-center gap-2">
-            <span>📞 7777 61 64 1</span>
-            <span>•</span>
-            <span>www.ust.edu.ye</span>
-          </div>
-        </div>
-
-        {/* Left Half: Headline & 14 Clinical Programs in 2 Columns matching Screenshot 2 */}
-        <div className="lg:col-span-7 space-y-4 text-right order-2 lg:order-1" dir={isAr ? 'rtl' : 'ltr'}>
-          <div className="space-y-1">
-            <h2 className="text-2xl sm:text-3xl font-black text-[#dc2626]">
-              {isAr ? 'فتح باب التسجيل في' : 'Admissions Open For'}
-            </h2>
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-[#0284c7] leading-snug">
-              {isAr ? 'برامج الدكتوراه السريرية (MD)' : 'Clinical Doctorate Programs (MD)'}
-            </h3>
-            <p className="text-xs font-bold text-slate-600">
-              {isAr
-                ? 'تدريب سريري متقدم وإشراف استشاري رفيع بالمستشفى الجامعي التعليمي'
-                : 'Advanced clinical fellowship and residency at UST University Hospital'}
-            </p>
-          </div>
-
-          {/* 14 Programs Grid in 2 Columns matching Screenshot 2 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
-            <div className="space-y-1.5">
-              {specialtiesCol1.map((s, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#0088cc] text-white px-3 py-1.5 rounded-xl text-xs font-bold flex items-center justify-between shadow-2xs hover:bg-[#0077b5] transition-colors"
-                >
-                  <span className="truncate">{s}</span>
-                  <CheckCircle2 className="w-3.5 h-3.5 text-white shrink-0 ml-1" />
-                </div>
-              ))}
-            </div>
-
-            <div className="space-y-1.5">
-              {specialtiesCol2.map((s, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#0088cc] text-white px-3 py-1.5 rounded-xl text-xs font-bold flex items-center justify-between shadow-2xs hover:bg-[#0077b5] transition-colors"
-                >
-                  <span className="truncate">{s}</span>
-                  <CheckCircle2 className="w-3.5 h-3.5 text-white shrink-0 ml-1" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /**
  * Visual Banner: General Admission 1448 AH (Screenshot 3)
@@ -425,7 +144,7 @@ export function GeneralAdmission1448Banner({ isAr = true, onApply }) {
         <div className="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between order-2 md:order-2 text-right" dir={isAr ? 'rtl' : 'ltr'}>
           <div className="space-y-3">
             <div className="flex items-center gap-2">
-              <div className="w-9 h-9 rounded-full bg-white p-1">
+              <div className="w-9 h-9 rounded-full bg-white/30 backdrop-blur-sm p-1 border border-white/30 shadow-xs">
                 <img src="/logo.png" alt="UST" className="w-full h-full object-contain" />
               </div>
               <div>
@@ -444,8 +163,8 @@ export function GeneralAdmission1448Banner({ isAr = true, onApply }) {
                 {isAr ? 'فتح باب التسجيل' : 'Admissions Open'}
               </h1>
 
-              {/* Yellow Year Text */}
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#fde047] drop-shadow-md mt-1">
+              {/* Sky-tinted White Year Text */}
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-accent drop-shadow-md mt-1">
                 {isAr ? 'للعام الجامعي 1448هـ' : 'For Academic Year 1448 AH'}
               </h2>
             </div>
@@ -454,7 +173,7 @@ export function GeneralAdmission1448Banner({ isAr = true, onApply }) {
           <div className="mt-6 pt-4 border-t border-sky-400/40 flex items-center justify-between gap-4 flex-wrap">
             <div className="flex items-center gap-3 text-xs font-mono">
               <div className="flex items-center gap-1.5 bg-white/15 px-3 py-1.5 rounded-full border border-white/20">
-                <Phone className="w-3.5 h-3.5 text-amber-300" />
+                <Phone className="w-3.5 h-3.5 text-sky-300" />
                 <span className="font-bold text-white">7777 61 64 1</span>
               </div>
               <span className="text-sky-100 font-bold hidden sm:inline">www.ust.edu.ye</span>
@@ -497,13 +216,13 @@ export function PostgraduateBanner({ isAr = true, onApply }) {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
             <div className="absolute bottom-4 inset-x-3 text-center">
-              <span className="text-[10px] font-black text-amber-300 block">
+              <span className="text-[10px] font-black text-sky-200 block">
                 {isAr ? 'منصة الأبحاث والمناقشات العلمية' : 'Scientific Research Podium'}
               </span>
             </div>
           </div>
 
-          <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 px-3 py-1 rounded-full shadow-lg border border-white/40 flex items-center gap-1.5">
+          <div className="absolute top-4 right-4 bg-gradient-to-r from-sky-200 to-sky-100 text-primary-dark px-3 py-1 rounded-full shadow-lg border border-white/60 flex items-center gap-1.5">
             <span className="text-xs font-black">#1</span>
             <span className="text-[9px] font-bold">الجامعة الأولى</span>
           </div>
@@ -524,7 +243,7 @@ export function PostgraduateBanner({ isAr = true, onApply }) {
             </h2>
 
             <div className="p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20">
-              <h3 className="text-sm sm:text-base font-black text-amber-300 leading-snug">
+              <h3 className="text-sm sm:text-base font-black text-sky-100 leading-snug">
                 {isAr
                   ? 'برامج دراسية بنظام الساعات لتحقيق التوازن بين الدراسة والالتزامات الأخرى في الفترة المسائية'
                   : 'Credit-hour graduate programs designed to balance professional commitments in evening sessions'}
@@ -535,7 +254,7 @@ export function PostgraduateBanner({ isAr = true, onApply }) {
           <div className="mt-6 pt-4 border-t border-sky-400/40 flex items-center justify-between gap-4 flex-wrap">
             <div className="flex items-center gap-3 text-xs font-mono">
               <div className="flex items-center gap-1 bg-white/15 px-3 py-1.5 rounded-full border border-white/20">
-                <Phone className="w-3.5 h-3.5 text-amber-300" />
+                <Phone className="w-3.5 h-3.5 text-sky-300" />
                 <span className="font-bold text-white">7777 61 64 1</span>
               </div>
               <span className="text-sky-200 font-bold hidden sm:inline">USTY</span>
@@ -585,7 +304,7 @@ export function InternationalBusinessEnglishBanner({ isAr = true, onApply }) {
             <span className="bg-[#dc2626] text-white text-[10px] font-black px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
               جديد NEW
             </span>
-            <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-2.5 py-1 rounded-full shadow-md">
+            <span className="bg-sky-200 text-primary-dark text-[10px] font-black px-2.5 py-1 rounded-full shadow-md">
               UST #1
             </span>
           </div>
@@ -602,7 +321,7 @@ export function InternationalBusinessEnglishBanner({ isAr = true, onApply }) {
               {isAr ? 'بكالوريوس' : 'Bachelor of'}
             </h3>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#fde047] leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-accent leading-tight">
               {isAr ? 'إدارة أعمال دولية باللغة الإنجليزية' : 'International Business Management'}
             </h2>
 
@@ -614,7 +333,7 @@ export function InternationalBusinessEnglishBanner({ isAr = true, onApply }) {
           <div className="mt-6 pt-4 border-t border-sky-400/40 flex items-center justify-between gap-4 flex-wrap">
             <div className="flex items-center gap-3 text-xs font-mono">
               <div className="flex items-center gap-1 bg-white/15 px-3 py-1.5 rounded-full border border-white/20">
-                <Phone className="w-3.5 h-3.5 text-amber-300" />
+                <Phone className="w-3.5 h-3.5 text-sky-300" />
                 <span className="font-bold text-white">7777 61 64 1</span>
               </div>
               <span className="text-sky-100 font-bold hidden sm:inline">www.ust.edu.ye</span>
@@ -643,11 +362,11 @@ export function InternationalBusinessEnglishBanner({ isAr = true, onApply }) {
 export function RoadToBetterFutureBanner({ isAr = true }) {
   const students = [
     { titleAr: 'طب بشري وجراحة', icon: Stethoscope },
-    { titleAr: 'طب وجراحة أسنان', icon: Smile },
+    { titleAr: 'طب وجراحة أسنان', icon: Activity },
     { titleAr: 'صيدلة سريرية', icon: Pill },
     { titleAr: 'مختبرات طبية', icon: ShieldCheck },
     { titleAr: 'هندسة وعمارة', icon: Building2 },
-    { titleAr: 'حاسبات وذكاء اصطناعي', icon: Globe },
+    { titleAr: 'حاسبات ونظم تقنية', icon: Globe },
     { titleAr: 'إدارة أعمال ومحاسبة', icon: Briefcase },
     { titleAr: 'لغات وإنسانيات', icon: GraduationCap }
   ];
@@ -656,7 +375,7 @@ export function RoadToBetterFutureBanner({ isAr = true }) {
     <div className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden border-2 border-primary/20 shadow-xl bg-gradient-to-b from-[#0c4a6e] to-[#082f49] text-white p-6 sm:p-8 select-none">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-sky-500/30">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-full bg-white p-1 shadow-md">
+          <div className="w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm p-1 border border-white/30 shadow-md">
             <img src="/logo.png" alt="UST" className="w-full h-full object-contain" />
           </div>
           <div className="text-right" dir={isAr ? 'rtl' : 'ltr'}>
@@ -702,56 +421,94 @@ export function RoadToBetterFutureBanner({ isAr = true }) {
   );
 }
 
+// Authentic medical dental tooth crest (شعار سن أكاديمي دقيق ووقار)
+const DentalToothIcon = ({ className = "w-5 h-5 text-[#003366]" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2C8.5 2 5.5 4.5 5.5 8c0 3.2 1.4 6.2 2.8 9.5 1 2.3 2 4.5 3.7 4.5s2.7-2.2 3.7-4.5c1.4-3.3 2.8-6.3 2.8-9.5 0-3.5-3-6-6.5-6z" />
+    <path d="M12 7v5" />
+  </svg>
+);
+
 /**
- * Main Interactive Component for Stat 1:
- * "البرامج الأكاديمية والاعتمادات والدراسات العليا والبرامج الجديدة"
+ * Main Component for Stat 1:
+ * "البرامج الأكاديمية والاعتمادات الذهبية الـ 5" - صفحة واحدة مدمجة وأنيقة بدون تمرير
  */
 export default function AcademicProgramsModal({ isAr = true, onClose }) {
-  const [activeTab, setActiveTab] = useState('gold');
   const navigate = useNavigate();
 
-  const tabs = [
-    { id: 'gold', labelAr: 'الاعتماد الذهبي (5 برامج)', labelEn: 'Golden Accreditation', icon: Award },
-    { id: 'latest-news', labelAr: 'أحدث الأخبار (أكتوبر 2026)', labelEn: 'Latest UST News', icon: Megaphone },
-    { id: 'medicine-faculty', labelAr: 'كلية الطب وأخبارها (SPSS والتشريح)', labelEn: 'Medicine & Health Notices', icon: HeartPulse },
-    { id: '30years-tree', labelAr: 'كليات الجامعة (30 عاماً)', labelEn: '30 Years: Programs Tree', icon: Layers },
-    { id: 'engineering', labelAr: 'جديد برامج الهندسة', labelEn: 'New Engineering', icon: Plane },
-    { id: 'clinical-md', labelAr: 'الدكتوراه السريرية (MD)', labelEn: 'Clinical MD', icon: Stethoscope },
-    { id: 'admission-1448', labelAr: 'التسجيل 1448هـ', labelEn: 'Admissions 1448', icon: BookOpen },
-    { id: 'postgrad', labelAr: 'الدراسات العليا المسائية', labelEn: 'Postgrad Studies', icon: GraduationCap },
-    { id: 'business', labelAr: 'إدارة أعمال بالإنجليزية', labelEn: 'Int. Business', icon: Briefcase },
-    { id: 'road', labelAr: 'الطريق للمستقبل', labelEn: 'Road to Future', icon: Sparkles }
+  const accreditedPrograms = [
+    { 
+      nameAr: 'الطب والجراحة العامة', 
+      nameEn: 'Medicine & Surgery (MBBS)', 
+      icon: Stethoscope, 
+      tag: 'WFME معتمد دولياً',
+    },
+    { 
+      nameAr: 'طب وجراحة الفم والأسنان', 
+      nameEn: 'Dentistry (BDS)', 
+      icon: DentalToothIcon, 
+      tag: 'اعتماد أكاديمي كامل',
+    },
+    { 
+      nameAr: 'دكتور صيدلة / صيدلة عامة', 
+      nameEn: 'Pharmacy (PharmD / BPharm)', 
+      icon: Pill, 
+      tag: 'معايير GMP الدوائية',
+    },
+    { 
+      nameAr: 'الهندسة المدنية', 
+      nameEn: 'Civil Engineering (B.Sc.)', 
+      icon: Building2, 
+      tag: 'معايير ABET العالمية',
+    },
+    { 
+      nameAr: 'إدارة الأعمال الدولية', 
+      nameEn: 'Business Administration (B.Sc.)', 
+      icon: Briefcase, 
+      tag: 'اعتماد جودة الأعمال',
+    }
+  ];
+
+  const standards = [
+    { textAr: 'مطابقة كاملة لمعايير الفيدرالية العالمية للتعليم الطبي (WFME)', icon: CheckCircle2 },
+    { textAr: 'أول جامعة أهلية بالجمهورية اليمنية تنال الاعتماد الذهبي الكامل', icon: Award },
+    { textAr: 'مختبرات سريرية وتصنيع دوائي وفق معايير ممارسات التصنيع الجيد (GMP)', icon: CheckCircle2 },
+    { textAr: '9 كليات بالمركز الرئيسي بصنعاء وأكثر من 90 برنامجاً وتخصصاً معتمداً', icon: BookOpen }
   ];
 
   return (
-    <div className="w-full text-slate-800" dir={isAr ? 'rtl' : 'ltr'}>
-      {/* Top Switcher Bar */}
-      <div className="bg-slate-100/90 p-3 sm:p-4 border-b border-slate-200 flex items-center justify-between gap-2 flex-wrap">
-        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
-          {tabs.map((tab) => {
-            const Icon = tab.icon;
-            const isActive = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-3 py-1.5 rounded-full text-xs font-black transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-                  isActive
-                    ? 'bg-primary text-white shadow-sm'
-                    : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-300'
-                }`}
-              >
-                <Icon className="w-3.5 h-3.5 text-accent" />
-                <span>{isAr ? tab.labelAr : tab.labelEn}</span>
-              </button>
-            );
-          })}
+    <div className="w-full text-primary-dark flex flex-col select-none overflow-hidden bg-white/20 backdrop-blur-md border border-white/30 shadow-lg rounded-[32px] sm:rounded-[44px]" dir={isAr ? 'rtl' : 'ltr'}>
+      {/* Royal Curved Navy Header - Frosted Glass Gradient */}
+      <div className="relative px-5 py-4 sm:px-6 sm:py-5 rounded-b-[24px] sm:rounded-b-[30px] shadow-md bg-gradient-to-r from-primary/90 via-primary/95 to-primary-dark/95 backdrop-blur-md border-b border-white/20 text-white flex items-center justify-between gap-3 shrink-0">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-blue-100 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(0,51,102,0.15)] overflow-hidden bg-white/95 p-1">
+            <img src="/logo.png" alt="UST" className="w-full h-full object-contain drop-shadow-xs" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2 flex-wrap mb-0.5">
+              <span className="text-[11px] font-black tracking-widest text-accent uppercase">
+                {isAr ? 'الاعتماد الأكاديمي البرامجي' : 'ACADEMIC PROGRAM ACCREDITATION'}
+              </span>
+              <span className="inline-flex items-center gap-1 text-[9.5px] font-extrabold text-blue-900 bg-white/90 backdrop-blur-sm px-2.5 py-0.5 rounded-full border border-blue-100 shadow-xs">
+                <Award className="w-3 h-3 text-[#003366]" strokeWidth={1.5} />
+                <span>{isAr ? '9 كليات و 90+ برنامجاً معتمداً' : '9 Faculties & 90+ Programs'}</span>
+              </span>
+            </div>
+            <h3 className="text-base sm:text-xl font-black text-white leading-tight">
+              {isAr ? 'الريادة الأكاديمية والاعتماد الكامل' : 'Academic Leadership & Full Accreditation'}
+            </h3>
+            <p className="text-[11px] sm:text-xs text-white/80 mt-0.5 max-w-xl font-medium hidden sm:block">
+              {isAr 
+                ? 'شهادة تميز وطنية وإقليمية صادرة عن مجلس الاعتماد الأكاديمي وضمان جودة التعليم العالي' 
+                : 'National and regional certificate of excellence from the Council for Higher Education Accreditation'}
+            </p>
+          </div>
         </div>
 
         {onClose && (
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-white hover:bg-slate-200 text-slate-700 border border-slate-300 flex items-center justify-center transition-all shadow-2xs active:scale-90 cursor-pointer"
+            className="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 text-white backdrop-blur-sm border border-white/30 flex items-center justify-center transition-all shrink-0 cursor-pointer active:scale-95 shadow-xs"
             title={isAr ? 'إغلاق' : 'Close'}
           >
             <X className="w-4 h-4" />
@@ -759,338 +516,112 @@ export default function AcademicProgramsModal({ isAr = true, onClose }) {
         )}
       </div>
 
-      {/* Main Content Area */}
-      <div className="p-4 sm:p-6 max-h-[75vh] overflow-y-auto custom-scrollbar space-y-6">
-        <AnimatePresence mode="wait">
-          {/* TAB 1: GOLDEN ACCREDITATIONS (Screenshot 5) */}
-          {activeTab === 'gold' && (
-            <motion.div
-              key="gold"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.25 }}
-              className="space-y-6"
+      {/* Modal Body - Single Page with Frosted Glass Cards */}
+      <div className="p-4 sm:p-5 space-y-3.5 flex-1 bg-white/10 backdrop-blur-md">
+        {/* Highlight Banner Strip */}
+        <div className="bg-white/25 backdrop-blur-md border border-white/40 shadow-xs rounded-2xl p-2.5 sm:p-3 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-full bg-white/95 border border-blue-100 shadow-[0_0_15px_rgba(0,51,102,0.15)] text-[#003366] flex items-center justify-center shrink-0">
+              <Award className="w-4 h-4 text-[#003366]" strokeWidth={1.5} />
+            </div>
+            <div>
+              <h4 className="text-xs sm:text-[13px] font-black text-primary">
+                {isAr ? 'الجامعة الأولى الحاصلة على الاعتماد الأكاديمي البرامجي الكامل' : 'First University to Receive Full Programmatic Accreditation'}
+              </h4>
+              <p className="text-[10px] sm:text-[10.5px] font-semibold text-primary-dark/80">
+                {isAr ? 'من مجلس الاعتماد الأكاديمي وضمان جودة التعليم العالي لـ 5 برامج تخصصية رائدة' : 'Accredited by the Higher Education Quality Assurance Council for 5 flagship programs'}
+              </p>
+            </div>
+          </div>
+          <span className="hidden md:inline-flex px-2.5 py-0.5 rounded-full bg-blue-50/80 text-blue-900 border border-blue-200/60 text-[9.5px] font-extrabold whitespace-nowrap shadow-2xs">
+            ★ معتمد رسمياً ★
+          </span>
+        </div>
+
+        {/* The 5 Accredited Programs Stadium Capsules - Frosted Glass */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3">
+          {accreditedPrograms.map((prog, idx) => (
+            <div
+              key={idx}
+              className="group relative flex flex-col items-center justify-between p-3 sm:p-3.5 text-center border border-white/40 hover:border-white/70 rounded-[32px] bg-white/30 hover:bg-white/45 backdrop-blur-md shadow-sm hover:shadow-lg transition-all duration-300 select-none overflow-hidden"
             >
-              <GoldenAccreditationBanner isAr={isAr} />
+              {/* Concentric Inner Outline Ring */}
+              <div className="absolute inset-1 rounded-[26px] border border-white/25 pointer-events-none group-hover:border-white/50 transition-colors z-0" />
 
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-2xs space-y-3">
-                <h4 className="text-sm font-black text-primary">
-                  {isAr ? 'عن الاعتماد الأكاديمي البرامجي الكامل:' : 'About Full Programmatic Accreditation:'}
-                </h4>
-                <p className="text-xs sm:text-sm font-semibold text-slate-700 leading-relaxed">
-                  {isAr
-                    ? 'تعتبر جامعة العلوم والتكنولوجيا أول جامعة أهلية في اليمن تنال الاعتماد البرامجي الذهبي الكامل لخمسة برامج أكاديمية استراتيجية من مجلس الاعتماد الأكاديمي وضمان جودة التعليم العالي، مما يضمن للخريجين اعترافاً دولياً ومحلياً بشهاداتهم وكفاءاتهم في أرقى المؤسسات العالمية.'
-                    : 'UST is the pioneer institution in Yemen awarded full golden programmatic accreditation across 5 flagship programs, ensuring global recognition and elite standards for its graduates.'}
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
-                  {[
-                    'مطابقة كاملة لمعايير الفيدرالية العالمية للتعليم الطبي (WFME) في الطب البشري',
-                    'اعتراف مجلس أطباء الأسنان والجمعيات الإقليمية والدولية',
-                    'مختبرات صيدلانية وتصنيع دوائي متقدم وفق معايير ممارسات التصنيع الجيد (GMP)',
-                    'اعتمادات هندسية وفق معايير ABET الدولية ومعايير جودة إدارة الأعمال'
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2 bg-white p-2.5 rounded-xl border border-primary/10">
-                      <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
-                      <span className="text-xs font-bold text-slate-800">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          )}
-
-          {/* TAB: MEDICAL FACULTY ANNOUNCEMENTS & LABS (Matching Screenshots 1, 2, 3, 4) */}
-          {activeTab === 'medicine-faculty' && (
-            <motion.div
-              key="medicine-faculty"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.25 }}
-              className="space-y-6"
-            >
-              <MedicalFacultyNewsBanner
-                isAr={isAr}
-                onApply={() => {
-                  if (onClose) onClose();
-                  navigate('/admission');
-                }}
-              />
-            </motion.div>
-          )}
-
-          {/* TAB: 30 YEARS FACULTIES TREE (Matching Screenshots 4 & 5) */}
-          {activeTab === '30years-tree' && (
-            <motion.div
-              key="30years-tree"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.25 }}
-              className="space-y-6"
-            >
-              <UST30YearsProgramsBanner
-                isAr={isAr}
-                onApply={() => {
-                  if (onClose) onClose();
-                  navigate('/admission');
-                }}
-                onExploreFaculties={() => {
-                  if (onClose) onClose();
-                  navigate('/faculties');
-                }}
-              />
-            </motion.div>
-          )}
-
-          {/* TAB: LATEST UNIVERSITY NEWS & EVENTS (Matching Screenshot 2 from ust.edu.ye/ar/) */}
-          {activeTab === 'latest-news' && (
-            <motion.div
-              key="latest-news"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.25 }}
-              className="space-y-6"
-            >
-              <LatestUniversityNewsModalContent isAr={isAr} />
-            </motion.div>
-          )}
-
-          {/* TAB 2: NEW ENGINEERING PROGRAMS (Screenshot 1) */}
-          {activeTab === 'engineering' && (
-            <motion.div
-              key="engineering"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.25 }}
-              className="space-y-6"
-            >
-              <EngineeringNewProgramsBanner
-                isAr={isAr}
-                onApply={() => {
-                  if (onClose) onClose();
-                  navigate('/admission');
-                }}
-              />
-
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-2xs space-y-3">
-                <h4 className="text-sm font-black text-primary">
-                  {isAr ? 'عن التخصصات الهندسية الحديثة:' : 'About New Engineering Programs:'}
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div className="bg-white p-3 rounded-xl border border-primary/10">
-                    <span className="text-xs font-black text-primary block mb-1">علوم وتقنيات وهندسة الطيران المدني</span>
-                    <p className="text-[11px] text-slate-600 font-semibold leading-relaxed">
-                      تأهيل مهندسين وفنيين متخصصين في صيانة وهياكل ومحركات الطائرات المدنية والملاحة الجوية بالتعاون مع كبرى الأكاديميات وهيئات الطيران.
-                    </p>
-                  </div>
-                  <div className="bg-white p-3 rounded-xl border border-primary/10">
-                    <span className="text-xs font-black text-primary block mb-1">هندسة الروبوتات والسيارات الكهربائية</span>
-                    <p className="text-[11px] text-slate-600 font-semibold leading-relaxed">
-                      تصميم وبرمجة الأنظمة الذكية المستقلة، الروبوتات الطبية والصناعية، وتكنولوجيا السيارات الكهربائية وبطاريات الليثيوم المتقدمة.
-                    </p>
+              {/* Top Futuristic Light Icon Container */}
+              <div className="relative z-10 my-0.5">
+                <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-full p-0.5 bg-white/95 border-2 border-white shadow-[0_0_15px_rgba(0,51,102,0.15)] group-hover:shadow-[0_0_20px_rgba(0,51,102,0.25)] group-hover:scale-105 transition-all flex items-center justify-center">
+                  <div className="w-full h-full rounded-full bg-white flex items-center justify-center border border-white relative overflow-hidden shadow-inner">
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(2,132,199,0.08)_0%,transparent_70%)]" />
+                    <prog.icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#003366] group-hover:rotate-3 transition-transform drop-shadow-[0_2px_6px_rgba(0,51,102,0.12)]" strokeWidth={1.5} />
                   </div>
                 </div>
               </div>
-            </motion.div>
-          )}
 
-          {/* TAB 3: CLINICAL MD DOCTORATE (Screenshot 2) */}
-          {activeTab === 'clinical-md' && (
-            <motion.div
-              key="clinical-md"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.25 }}
-              className="space-y-6"
-            >
-              <ClinicalDoctorateBanner
-                isAr={isAr}
-                onApply={() => {
-                  if (onClose) onClose();
-                  navigate('/admission');
-                }}
-              />
-
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-2xs space-y-3">
-                <h4 className="text-sm font-black text-primary">
-                  {isAr ? 'مميزات برامج الدكتوراه السريرية بمستشفى الجامعة:' : 'UST Hospital Clinical Fellowship Advantages:'}
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {[
-                    'تدريب عملي سريري في مستشفى جامعة العلوم والتكنولوجيا الأكبر في اليمن',
-                    'إشراف مباشر من نخبة استشاريي الطب والجراحة في مختلف التخصصات الدقيقة',
-                    'تجهيزات طبية متطورة وغرف عمليات رقمية وقسطرة قلبية ومختبرات مرجعية',
-                    'شهادة دكتوراه سريرية مهنية (MD) معتمدة تفتح آفاق العمل الإقليمي والدولي'
-                  ].map((p, idx) => (
-                    <div key={idx} className="flex items-center gap-2 bg-white p-3 rounded-xl border border-slate-100">
-                      <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
-                      <span className="text-xs font-bold text-slate-700">{p}</span>
-                    </div>
-                  ))}
-                </div>
+              {/* Accreditation Badge */}
+              <div className="relative z-10 my-1 space-y-0.5">
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-50/80 text-blue-900 border border-blue-200/60 text-[9px] font-black shadow-2xs">
+                  ★ اعتماد أكاديمي كامل ★
+                </span>
+                <span className="text-[8.5px] font-bold text-primary-dark/70 block">
+                  {prog.tag}
+                </span>
               </div>
-            </motion.div>
-          )}
 
-          {/* TAB 4: GENERAL ADMISSION 1448 AH (Screenshot 3) */}
-          {activeTab === 'admission-1448' && (
-            <motion.div
-              key="admission-1448"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.25 }}
-              className="space-y-6"
-            >
-              <GeneralAdmission1448Banner
-                isAr={isAr}
-                onApply={() => {
-                  if (onClose) onClose();
-                  navigate('/admission');
-                }}
-              />
-
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-2xs space-y-3">
-                <h4 className="text-sm font-black text-primary">
-                  {isAr ? 'إجراءات وخطوات القبول والتسجيل للعام 1448هـ:' : 'Admission Procedures for 1448 AH:'}
-                </h4>
-                <p className="text-xs sm:text-sm font-semibold text-slate-700 leading-relaxed">
-                  {isAr
-                    ? 'ترحب جامعة العلوم والتكنولوجيا بالطلبة الجدد للعام الجامعي 1448هـ (2026-2027م) وتتيح التسجيل الإلكتروني الميسر مع توفير اختبارات تحديد المستوى، المنح التنافسية، وخدمات الإرشاد الأكاديمي.'
-                    : 'UST warmly welcomes new students for the academic year 1448 AH with expedited online admission and competitive scholarships.'}
-                </p>
+              {/* Pedestal Pill Label */}
+              <div className="relative z-10 w-full mt-1 py-1.5 px-2 rounded-full bg-gradient-to-r from-[#072541]/90 to-[#0c4a6e]/90 text-white text-center shadow-xs border border-white/30 backdrop-blur-xs">
+                <span className="text-[11px] sm:text-[12px] font-black block leading-tight">
+                  {isAr ? prog.nameAr : prog.nameEn}
+                </span>
               </div>
-            </motion.div>
-          )}
+            </div>
+          ))}
+        </div>
 
-          {/* TAB 5: POSTGRADUATE STUDIES (Screenshot 1 previous) */}
-          {activeTab === 'postgrad' && (
-            <motion.div
-              key="postgrad"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.25 }}
-              className="space-y-6"
-            >
-              <PostgraduateBanner
-                isAr={isAr}
-                onApply={() => {
-                  if (onClose) onClose();
-                  navigate('/admission');
-                }}
-              />
+        {/* Standards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 pt-0.5">
+          {standards.map((item, idx) => (
+            <div key={idx} className="flex items-center gap-2 bg-white/25 hover:bg-white/40 backdrop-blur-md p-2 sm:p-2.5 rounded-2xl border border-white/35 transition-all shadow-xs">
+              <item.icon className="w-3.5 h-3.5 text-blue-800 shrink-0" strokeWidth={1.5} />
+              <span className="text-[10px] sm:text-[10.5px] font-bold text-primary-dark leading-snug">{item.textAr}</span>
+            </div>
+          ))}
+        </div>
 
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-2xs space-y-3">
-                <h4 className="text-sm font-black text-primary">
-                  {isAr ? 'برامج الماجستير والدكتوراه والدبلوم العالي المتاحة:' : 'Available Master, PhD & Higher Diploma Programs:'}
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div className="bg-white p-3 rounded-xl border border-primary/10">
-                    <span className="text-xs font-black text-primary block mb-1">العلوم الطبية والصحية</span>
-                    <p className="text-[11px] text-slate-600 font-semibold">ماجستير طب الأطفال، طب وجراحة العيون، الصحة العامة، والصيدلة السريرية</p>
-                  </div>
-                  <div className="bg-white p-3 rounded-xl border border-primary/10">
-                    <span className="text-xs font-black text-primary block mb-1">العلوم الإدارية والمالية</span>
-                    <p className="text-[11px] text-slate-600 font-semibold">ماجستير ودكتوراه إدارة الأعمال (MBA & PhD)، المحاسبة، والعلوم المالية والمصرفية</p>
-                  </div>
-                  <div className="bg-white p-3 rounded-xl border border-primary/10">
-                    <span className="text-xs font-black text-primary block mb-1">الهندسة والحاسبات</span>
-                    <p className="text-[11px] text-slate-600 font-semibold">ماجستير الهندسة المعمارية والمدنية، وماجستير نظم المعلومات الحاسوبية والذكاء الاصطناعي</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          )}
+        {/* Contact Strip */}
+        <div className="bg-white/25 backdrop-blur-md border border-white/35 rounded-2xl p-2.5 px-3 flex flex-wrap items-center justify-between gap-2 shadow-xs">
+          <div className="flex items-center gap-2 text-xs">
+            <div className="w-7 h-7 rounded-full bg-white/90 border border-blue-100 shadow-[0_0_12px_rgba(0,51,102,0.12)] text-[#003366] flex items-center justify-center shrink-0">
+              <Phone className="w-3.5 h-3.5 text-[#003366]" strokeWidth={1.5} />
+            </div>
+            <div>
+              <span className="text-primary-dark/70 font-semibold text-[10px] block leading-tight">
+                {isAr ? 'للتسجيل والاستفسار المباشر:' : 'Direct Admissions & Inquiries:'}
+              </span>
+              <span className="font-black text-primary text-[11px] sm:text-xs">
+                777761641 - 716000700 | {isAr ? 'الرقم المجاني:' : 'Toll Free:'} 8000000
+              </span>
+            </div>
+          </div>
 
-          {/* TAB 6: INTERNATIONAL BUSINESS ENGLISH (Screenshot 3 previous) */}
-          {activeTab === 'business' && (
-            <motion.div
-              key="business"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.25 }}
-              className="space-y-6"
-            >
-              <InternationalBusinessEnglishBanner
-                isAr={isAr}
-                onApply={() => {
-                  if (onClose) onClose();
-                  navigate('/admission');
-                }}
-              />
+          <span className="text-[10.5px] font-bold text-primary-dark/60">
+            www.ust.edu.ye
+          </span>
+        </div>
+      </div>
 
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-2xs space-y-3">
-                <h4 className="text-sm font-black text-primary">
-                  {isAr ? 'مميزات المسار الدولي باللغة الإنجليزية:' : 'Key Advantages of the International English Track:'}
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {[
-                    'تدريس كامل باللغة الإنجليزية من قبل أساتذة وخبراء معتمدين دولياً',
-                    'منهج معتمد يواكب متطلبات كبرى المنظمات الدولية والشركات متعددة الجنسيات',
-                    'فرص تبادل أكاديمي وتدريب صيفي مع الجامعات الشريكة في ماليزيا والأردن ومصر',
-                    'تأهيل الخريج للحصول على شهادات قيادية دولية في إدارة المشاريع والتجارة الإلكترونية'
-                  ].map((p, idx) => (
-                    <div key={idx} className="flex items-center gap-2 bg-white p-3 rounded-xl border border-slate-100">
-                      <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
-                      <span className="text-xs font-bold text-slate-700">{p}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          )}
+      {/* Footer Close Only - Frosted Glass */}
+      <div className="p-3 sm:p-4 bg-white/25 backdrop-blur-md border-t border-white/30 flex items-center justify-between gap-3 shrink-0 shadow-sm">
+        <span className="text-[11px] text-primary-dark/80 font-semibold hidden sm:inline">
+          {isAr ? 'جامعة العلوم والتكنولوجيا • الريادة والتميز في التعليم العالي' : 'UST • Excellence in Higher Education'}
+        </span>
 
-          {/* TAB 7: ROAD TO BETTER FUTURE */}
-          {activeTab === 'road' && (
-            <motion.div
-              key="road"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.25 }}
-              className="space-y-6"
-            >
-              <RoadToBetterFutureBanner isAr={isAr} />
-
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-2xs text-center space-y-3">
-                <h4 className="text-sm font-black text-primary">
-                  {isAr ? 'اختر تخصصك وابدأ قصة نجاحك في الجامعة الأولى في اليمن' : 'Choose Your Major & Start Your Success Story'}
-                </h4>
-                <div className="flex items-center justify-center gap-3">
-                  <button
-                    onClick={() => {
-                      if (onClose) onClose();
-                      navigate('/faculties');
-                    }}
-                    className="px-5 py-2.5 rounded-xl border border-primary/20 text-xs font-bold text-primary hover:bg-white transition-all cursor-pointer"
-                  >
-                    {isAr ? 'استعراض جميع الكليات والتخصصات' : 'Explore All Faculties'}
-                  </button>
-                  <button
-                    onClick={() => {
-                      if (onClose) onClose();
-                      navigate('/admission');
-                    }}
-                    className="px-6 py-2.5 rounded-xl bg-primary hover:bg-primary-dark text-white text-xs font-black shadow-md transition-all cursor-pointer"
-                  >
-                    {isAr ? 'التقديم والقبول الإلكتروني' : 'Apply Online'}
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Official Contact Footer matching Screenshot 4 */}
-        <USTOfficialContactFooter isAr={isAr} />
+        <button
+          onClick={onClose}
+          className="w-full sm:w-auto px-8 py-2 rounded-full bg-white/40 hover:bg-white/60 backdrop-blur-md border border-white/40 hover:border-white/60 text-xs font-bold text-primary-dark transition-all text-center cursor-pointer shadow-xs active:scale-95"
+        >
+          {isAr ? 'إغلاق' : 'Close'}
+        </button>
       </div>
     </div>
   );

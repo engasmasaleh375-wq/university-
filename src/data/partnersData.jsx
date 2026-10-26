@@ -429,7 +429,7 @@ export const internationalPartners = [
     scopeAr: 'برامج الإقامة الطبية المتقدمة، الإشراف الأكاديمي المشترك على رسائل الماجستير والدكتوراه',
     scopeEn: 'Advanced medical residency, joint thesis supervision, and faculty exchange',
     logo: AinShamsLogo,
-    badgeColor: 'from-amber-600 to-blue-900'
+    badgeColor: 'from-sky-600 to-blue-900'
   },
   {
     id: 'university-of-jordan',
@@ -557,7 +557,7 @@ export const internationalPartners = [
     scopeAr: 'أبحاث الصيدلة السريرية، المجلات العلمية المحكمة، وبرامج التدريب التقني',
     scopeEn: 'Clinical pharmacy joint publications, peer-reviewed journals, and IT labs access',
     logo: AlNasserLogo,
-    badgeColor: 'from-amber-600 to-slate-900'
+    badgeColor: 'from-sky-600 to-slate-900'
   },
   {
     id: 'univ-21-sept',

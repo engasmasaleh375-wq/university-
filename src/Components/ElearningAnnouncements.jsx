@@ -18,7 +18,6 @@ import {
   ArrowRight,
   ArrowLeft,
   CheckCircle2,
-  Sparkles,
   Check,
   Copy,
   Layers,
@@ -119,48 +118,47 @@ export const elearningAnnouncementsData = [
     applyUrl: '/admission'
   },
   {
-    id: 'mental-health',
+    id: 'psychology-counseling',
     type: 'psychology',
-    category: 'مراكز نوعية ، خدمة المجتمع',
-    categoryEn: 'Specialized Centers, Community Service',
+    category: 'اعلانات ، التسجيل',
+    categoryEn: 'Announcements, Admissions',
     date: '10 أكتوبر, 2026',
     dateEn: 'October 10, 2026',
     views: '2,310',
     comments: '0',
-    title: 'اليوم العالمي للصحة النفسية',
-    titleEn: 'World Mental Health Day',
-    excerpt: 'الصحة النفسية وعي، ورعاية، وإنسانية. الوعي بالصحة النفسية هو الخطوة الأولى نحو رعايتها، وطلب المساعدة شجاعة لا ضعف. فمن حق كل إنسان أن يُسمع، ويُفهم، ويُعامل بكرامة، بعيدًا عن أي أحكام...',
-    excerptEn: 'Mental health is awareness, care, and humanity. Seeking support is courage, not weakness. Everyone deserves to be heard, understood, and treated with dignity without judgment.',
+    title: 'تعلن جامعة العلوم والتكنولوجيا عن فتح باب التسجيل في بكالوريوس علم النفس والإرشاد (عن بُعد)',
+    titleEn: 'UST Announces Admission for Online Bachelor of Psychology and Counseling (Distance Learning)',
+    excerpt: 'تأهيل أكاديمي ومهني رائد في الاستشارات والدعم النفسي! انضم لبرنامج بكالوريوس علم النفس والإرشاد عن بُعد، واكتسب الخبرة التي تؤهلك للتميز في ميادين الإرشاد النفسي والتربوي والمؤسسي...',
+    excerptEn: 'Specialized education in psychological counseling and mental health! Join our online Bachelor of Psychology & Counseling program and build modern behavioral and counseling competencies.',
     poster: {
-      badge: 'مركز الاستشارات النفسية',
-      badgeEn: 'Psychological Guidance Center',
-      year: '10 أكتوبر - 2026',
-      degree: 'اليوم العالمي',
-      major: 'للصحة النفسية',
-      majorEn: 'WORLD MENTAL HEALTH DAY',
-      subtitle: 'قسم أبحاث علم النفس والتربية - أصوات حقيقية، تغيير حقيقي',
-      subtitleEn: 'Dept. of Psychology & Education Research',
-      deanship: 'مركز الإرشاد والاستشارات النفسية',
-      deanshipEn: 'Psychological Counseling Center',
-      slogan: 'صحتك النفسية أولويتنا | Your Well-being Matters',
-      accentColor: '#10b981',
-      themeBg: 'from-[#064e3b] via-[#0284c7] to-[#042f2e]',
+      badge: 'سجّل الآن',
+      badgeEn: 'Register Now',
+      year: '2027 / 2026',
+      degree: 'بكالوريوس',
+      major: 'علم النفس والإرشاد',
+      majorEn: 'Psychology & Counseling',
+      subtitle: 'تأهيل أكاديمي ومهني رائد في الاستشارات والدعم النفسي',
+      subtitleEn: 'Academic & Professional Training in Counseling',
+      deanship: 'عمادة التعليم الإلكتروني',
+      deanshipEn: 'Deanship of E-Learning',
+      slogan: 'The Road to a Better Future | الطريق إلى مستقبل أفضل',
+      accentColor: '#0284c7',
+      themeBg: 'from-[#0b2545] via-[#1e3a8a] to-[#0b2545]',
       phone: '777761641',
       website: 'www.ust.edu.ye'
     },
     formattedText: [
-      '💚 الصحة النفسية وعي، ورعاية، وإنسانية. 🧠',
-      'الوعي بالصحة النفسية هو الخطوة الأولى نحو رعايتها، وطلب المساعدة شجاعة لا ضعف. فمن حق كل إنسان أن يُسمع، ويُفهم، ويُعامل بكرامة، بعيدًا عن أي أحكام مسبقة.',
-      'يقدم مركز الاستشارات النفسية والتربوية بجامعة العلوم والتكنولوجيا جلسات استشارية وورش توعوية مجانية لخدمة الطلبة والمجتمع.',
-      '📞 للاستشارات والاستفسار: 777761641 | www.ust.edu.ye',
-      '#اليوم_العالمي_للصحة_النفسية',
+      '🎓 تأهيل رائد في الاستشارات والدعم النفسي! 🧠',
+      'انضم لبرنامج بكالوريوس علم النفس والإرشاد عن بُعد... واكتسب الخبرة العلمية والتطبيقية التي تؤهلك للتميز في ميادين الإرشاد النفسي والتربوي والمؤسسي. 🏛️',
+      '📞 للتسجيل والاستفسار: 777761641 | www.ust.edu.ye',
+      '#عمادة_التعليم_الإلكتروني',
       '#جامعة_العلوم_والتكنولوجيا'
     ],
     highlights: [
-      'جلسات إرشاد ودعم نفسي متخصصة بسرية وأمان تام على يد أخصائيين معتمدين',
-      'ورش عمل دورية لتعزيز الصلابة النفسية وإدارة الضغوط الأكاديمية والمهنية',
-      'مبادرات توعوية وشراكات مجتمعية لتعزيز الصحة النفسية الشاملة',
-      'استشارات مجانية مخصصة لطلاب وطالبات الجامعة بمختلف المراحل الدراسية'
+      'دراسة مرنة عن بُعد من أي مكان في العالم عبر أحدث المنصات الافتراضية',
+      'هيئة تدريسية متخصصة ومناهج معاصرة تجمع بين الأصالة والعلوم السلوكية الحديثة',
+      'شهادة بكالوريوس رسمية ومعتمدة ومطابقة لشهادات الانتظام بالجامعة',
+      'تأهيل تطبيقي واستشاري يفتح آفاق العمل في المراكز والمدارس والمستشفيات والمنظمات'
     ],
     applyUrl: '/admission'
   }
@@ -172,43 +170,44 @@ export const elearningAnnouncementsData = [
 export function AnnouncementPoster({ ad, isAr = true, isCompact = false }) {
   const p = ad.poster;
 
+  // Distinct elegant badge color per announcement type
+  const badgeGradient =
+    ad.type === 'law'
+      ? 'from-[#0369a1] to-[#0284c7]'
+      : ad.type === 'business'
+      ? 'from-[#1e40af] to-[#2563eb]'
+      : 'from-[#0284c7] to-[#1e40af]';
+
   return (
     <div
-      className={`relative w-full rounded-2xl md:rounded-3xl overflow-hidden border border-slate-200/90 shadow-md bg-white select-none transition-transform duration-300 ${
-        isCompact ? 'max-w-[340px] mx-auto' : 'max-w-md mx-auto shadow-xl'
-      }`}
+      className="relative w-full rounded-[28px] overflow-hidden border-2 border-white/80 hover:border-white shadow-md bg-white/75 backdrop-blur-md select-none transition-all duration-300 max-w-[270px] mx-auto"
     >
       {/* Top Header of Poster */}
-      <div className="relative bg-slate-50 px-4 pt-3 pb-2 flex items-center justify-between border-b border-slate-100">
-        <div className="flex items-center gap-1.5">
-          <span className="bg-[#fbbf24] text-slate-900 text-[10px] md:text-xs font-black px-2.5 py-0.5 rounded-full shadow-2xs">
+      <div className="relative bg-slate-50/80 px-3 py-1.5 flex items-center justify-between border-b border-slate-100">
+        <div className="flex items-center gap-1">
+          <span className={`bg-gradient-to-r ${badgeGradient} text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow-xs`}>
             {isAr ? p.badge : p.badgeEn}
           </span>
-          <span className="text-[10px] md:text-xs font-extrabold text-slate-700 tracking-wider">
+          <span className="text-[9px] font-bold text-slate-600 bg-slate-200/60 px-1.5 py-0.5 rounded-full">
             {p.year}
           </span>
         </div>
 
         {/* University Crest Mark */}
-        <div className="flex items-center gap-1.5">
-          <div className="text-right">
-            <span className="text-[9px] font-black text-primary block leading-none">
-              جامعة العلوم والتكنولوجيا
-            </span>
-            <span className="text-[7px] text-slate-400 font-semibold block leading-none">
-              University of Science & Tech.
-            </span>
-          </div>
-          <div className="w-7 h-7 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center p-0.5">
+        <div className="flex items-center gap-1">
+          <span className="text-[8px] font-bold text-primary block leading-none">
+            UST
+          </span>
+          <div className="w-6 h-6 rounded-full bg-white border border-slate-200 shadow-2xs flex items-center justify-center p-0.5">
             <img src="/logo.png" alt="UST" className="w-full h-full object-contain" />
           </div>
         </div>
       </div>
 
-      {/* Main Arch Graphic Frame */}
-      <div className="p-3 md:p-4 bg-gradient-to-b from-slate-50 to-white flex flex-col items-center">
+      {/* Main Stadium Oval Graphic Frame */}
+      <div className="p-2.5 bg-gradient-to-b from-slate-50/60 to-white flex flex-col items-center">
         <div
-          className={`relative w-full aspect-[4/3] rounded-t-[70px] md:rounded-t-[90px] rounded-b-[20px] overflow-hidden bg-gradient-to-br ${p.themeBg} shadow-inner flex flex-col items-center justify-center p-4 text-white text-center border-2 border-white`}
+          className={`relative w-full h-24 rounded-[20px] overflow-hidden bg-gradient-to-br ${p.themeBg} shadow-inner flex flex-col items-center justify-center p-2 text-white text-center border border-white/80`}
         >
           {/* Subtle Ambient Rings & Glow */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)] pointer-events-none" />
@@ -216,10 +215,10 @@ export function AnnouncementPoster({ ad, isAr = true, isCompact = false }) {
           {/* Core Graphic Icon per type */}
           {ad.type === 'law' && (
             <div className="relative z-10 flex flex-col items-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-amber-400/20 border border-amber-300/40 backdrop-blur-sm flex items-center justify-center shadow-lg mb-1">
-                <Scale className="w-9 h-9 md:w-11 md:h-11 text-amber-300" />
+              <div className="w-10 h-10 rounded-full bg-white/15 border border-white/25 backdrop-blur-md flex items-center justify-center shadow-md mb-1 group-hover:scale-105 transition-transform">
+                <Scale className="w-5 h-5 text-amber-300 drop-shadow-md" />
               </div>
-              <span className="text-[10px] text-amber-200/90 font-bold uppercase tracking-wider">
+              <span className="text-[8.5px] text-sky-100 font-extrabold uppercase tracking-wider bg-white/10 px-2.5 py-0.5 rounded-full border border-white/15">
                 Justice & Jurisprudence
               </span>
             </div>
@@ -227,70 +226,53 @@ export function AnnouncementPoster({ ad, isAr = true, isCompact = false }) {
 
           {ad.type === 'business' && (
             <div className="relative z-10 flex flex-col items-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-cyan-400/20 border border-cyan-300/40 backdrop-blur-sm flex items-center justify-center shadow-lg mb-1">
-                <Briefcase className="w-9 h-9 md:w-11 md:h-11 text-cyan-300" />
+              <div className="w-10 h-10 rounded-full bg-white/15 border border-white/25 backdrop-blur-md flex items-center justify-center shadow-md mb-1 group-hover:scale-105 transition-transform">
+                <Briefcase className="w-5 h-5 text-cyan-300 drop-shadow-md" />
               </div>
-              <span className="text-[10px] text-cyan-200/90 font-bold uppercase tracking-wider">
-                Global Business & Leadership
+              <span className="text-[8.5px] text-cyan-100 font-extrabold uppercase tracking-wider bg-white/10 px-2.5 py-0.5 rounded-full border border-white/15">
+                Global Business
               </span>
             </div>
           )}
 
           {ad.type === 'psychology' && (
             <div className="relative z-10 flex flex-col items-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-emerald-400/20 border border-emerald-300/40 backdrop-blur-sm flex items-center justify-center shadow-lg mb-1">
-                <Heart className="w-9 h-9 md:w-11 md:h-11 text-emerald-300" />
+              <div className="w-10 h-10 rounded-full bg-white/15 border border-white/25 backdrop-blur-md flex items-center justify-center shadow-md mb-1 group-hover:scale-105 transition-transform">
+                <GraduationCap className="w-5 h-5 text-amber-300 drop-shadow-md" />
               </div>
-              <span className="text-[10px] text-emerald-200/90 font-bold uppercase tracking-wider">
-                Mental Wellness & Support
+              <span className="text-[8.5px] text-sky-100 font-extrabold uppercase tracking-wider bg-white/10 px-2.5 py-0.5 rounded-full border border-white/15">
+                Psychology & Counseling
               </span>
             </div>
           )}
 
-          {/* Arched Border Overlay */}
-          <div className="absolute inset-0 border-2 border-white/20 rounded-t-[70px] md:rounded-t-[90px] rounded-b-[20px] pointer-events-none" />
+          {/* Oval Border Overlay */}
+          <div className="absolute inset-1 border border-white/20 rounded-[18px] pointer-events-none" />
         </div>
 
         {/* Degree & Major Typography on Poster */}
-        <div className="mt-3 text-center w-full">
-          <span className="text-[11px] md:text-xs font-black text-slate-500 uppercase tracking-widest block">
+        <div className="mt-2 text-center w-full">
+          <span className="text-[9px] font-black text-sky-700 uppercase tracking-widest block">
             {isAr ? p.degree : 'Degree'}
           </span>
-          <h4 className="text-base md:text-lg font-black text-primary tracking-tight leading-tight mt-0.5">
+          <h4 className="text-sm font-black text-primary tracking-tight leading-tight mt-0.5">
             {isAr ? p.major : p.majorEn}
           </h4>
-          <p className="text-[10px] md:text-xs font-bold text-slate-600 mt-1 max-w-[90%] mx-auto">
+          <p className="text-[9.5px] font-bold text-slate-600 mt-0.5 max-w-[95%] mx-auto line-clamp-1">
             {isAr ? p.subtitle : p.subtitleEn}
           </p>
         </div>
 
-        {/* Green Deanship Pill matching ust.edu.ye */}
-        <div className="mt-2.5">
-          <span className="inline-block bg-[#15803d] text-white text-[10px] md:text-[11px] font-bold px-3 py-1 rounded-md shadow-2xs">
+        {/* Deanship Pill */}
+        <div className="mt-1.5">
+          <span className="inline-block bg-gradient-to-r from-[#072541] to-[#0c4a6e] text-white text-[9px] font-black px-2.5 py-0.5 rounded-full shadow-xs">
             {isAr ? p.deanship : p.deanshipEn}
           </span>
         </div>
 
         {/* Motto line */}
-        <div className="mt-2 text-[9px] font-extrabold text-slate-400 border-t border-slate-100 pt-1.5 w-full text-center">
+        <div className="mt-1.5 text-[8px] font-bold text-slate-400 border-t border-slate-100 pt-1 w-full text-center">
           {p.slogan}
-        </div>
-      </div>
-
-      {/* Bottom Contact Strip matching ust.edu.ye */}
-      <div className="bg-[#0284c7] text-white px-3 py-1.5 flex items-center justify-between text-[10px] font-bold">
-        <div className="flex items-center gap-1">
-          <span className="bg-white/20 px-1.5 py-0.5 rounded text-[9px] font-mono">USTY</span>
-          <span className="opacity-90">@usteduy</span>
-        </div>
-
-        <div className="flex items-center gap-2 font-mono">
-          <span className="flex items-center gap-1">
-            <Phone className="w-3 h-3" />
-            <span>{p.phone}</span>
-          </span>
-          <span className="hidden sm:inline opacity-80">|</span>
-          <span className="hidden sm:inline font-mono">{p.website}</span>
         </div>
       </div>
     </div>
@@ -389,17 +371,46 @@ export default function ElearningAnnouncementsModal({
   };
 
   return (
-    <div className="w-full text-slate-800" dir={isAr ? 'rtl' : 'ltr'}>
-      {/* Top Header / Switcher Tabs */}
-      <div className="bg-slate-100/80 p-3 sm:p-4 border-b border-slate-200 flex items-center justify-between gap-2 flex-wrap">
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
+    <div className="w-full text-primary-dark flex flex-col select-none overflow-hidden" dir={isAr ? 'rtl' : 'ltr'}>
+      {/* Royal Curved Navy Header (Matching Faculties Modal) */}
+      <div className="relative p-5 sm:p-6 rounded-b-[28px] sm:rounded-b-[36px] shadow-sm bg-gradient-to-r from-primary via-primary to-primary-dark text-white flex items-start justify-between gap-4 shrink-0">
+        <div className="flex items-center gap-3.5">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-white/40 flex items-center justify-center shrink-0 shadow-lg overflow-hidden bg-slate-900 p-1">
+            <img src="/logo.png" alt="UST" className="w-full h-full object-contain" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-xs font-black tracking-widest text-accent uppercase">
+                {isAr ? 'عمادة التعليم الإلكتروني والتعليم عن بُعد' : 'DEANSHIP OF E-LEARNING'}
+              </span>
+            </div>
+            <h3 className="text-lg sm:text-2xl font-black text-white leading-tight">
+              {isAr ? 'الإعلانات الرسمية وبوابة القبول والتسجيل' : 'Official Announcements & E-Admissions'}
+            </h3>
+          </div>
+        </div>
+
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors shrink-0 cursor-pointer active:scale-95"
+            title={isAr ? 'إغلاق' : 'Close'}
+          >
+            <X className="w-5 h-5" />
+          </button>
+        )}
+      </div>
+
+      {/* Switcher Tabs */}
+      <div className="px-4 sm:px-6 py-2.5 bg-white/70 border-b border-primary/10 flex items-center justify-between gap-2 overflow-x-auto scrollbar-none shrink-0 backdrop-blur-sm">
+        <div className="flex items-center gap-2">
           {/* Back to all button */}
           <button
             onClick={() => setSelectedAdId(null)}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-extrabold transition-all flex items-center gap-1.5 whitespace-nowrap ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-extrabold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
               selectedAdId === null
                 ? 'bg-primary text-white shadow-sm'
-                : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-300'
+                : 'bg-white text-primary-dark hover:bg-slate-100 border border-primary/20'
             }`}
           >
             <Layers className="w-3.5 h-3.5" />
@@ -411,36 +422,25 @@ export default function ElearningAnnouncementsModal({
             <button
               key={ad.id}
               onClick={() => setSelectedAdId(ad.id)}
-              className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap ${
+              className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
                 selectedAdId === ad.id
-                  ? 'bg-secondary text-white shadow-sm font-extrabold'
-                  : 'bg-white text-slate-600 hover:bg-slate-200 border border-slate-300'
+                  ? 'bg-secondary text-primary shadow-sm font-extrabold'
+                  : 'bg-white text-primary-dark/80 hover:bg-slate-100 border border-primary/20'
               }`}
             >
               {ad.type === 'law' && <Scale className="w-3.5 h-3.5" />}
               {ad.type === 'business' && <Briefcase className="w-3.5 h-3.5" />}
-              {ad.type === 'psychology' && <Heart className="w-3.5 h-3.5" />}
+              {ad.type === 'psychology' && <GraduationCap className="w-3.5 h-3.5" />}
               <span>{isAr ? ad.poster.major : ad.poster.majorEn}</span>
             </button>
           ))}
         </div>
-
-        {/* Close Button */}
-        {onClose && (
-          <button
-            onClick={onClose}
-            className="w-8 h-8 rounded-full bg-white hover:bg-slate-200 text-slate-700 border border-slate-300 flex items-center justify-center transition-all shadow-2xs active:scale-90"
-            title={isAr ? 'إغلاق' : 'Close'}
-          >
-            <X className="w-4 h-4" />
-          </button>
-        )}
       </div>
 
       {/* Main Content Area */}
-      <div className="p-4 sm:p-6 max-h-[75vh] overflow-y-auto custom-scrollbar">
+      <div className="p-3 sm:p-4">
         <AnimatePresence mode="wait">
-          {/* VIEW 1: GRID OF 3 ANNOUNCEMENT CARDS (Matching Screenshot 1) */}
+          {/* VIEW 1: GRID OF 3 ANNOUNCEMENT CARDS (Matching Screenshot 1 - Compact, Zero Scroll) */}
           {selectedAdId === null ? (
             <motion.div
               key="grid-view"
@@ -449,156 +449,199 @@ export default function ElearningAnnouncementsModal({
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.25 }}
             >
-              {/* Section Subtitle */}
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-black mb-1.5">
-                  <Megaphone className="w-3.5 h-3.5 text-accent" />
-                  <span>{isAr ? 'إعلانات عمادة التعليم الإلكتروني والمراكز النوعية' : 'E-Learning & Centers Notices'}</span>
+              {/* Compact Section Subtitle Strip */}
+              <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-200" dir={isAr ? 'rtl' : 'ltr'}>
+                <div className="flex items-center gap-2">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-black">
+                    <Megaphone className="w-3.5 h-3.5 text-accent" />
+                    <span>{isAr ? 'عمادة التعليم الإلكتروني والمراكز النوعية' : 'E-Learning & Centers'}</span>
+                  </div>
+                  <span className="text-xs sm:text-sm font-black text-primary">
+                    {isAr ? 'أحدث الإعلانات الرسمية للجامعة' : 'Latest Official Notices'}
+                  </span>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-black text-primary">
-                  {isAr ? 'أحدث الإعلانات الرسمية للجامعة' : 'Latest Official University Notices'}
-                </h3>
-                <p className="text-xs font-semibold text-slate-500 mt-1 max-w-lg mx-auto">
-                  {isAr
-                    ? 'اختر أي إعلان واستعرض كامل التفاصيل المعتمدة وبوستر التسجيل الرسمي'
-                    : 'Select any notice below to view full details and official poster'}
-                </p>
+                <span className="text-[11px] font-bold text-slate-500 hidden sm:inline">
+                  {isAr ? 'انقر على أي إعلان لعرض التفاصيل الكاملة' : 'Click any notice for details'}
+                </span>
               </div>
 
-              {/* 3 Cards Grid exactly like ust.edu.ye */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-                {elearningAnnouncementsData.map((ad) => (
-                  <div
-                    key={ad.id}
-                    onClick={() => setSelectedAdId(ad.id)}
-                    className="group bg-white border border-slate-200 hover:border-sky-400 rounded-2xl p-4 sm:p-5 flex flex-col justify-between shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer"
-                  >
-                    {/* Visual Poster */}
-                    <div className="mb-4">
-                      <AnnouncementPoster ad={ad} isAr={isAr} isCompact={true} />
-                    </div>
+              {/* 3 Compact Announcement Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 items-stretch">
+                {elearningAnnouncementsData.map((ad) => {
+                  const p = ad.poster;
+                  const badgeGradient =
+                    ad.type === 'law'
+                      ? 'from-[#0369a1] to-[#0284c7]'
+                      : ad.type === 'business'
+                      ? 'from-[#1e40af] to-[#2563eb]'
+                      : 'from-[#0284c7] to-[#1e40af]';
 
-                    {/* Content below poster */}
-                    <div className="flex flex-col flex-grow text-right" dir={isAr ? 'rtl' : 'ltr'}>
-                      <h4 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-primary transition-colors leading-snug line-clamp-2 mb-2">
-                        {isAr ? ad.title : ad.titleEn}
-                      </h4>
+                  return (
+                    <div
+                      key={ad.id}
+                      onClick={() => setSelectedAdId(ad.id)}
+                      className="group relative bg-white border-2 border-primary/15 hover:border-primary/50 rounded-[32px] p-3 sm:p-3.5 flex flex-col justify-between shadow-xs hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden select-none"
+                    >
+                      {/* Concentric Inner Outline Ring */}
+                      <div className="absolute inset-1.5 rounded-[26px] border border-primary/10 pointer-events-none group-hover:border-primary/25 transition-colors z-0" />
 
-                      <p className="text-xs text-slate-600 font-semibold leading-relaxed line-clamp-3 mb-4">
-                        {isAr ? ad.excerpt : ad.excerptEn}
-                      </p>
+                      {/* Card Top: Badges & Crest */}
+                      <div className="relative z-10 flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
+                        <div className="flex items-center gap-1.5">
+                          <span className={`bg-gradient-to-r ${badgeGradient} text-white text-[9.5px] font-black px-2.5 py-0.5 rounded-full shadow-2xs`}>
+                            {isAr ? p.badge : p.badgeEn}
+                          </span>
+                          <span className="text-[9.5px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">
+                            {p.year}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <span className="text-[8.5px] font-bold text-slate-500">UST</span>
+                          <div className="w-6 h-6 rounded-full bg-white border border-slate-200 shadow-2xs flex items-center justify-center p-0.5">
+                            <img src="/logo.png" alt="UST" className="w-full h-full object-contain" />
+                          </div>
+                        </div>
+                      </div>
 
-                      {/* Pill button matching ust.edu.ye "المزيد..." */}
-                      <div className="mt-auto pt-2 flex items-center justify-between">
+                      {/* Stadium Capsule Graphic Box (Compact) */}
+                      <div className={`relative z-10 w-full h-24 rounded-[24px] overflow-hidden bg-gradient-to-br ${p.themeBg} shadow-inner flex flex-col items-center justify-center text-white text-center border border-white/70 mb-2`}>
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)] pointer-events-none" />
+                        <div className="relative z-10 flex flex-col items-center">
+                          <div className="w-10 h-10 rounded-full bg-white/15 border border-white/30 backdrop-blur-xs flex items-center justify-center shadow-md mb-1 group-hover:scale-105 transition-transform">
+                            {ad.type === 'law' && <Scale className="w-5 h-5 text-amber-300 drop-shadow-xs" />}
+                            {ad.type === 'business' && <Briefcase className="w-5 h-5 text-cyan-300 drop-shadow-xs" />}
+                            {ad.type === 'psychology' && <GraduationCap className="w-5 h-5 text-amber-300 drop-shadow-xs" />}
+                          </div>
+                          <span className="text-[9px] text-white/90 font-extrabold uppercase tracking-wider bg-white/10 px-2.5 py-0.5 rounded-full border border-white/15">
+                            {ad.type === 'law' ? 'Justice & Law' : ad.type === 'business' ? 'Global Leadership' : 'Psychology & Counseling'}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Title & Subtitle */}
+                      <div className="relative z-10 text-center flex-grow flex flex-col justify-center my-0.5" dir={isAr ? 'rtl' : 'ltr'}>
+                        <span className="text-[9.5px] font-black text-sky-700 uppercase tracking-widest block">
+                          {isAr ? p.degree : 'Degree'}
+                        </span>
+                        <h4 className="text-sm font-black text-primary tracking-tight leading-snug group-hover:text-primary-dark transition-colors mt-0.5">
+                          {isAr ? p.major : p.majorEn}
+                        </h4>
+                        <p className="text-[10px] font-semibold text-slate-500 mt-0.5 line-clamp-1">
+                          {isAr ? p.subtitle : p.subtitleEn}
+                        </p>
+                      </div>
+
+                      {/* Card Footer: Deanship, More Button & Date */}
+                      <div className="relative z-10 pt-2 border-t border-slate-100 flex items-center justify-between mt-auto">
+                        <span className="text-[9.5px] font-black text-white bg-gradient-to-r from-[#072541] to-[#0c4a6e] px-2.5 py-0.5 rounded-full shadow-2xs">
+                          {isAr ? p.deanship : p.deanshipEn}
+                        </span>
+
                         <button
                           type="button"
                           onClick={(e) => {
                             e.stopPropagation();
                             setSelectedAdId(ad.id);
                           }}
-                          className="px-6 py-2 rounded-full bg-[#0088cc] hover:bg-[#0077b5] text-white text-xs font-bold transition-all shadow-sm active:scale-95 flex items-center gap-1.5"
+                          className="px-3 py-1 rounded-full bg-slate-100 hover:bg-primary hover:text-white text-slate-700 text-[10px] font-bold transition-all flex items-center gap-1 shadow-2xs cursor-pointer active:scale-95"
                         >
-                          <span>{isAr ? 'المزيد...' : 'Read More...'}</span>
-                          {isAr ? <ChevronLeft className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
+                          <span>{isAr ? 'المزيد...' : 'Details'}</span>
+                          {isAr ? <ChevronLeft className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
                         </button>
-
-                        <span className="text-[11px] font-mono text-slate-400 font-semibold">
-                          {ad.date}
-                        </span>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
+              </div>
+
+              {/* Bottom Close Button for Grid View */}
+              <div className="mt-4 pt-3 border-t border-slate-200 flex items-center justify-center">
+                <button
+                  onClick={() => {
+                    if (onClose) onClose();
+                  }}
+                  className="px-8 py-1.5 rounded-full border-2 border-slate-300 hover:border-slate-400 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-all text-center cursor-pointer shadow-xs active:scale-95"
+                >
+                  {isAr ? 'إغلاق' : 'Close'}
+                </button>
               </div>
             </motion.div>
           ) : (
-            /* VIEW 2: SINGLE ANNOUNCEMENT FULL DETAIL (Matching Screenshots 2, 3, and 4) */
+            /* VIEW 2: SINGLE ANNOUNCEMENT FULL DETAIL (Compact, Zero Scroll, All Visible) */
             <motion.div
               key={selectedAd.id}
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.25 }}
-              className="space-y-6"
+              className="space-y-3"
             >
-              {/* Blue Header Banner matching Screenshot 3 */}
-              <div className="rounded-2xl bg-[#0077b5] text-white p-5 sm:p-7 shadow-lg relative overflow-hidden">
-                <div className="relative z-10 space-y-2.5">
-                  {/* Category breadcrumb */}
-                  <div className="text-xs font-bold text-sky-100 tracking-wide">
-                    {isAr ? selectedAd.category : selectedAd.categoryEn}
-                  </div>
-
-                  {/* Big title */}
-                  <h3 className="text-lg sm:text-2xl md:text-3xl font-black text-white leading-snug">
+              {/* Clean Lightweight Title Header */}
+              <div className="flex items-center justify-between pb-2 mb-1 border-b border-slate-200" dir={isAr ? 'rtl' : 'ltr'}>
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-black">
+                    <Megaphone className="w-3 h-3 text-accent" />
+                    <span>{isAr ? selectedAd.category : selectedAd.categoryEn}</span>
+                  </span>
+                  <h3 className="text-xs sm:text-sm md:text-base font-black text-primary leading-tight line-clamp-1">
                     {isAr ? selectedAd.title : selectedAd.titleEn}
                   </h3>
-
-                  {/* Metadata Row with icons */}
-                  <div className="pt-2 flex items-center gap-4 text-xs font-medium text-sky-100 flex-wrap border-t border-sky-400/40">
-                    <span className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-accent" />
-                      <span>{isAr ? selectedAd.date : selectedAd.dateEn}</span>
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <MessageSquare className="w-3.5 h-3.5 text-accent" />
-                      <span>{selectedAd.comments} {isAr ? 'تعليقات' : 'Comments'}</span>
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <Eye className="w-3.5 h-3.5 text-accent" />
-                      <span>{selectedAd.views} {isAr ? 'مشاهدة' : 'Views'}</span>
-                    </span>
-                  </div>
                 </div>
-
-                {/* Background decorative curve */}
-                <div className="absolute -bottom-10 -right-10 w-44 h-44 rounded-full bg-white/10 blur-xl pointer-events-none" />
+                <div className="flex items-center gap-2 text-[10px] text-slate-400 font-bold shrink-0">
+                  <span className="flex items-center gap-1">
+                    <Calendar className="w-3 h-3 text-primary" />
+                    <span>{isAr ? selectedAd.date : selectedAd.dateEn}</span>
+                  </span>
+                  <span>•</span>
+                  <span>{selectedAd.views} {isAr ? 'مشاهدة' : 'Views'}</span>
+                </div>
               </div>
 
-              {/* Main Content: Poster + Text Description (matching Screenshot 2) */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              {/* Main Content: Poster + Text Description */}
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-start">
                 {/* Poster Display Column */}
-                <div className="lg:col-span-5 flex justify-center">
-                  <AnnouncementPoster ad={selectedAd} isAr={isAr} isCompact={false} />
+                <div className="md:col-span-5 flex justify-center">
+                  <AnnouncementPoster ad={selectedAd} isAr={isAr} isCompact={true} />
                 </div>
 
                 {/* Formatted Text Description Column */}
-                <div className="lg:col-span-7 space-y-5 text-right" dir={isAr ? 'rtl' : 'ltr'}>
-                  {/* The exact emoji bullets text */}
-                  <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-2xs space-y-4">
-                    <div className="text-base sm:text-lg font-black text-primary leading-relaxed">
+                <div className="md:col-span-7 space-y-2 text-right flex flex-col justify-between" dir={isAr ? 'rtl' : 'ltr'}>
+                  {/* Text card */}
+                  <div className="bg-white/60 backdrop-blur-md border border-white/80 rounded-2xl p-2.5 sm:p-3 shadow-2xs space-y-1.5">
+                    <div className="text-xs sm:text-[13px] font-black text-primary leading-snug">
                       {selectedAd.formattedText[0]}
                     </div>
 
-                    <p className="text-sm sm:text-base font-semibold text-slate-700 leading-relaxed whitespace-pre-line">
+                    <p className="text-[10.5px] sm:text-[11px] font-semibold text-slate-700 leading-relaxed">
                       {selectedAd.formattedText[1]}
                     </p>
 
-                    <div className="p-3 rounded-xl bg-white border border-primary/15 flex items-center gap-2.5 text-primary text-sm font-black font-mono">
-                      <Phone className="w-4 h-4 text-accent shrink-0" />
+                    <div className="p-1.5 px-2.5 rounded-xl bg-white/80 border border-primary/15 flex items-center gap-2 text-primary text-[11px] font-black font-mono">
+                      <Phone className="w-3.5 h-3.5 text-accent shrink-0" />
                       <span>{selectedAd.formattedText[2]}</span>
                     </div>
 
                     {/* Hashtags */}
-                    <div className="pt-2 flex flex-wrap gap-2 text-xs font-black text-sky-700">
+                    <div className="flex flex-wrap gap-1.5 text-[9.5px] font-black text-sky-700">
                       <span>{selectedAd.formattedText[3]}</span>
+                      <span>•</span>
                       <span>{selectedAd.formattedText[4]}</span>
                     </div>
                   </div>
 
                   {/* Highlights Grid */}
                   <div>
-                    <h5 className="text-xs font-black text-primary uppercase tracking-wider mb-2.5">
+                    <h5 className="text-[10px] font-black text-primary uppercase tracking-wider mb-1">
                       {isAr ? 'مزايا ومعايير البرنامج:' : 'Program Highlights:'}
                     </h5>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                       {selectedAd.highlights.map((h, i) => (
                         <div
                           key={i}
-                          className="bg-white border border-slate-200 rounded-xl p-3 flex items-start gap-2 shadow-2xs hover:border-secondary transition-colors"
+                          className="bg-white/60 backdrop-blur-md border border-white/80 rounded-xl p-1.5 px-2 flex items-start gap-1.5 shadow-2xs"
                         >
-                          <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
-                          <span className="text-xs font-bold text-slate-700 leading-snug">
+                          <CheckCircle2 className="w-3 h-3 text-secondary shrink-0 mt-0.5" />
+                          <span className="text-[9.5px] sm:text-[10px] font-bold text-slate-700 leading-snug line-clamp-2">
                             {h}
                           </span>
                         </div>
@@ -606,81 +649,19 @@ export default function ElearningAnnouncementsModal({
                     </div>
                   </div>
 
-                  {/* Social Share Buttons matching Screenshot 2 */}
-                  <div className="pt-2 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      <span className="text-xs font-bold text-slate-500 ml-1">
-                        {isAr ? 'مشاركة الإعلان:' : 'Share:'}
-                      </span>
-                      {/* Share button */}
-                      <button
-                        onClick={handleShare}
-                        className="px-3 py-1.5 rounded-lg bg-[#0088cc] hover:bg-[#0077b5] text-white text-xs font-black flex items-center gap-1 shadow-2xs active:scale-95"
-                      >
-                        {copied ? <Check className="w-3.5 h-3.5" /> : <Share2 className="w-3.5 h-3.5" />}
-                        <span>{copied ? (isAr ? 'تم النسخ!' : 'Copied!') : (isAr ? 'مشاركة +' : 'Share +')}</span>
-                      </button>
-
-                      {/* WhatsApp Share */}
-                      <a
-                        href={`https://api.whatsapp.com/send?text=${encodeURIComponent(selectedAd.title + ' ' + window.location.href)}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="px-2.5 py-1.5 rounded-lg bg-[#25D366] text-white text-xs font-bold hover:opacity-90 transition-opacity"
-                        title="WhatsApp"
-                      >
-                        واتساب
-                      </a>
-
-                      {/* Facebook */}
-                      <a
-                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="px-2.5 py-1.5 rounded-lg bg-[#1877F2] text-white text-xs font-bold hover:opacity-90 transition-opacity"
-                        title="Facebook"
-                      >
-                        فيسبوك
-                      </a>
-
-                      {/* Twitter / X */}
-                      <a
-                        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(selectedAd.title)}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="px-2.5 py-1.5 rounded-lg bg-black text-white text-xs font-bold hover:opacity-90 transition-opacity"
-                        title="Twitter"
-                      >
-                        تويتر
-                      </a>
-                    </div>
-
-                    {/* Navigation Between Announcements */}
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => setSelectedAdId(null)}
-                        className="px-3.5 py-1.5 rounded-xl border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-all flex items-center gap-1"
-                      >
-                        <span>{isAr ? 'رجوع للقائمة' : 'Back'}</span>
-                      </button>
-
-                      <button
-                        onClick={() => {
-                          if (onClose) onClose();
-                          navigate(selectedAd.applyUrl);
-                        }}
-                        className="px-4 py-1.5 rounded-xl bg-primary hover:bg-primary-dark text-white text-xs font-black shadow-md transition-all flex items-center gap-1.5 active:scale-95"
-                      >
-                        <GraduationCap className="w-4 h-4 text-accent" />
-                        <span>{isAr ? 'سجّل الآن في البرنامج' : 'Apply Now'}</span>
-                      </button>
-                    </div>
+                  {/* Actions - Close Button Only */}
+                  <div className="pt-2 border-t border-slate-200/80 flex items-center justify-end">
+                    <button
+                      onClick={() => {
+                        if (onClose) onClose();
+                      }}
+                      className="w-full sm:w-auto px-8 py-1.5 rounded-full border-2 border-slate-300 hover:border-slate-400 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-all text-center cursor-pointer shadow-xs active:scale-95"
+                    >
+                      {isAr ? 'إغلاق' : 'Close'}
+                    </button>
                   </div>
                 </div>
               </div>
-
-              {/* Official UST Contact Footer matching Screenshot 4 */}
-              <USTOfficialContactFooter isAr={isAr} />
             </motion.div>
           )}
         </AnimatePresence>

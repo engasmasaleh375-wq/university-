@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { lockBodyScroll } from '../utils/scrollLock';
 import {
   Calendar,
   Clock,
@@ -10,7 +11,7 @@ import {
   Share2,
   Bookmark,
   CheckCircle2,
-  Sparkles,
+  Compass,
   Building2,
   GraduationCap,
   Heart,
@@ -99,6 +100,16 @@ export function LatestUniversityNewsModalContent({ isAr = true, onSelectNews }) 
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [activeNewsModal, setActiveNewsModal] = useState(null);
 
+  // Freeze background page scroll when modal is open so the background never moves
+  useEffect(() => {
+    if (activeNewsModal) {
+      const unlock = lockBodyScroll();
+      return () => {
+        unlock();
+      };
+    }
+  }, [activeNewsModal]);
+
   const categories = [
     { id: 'all', labelAr: 'جميع الأخبار والفعاليات', labelEn: 'All News' },
     { id: 'الفعاليات المركزية', labelAr: 'الفعاليات المركزية', labelEn: 'Central Events' },
@@ -114,7 +125,7 @@ export function LatestUniversityNewsModalContent({ isAr = true, onSelectNews }) 
   return (
     <div className="space-y-6 select-none" dir={isAr ? 'rtl' : 'ltr'}>
       {/* Top Banner */}
-      <div className="relative rounded-2xl md:rounded-3xl overflow-hidden bg-gradient-to-r from-[#0B3B60] via-[#07243B] to-[#0284c7] text-white p-5 sm:p-7 shadow-lg">
+      <div className="relative rounded-2xl md:rounded-3xl overflow-hidden bg-[#0B3B60]/85 backdrop-blur-2xl text-white p-5 sm:p-7 shadow-[0_20px_50px_rgba(11,59,96,0.25)] border-2 border-white/20">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3.5">
             <div className="w-12 h-12 rounded-2xl bg-white p-1.5 shadow-md flex items-center justify-center shrink-0">
@@ -158,7 +169,7 @@ export function LatestUniversityNewsModalContent({ isAr = true, onSelectNews }) 
         {filteredNews.map((news) => (
           <div
             key={news.id}
-            className="group bg-white rounded-2xl border border-slate-200 hover:border-primary/40 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between"
+            className="group bg-white/50 hover:bg-white/70 backdrop-blur-2xl rounded-2xl border-2 border-white/70 hover:border-white shadow-[0_10px_30px_rgba(11,59,96,0.06)] hover:shadow-[0_20px_45px_rgba(2,132,199,0.2)] transition-all duration-300 overflow-hidden flex flex-col justify-between"
           >
             <div>
               {/* Image Container with Date badge */}
@@ -198,7 +209,7 @@ export function LatestUniversityNewsModalContent({ isAr = true, onSelectNews }) 
             <div className="p-4 pt-0">
               <button
                 onClick={() => setActiveNewsModal(news)}
-                className="w-full py-2 rounded-xl bg-slate-100 hover:bg-primary hover:text-white text-primary text-xs font-black transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                className="w-full py-2.5 rounded-xl bg-white/70 hover:bg-primary hover:text-white text-primary text-xs font-black transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs border border-white/80"
               >
                 <span>{isAr ? 'اقرأ كامل الخبر والتفاصيل' : 'Read Full Story'}</span>
                 {isAr ? <ArrowLeft className="w-3.5 h-3.5" /> : <ArrowRight className="w-3.5 h-3.5" />}
@@ -211,19 +222,21 @@ export function LatestUniversityNewsModalContent({ isAr = true, onSelectNews }) 
       {/* Single News Detail Modal */}
       <AnimatePresence>
         {activeNewsModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
+          <div 
+            className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5 select-none overflow-hidden touch-none"
+          >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActiveNewsModal(null)}
-              className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm"
+              className="fixed inset-0 bg-black/25 backdrop-blur-sm"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative z-10 w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden my-6"
+              className="relative z-10 w-full max-w-2xl bg-white/92 backdrop-blur-3xl rounded-3xl shadow-[0_25px_60px_rgba(11,59,96,0.25)] border-2 border-white/80 overflow-hidden my-6"
             >
               {/* Header Image */}
               <div className="relative h-60 w-full bg-slate-900 overflow-hidden">
@@ -317,13 +330,23 @@ export function LatestUniversityNewsSection({ isAr = true }) {
   const navigate = useNavigate();
   const [activeStory, setActiveStory] = useState(null);
 
+  // Freeze background page scroll when modal is open so the background never moves
+  useEffect(() => {
+    if (activeStory) {
+      const unlock = lockBodyScroll();
+      return () => {
+        unlock();
+      };
+    }
+  }, [activeStory]);
+
   return (
     <section className="py-20 bg-gradient-to-b from-transparent via-sky-50/60 to-transparent relative z-10 select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header matching Screenshot 2 */}
         <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs sm:text-sm font-bold mb-3 shadow-2xs">
-            <Sparkles className="w-4 h-4 text-accent" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full crystal-card text-primary text-xs sm:text-sm font-bold mb-3 shadow-sm">
+            <Compass className="w-4 h-4 text-accent-dark stroke-[2.2]" />
             <span>{isAr ? 'بوابة أخبار جامعة العلوم والتكنولوجيا' : 'UST Official News Portal'}</span>
           </div>
 
@@ -414,13 +437,15 @@ export function LatestUniversityNewsSection({ isAr = true }) {
       {/* Reader Modal */}
       <AnimatePresence>
         {activeStory && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
+          <div 
+            className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5 select-none overflow-hidden touch-none"
+          >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActiveStory(null)}
-              className="fixed inset-0 bg-slate-950/70 backdrop-blur-md"
+              className="fixed inset-0 bg-black/25 backdrop-blur-sm"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}

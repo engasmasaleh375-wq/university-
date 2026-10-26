@@ -41,7 +41,7 @@ export default function StudentLayout({ children }) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+    <div className="min-h-screen bg-transparent flex flex-col font-sans">
       
       {/* Top Header Navigation (Similar to Main Page Navbar) */}
       <header className="bg-primary text-white shadow-xl sticky top-0 z-50 lg:mt-2 lg:mx-4 xl:mx-6 lg:rounded-2xl border-b lg:border border-white/10 transition-all">
@@ -159,7 +159,7 @@ export default function StudentLayout({ children }) {
       </header>
 
       {/* Main Content Area */}
-      <main className="flex-grow w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 mt-2">
+      <main className="flex-grow w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 mt-4 sm:mt-6 lg:mt-8">
         {children}
       </main>
 

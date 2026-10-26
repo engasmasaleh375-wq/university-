@@ -1,288 +1,212 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
   Award,
-  BookOpen,
   CheckCircle2,
-  Phone,
-  Mail,
-  MapPin,
-  Sparkles,
-  ArrowRight,
-  ArrowLeft,
   X,
-  Layers,
   GraduationCap,
-  Building2,
-  Calendar,
-  FileCheck
+  FileCheck,
+  ArrowUpRight,
+  Sparkles,
+  PhoneCall,
+  Check
 } from 'lucide-react';
-import { USTOfficialContactFooter } from './ElearningAnnouncements';
 
 /**
- * Authentic High-Fidelity Banner matching Screenshot 2 from ust.edu.ye:
- * "فتح التسجيل بنظام التجسير - أكمل مسيرتك التعليمية من الدبلوم إلى البكالوريوس"
- */
-export function BridgingVisualBanner({ isAr = true, onApply }) {
-  const navigate = useNavigate();
-
-  return (
-    <div className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden border-2 border-primary/20 shadow-xl bg-white select-none">
-      <div className="grid grid-cols-1 md:grid-cols-12 min-h-[300px] md:min-h-[360px]">
-        {/* Right Half in RTL (Left in LTR): University Building & Crest */}
-        <div className="md:col-span-6 relative overflow-hidden bg-gradient-to-tr from-[#0284c7] via-[#0369a1] to-[#0c4a6e] p-6 flex flex-col justify-between text-white order-1 md:order-2">
-          {/* Background campus overlay */}
-          <div className="absolute inset-0 opacity-30 mix-blend-overlay">
-            <img
-              src="/hero-building.jpg"
-              alt="UST Campus"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0c4a6e] via-transparent to-transparent opacity-80" />
-
-          {/* Top Logo & University Name */}
-          <div className="relative z-10 flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-white p-1 shadow-md border border-white/40 shrink-0">
-              <img src="/logo.png" alt="UST" className="w-full h-full object-contain" />
-            </div>
-            <div>
-              <h4 className="text-sm md:text-base font-black text-white leading-tight">
-                جامعة العلوم والتكنولوجيا
-              </h4>
-              <span className="text-[10px] text-sky-200 font-sans block">
-                University of Science & Technology
-              </span>
-            </div>
-          </div>
-
-          {/* Center Motto */}
-          <div className="relative z-10 my-6 text-center md:text-right">
-            <span className="inline-block bg-white/15 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-sky-100 border border-white/20 mb-2">
-              {isAr ? 'حملة الدبلوم المتوسط' : 'Diploma Holders'}
-            </span>
-            <h3 className="text-xl md:text-2xl font-black text-white leading-snug drop-shadow-md">
-              {isAr ? 'ارتقِ بمكانتك العلمية والمهنية' : 'Elevate Your Academic & Professional Career'}
-            </h3>
-          </div>
-
-          {/* Bottom Contact Strip */}
-          <div className="relative z-10 pt-3 border-t border-white/20 flex items-center justify-between text-xs font-mono">
-            <div className="flex items-center gap-1.5 text-sky-200">
-              <Phone className="w-3.5 h-3.5 text-amber-300" />
-              <span className="font-bold text-white tracking-wider">7777 61 64 1</span>
-            </div>
-            <span className="text-white/80 font-bold">www.ust.edu.ye</span>
-          </div>
-        </div>
-
-        {/* Left Half in RTL: Typography, Stack of Books, Red "سجل الآن" Button */}
-        <div className="md:col-span-6 bg-gradient-to-br from-slate-50 via-white to-sky-50/40 p-6 sm:p-8 flex flex-col justify-between items-start text-right order-2 md:order-1" dir={isAr ? 'rtl' : 'ltr'}>
-          {/* Main Headline */}
-          <div className="w-full space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#0284c7] animate-pulse" />
-              <span className="text-xs font-black text-slate-500 uppercase tracking-widest">
-                {isAr ? 'عمادة القبول والتسجيل' : 'Admissions & Registration'}
-              </span>
-            </div>
-
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-              {isAr ? 'فتح التسجيل' : 'Admissions Open'}
-            </h2>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0284c7] tracking-tight leading-tight">
-              {isAr ? 'بنظام التجسير' : 'Bridging Program'}
-            </h2>
-
-            <div className="w-16 h-1 bg-[#0284c7] rounded-full my-3" />
-
-            <p className="text-xs sm:text-sm md:text-base font-extrabold text-slate-700 leading-relaxed max-w-sm">
-              {isAr
-                ? 'أكمل مسيرتك التعليمية من الدبلوم إلى البكالوريوس'
-                : 'Complete your academic journey from Diploma to accredited Bachelor Degree'}
-            </p>
-          </div>
-
-          {/* Middle Graphic: Stack of Academic Books & Red Button */}
-          <div className="w-full mt-6 pt-4 border-t border-slate-200/80 flex items-center justify-between gap-4 flex-wrap">
-            {/* Visual Books Stack Graphic */}
-            <div className="flex items-center gap-2 bg-sky-100/60 border border-sky-200/80 px-3.5 py-2 rounded-2xl">
-              <div className="flex flex-col -space-y-1">
-                <span className="w-7 h-1.5 rounded-sm bg-teal-600 block shadow-xs" />
-                <span className="w-8 h-1.5 rounded-sm bg-sky-500 block shadow-xs" />
-                <span className="w-7 h-1.5 rounded-sm bg-emerald-500 block shadow-xs" />
-                <span className="w-9 h-1.5 rounded-sm bg-blue-700 block shadow-xs" />
-              </div>
-              <div className="text-[11px] font-black text-primary leading-tight">
-                <span>{isAr ? 'معادلة المقررات والساعات' : 'Credit Transfer System'}</span>
-              </div>
-            </div>
-
-            {/* Red Button "سجّل الآن" matching Screenshot 2 */}
-            <button
-              onClick={() => {
-                if (onApply) onApply();
-                else navigate('/admission');
-              }}
-              className="px-7 py-2.5 rounded-full bg-[#dc2626] hover:bg-[#b91c1c] text-white text-sm font-black shadow-lg hover:shadow-xl transition-all active:scale-95 flex items-center gap-2 group cursor-pointer"
-            >
-              <span>{isAr ? 'سجّل الآن' : 'Register Now'}</span>
-              {isAr ? (
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              ) : (
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/**
- * Full Bridging Modal Component
+ * Full Bridging Modal Component - Matches the Luxury Crystal Architecture of Faculties Modal
  */
 export default function BridgingAnnouncementModal({ isAr = true, onClose }) {
   const navigate = useNavigate();
 
   const eligibleFaculties = [
-    { nameAr: 'كلية الصيدلة', nameEn: 'Faculty of Pharmacy', majorAr: 'صيدلة عامة / صيدلة سريرية', count: 'دبلوم صيدلة' },
-    { nameAr: 'كلية الطب والعلوم الصحية', nameEn: 'Faculty of Medicine & Health Sciences', majorAr: 'مختبرات طبية، تكنولوجيا الأشعة والتصوير الطبي، التغذية العلاجية والحميات، والتمريض', count: 'دبلومات صحية وطبية' },
-    { nameAr: 'كلية الهندسة والحاسبات', nameEn: 'Faculty of Engineering & Computing', majorAr: 'هندسة معمارية، هندسة مدنية، تقنية معلومات', count: 'دبلومات هندسية وتقنية' },
-    { nameAr: 'كلية العلوم الإدارية', nameEn: 'Faculty of Administrative Sciences', majorAr: 'محاسبة، إدارة أعمال، تسويق رقمي', count: 'دبلومات إدارية ومالية' }
+    { 
+      nameAr: 'كلية الصيدلة', 
+      nameEn: 'Faculty of Pharmacy', 
+      majorAr: 'صيدلة عامة / صيدلة سريرية', 
+      majorEn: 'General / Clinical Pharmacy',
+      countAr: 'دبلوم صيدلة معتمد',
+      countEn: 'Accredited Pharmacy Diploma',
+      icon: Award
+    },
+    { 
+      nameAr: 'كلية الطب والعلوم الصحية', 
+      nameEn: 'Faculty of Medicine & Health Sciences', 
+      majorAr: 'مختبرات طبية، أشعة، تغذية علاجية، تمريض', 
+      majorEn: 'Medical Labs, Radiology, Nutrition, Nursing',
+      countAr: 'دبلومات صحية وطبية',
+      countEn: 'Health & Medical Diplomas',
+      icon: GraduationCap
+    },
+    { 
+      nameAr: 'كلية الهندسة والحاسبات', 
+      nameEn: 'Faculty of Engineering & Computing', 
+      majorAr: 'هندسة معمارية، مدنية، تقنية معلومات، حاسوب', 
+      majorEn: 'Architecture, Civil, IT, Computer Science',
+      countAr: 'دبلومات هندسية وتقنية',
+      countEn: 'Engineering & Tech Diplomas',
+      icon: GraduationCap
+    },
+    { 
+      nameAr: 'كلية العلوم الإدارية', 
+      nameEn: 'Faculty of Administrative Sciences', 
+      majorAr: 'محاسبة، إدارة أعمال، تسويق رقمي، نظم معلومات', 
+      majorEn: 'Accounting, Business Admin, Marketing, MIS',
+      countAr: 'دبلومات إدارية ومالية',
+      countEn: 'Business & Finance Diplomas',
+      icon: Award
+    }
   ];
 
-  const bridgingRequirements = [
-    'أن يكون المتقدم حاصلاً على شهادة الدبلوم المتوسط بعد الثانوية العامة من معهد أو كلية مجتمع معتمدة.',
-    'أن يتوافق تخصص الدبلوم مع برنامج البكالوريوس المطلوب التجسير إليه وفق ضوابط وزارة التعليم العالي.',
-    'معادلة المقررات الدراسية المشتركة واحتساب الساعات وفق اللائحة الأكاديمية لجامعة العلوم والتكنولوجيا.',
-    'توفير أصل شهادة الثانوية العامة وأصل وثيقة الدبلوم مع السجل الأكاديمي المعتمد والمصدق.',
-    'جداول دراسية مرنة صباحية ومسائية تناسب الموظفين والعاملين في المستشفيات والمؤسسات والشركات.'
+  const bridgingRequirements = isAr ? [
+    'شهادة دبلوم متوسط معتمدة بعد الثانوية العامة من معهد أو كلية مجتمع معترف بها.',
+    'توافق تخصص الدبلوم مع برنامج البكالوريوس المطلوب التجسير إليه بالجامعة.',
+    'معادلة المقررات الدراسية واحتساب الساعات وفق اللائحة الأكاديمية لوزارة التعليم العالي.',
+    'جداول دراسية مرنة صباحية ومسائية تناسب الموظفين والعاملين في القطاعات المختلفة.'
+  ] : [
+    'Accredited intermediate diploma after high school from an approved community college/institute.',
+    'Diploma major must align with the target bachelor degree program specifications.',
+    'Course credits evaluated and transferred in accordance with UST academic regulations.',
+    'Flexible morning and evening study schedules tailored for professionals and working students.'
   ];
 
   return (
-    <div className="w-full text-slate-800" dir={isAr ? 'rtl' : 'ltr'}>
-      {/* Top Header Bar */}
-      <div className="bg-slate-100/90 p-4 border-b border-slate-200 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent text-primary-dark font-black text-xs shadow-2xs">
-            <Award className="w-3.5 h-3.5" />
-            <span>{isAr ? 'إعلان نظام التجسير المعتمد' : 'Accredited Bridging Notice'}</span>
+    <div className="w-full text-primary-dark flex flex-col select-none overflow-hidden" dir={isAr ? 'rtl' : 'ltr'}>
+      {/* Clean Light Crystal Header */}
+      <div className="relative p-6 sm:p-8 rounded-b-[28px] sm:rounded-b-[36px] bg-gradient-to-b from-white via-white to-slate-50/90 border-b border-slate-200/80 text-slate-800 shadow-[0_4px_20px_rgba(0,0,0,0.04)] flex items-start justify-between gap-4 shrink-0">
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-white flex items-center justify-center shrink-0 shadow-md overflow-hidden bg-white p-1">
+            <img src="/logo.png" alt="UST" className="w-full h-full object-contain" />
           </div>
-          <span className="text-xs font-bold text-primary px-3 py-1 rounded-full bg-primary/10">
-            {isAr ? 'لحملة الدبلوم المتوسط' : 'Diploma to Bachelor'}
-          </span>
+          <div>
+            <div className="flex items-center gap-2 flex-wrap mb-1">
+              <span className="text-xs font-black tracking-widest text-emerald-600 uppercase">
+                {isAr ? 'نظام التجسير الأكاديمي المعتمد' : 'ACCREDITED BRIDGING SYSTEM'}
+              </span>
+              <span className="inline-flex items-center gap-1 text-[10px] font-extrabold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                <span>{isAr ? 'التسجيل مفتوح ومعتمد' : 'Admissions Open'}</span>
+              </span>
+            </div>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 leading-tight">
+              {isAr ? 'برنامج معادلة الدبلوم إلى البكالوريوس' : 'Diploma to Bachelor Bridging Program'}
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl font-medium">
+              {isAr 
+                ? 'أكمل مسيرتك الأكاديمية ونيل درجة البكالوريوس الرسمية بجامعة العلوم والتكنولوجيا للعام الجامعي 1448هـ' 
+                : 'Complete your academic journey from diploma to official accredited Bachelor Degree at UST for the year 1448H'}
+            </p>
+          </div>
         </div>
 
         {onClose && (
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-white hover:bg-slate-200 text-slate-700 border border-slate-300 flex items-center justify-center transition-all shadow-2xs active:scale-90"
+            className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors shrink-0 cursor-pointer active:scale-95 shadow-2xs"
             title={isAr ? 'إغلاق' : 'Close'}
           >
-            <X className="w-4 h-4" />
+            <X className="w-5 h-5" />
           </button>
         )}
       </div>
 
-      {/* Main Body */}
-      <div className="p-4 sm:p-6 max-h-[75vh] overflow-y-auto custom-scrollbar space-y-6">
-        {/* Exact Visual Banner from Screenshot 2 */}
-        <BridgingVisualBanner
-          isAr={isAr}
-          onApply={() => {
-            if (onClose) onClose();
-            navigate('/admission');
-          }}
-        />
+      {/* Modal Body - Frosted Crystal Content */}
+      <div className="p-5 sm:p-7 overflow-y-auto custom-scrollbar overscroll-contain touch-auto flex-1 space-y-5">
+        {/* Section 1: Eligible Faculties (Stadium Pill Cards) */}
+        <div>
+          <h4 className="text-xs sm:text-sm font-extrabold text-primary uppercase tracking-wider mb-3 flex items-center gap-2">
+            <GraduationCap className="w-4 h-4 text-secondary" />
+            <span>{isAr ? 'الكليات والبرامج المتاحة للتجسير ومعادلة الساعات:' : 'Available Faculties & Programs for Bridging:'}</span>
+          </h4>
 
-        {/* Detailed Guidelines Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Card 1: Eligible Programs */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-2xs space-y-3">
-            <h4 className="text-sm font-black text-primary flex items-center gap-2">
-              <GraduationCap className="w-4 h-4 text-accent" />
-              <span>{isAr ? 'الكليات والبرامج المتاحة للتجسير:' : 'Eligible Faculties & Programs:'}</span>
-            </h4>
-            <div className="space-y-2.5">
-              {eligibleFaculties.map((f, idx) => (
-                <div key={idx} className="bg-white border border-primary/10 rounded-xl p-3 shadow-2xs">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-black text-primary">{f.nameAr}</span>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-accent/20 text-accent-dark">
-                      {f.count}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {eligibleFaculties.map((f, idx) => (
+              <div
+                key={idx}
+                onClick={() => {
+                  if (onClose) onClose();
+                  navigate('/admission');
+                }}
+                className="group/item cursor-pointer px-4 sm:px-5 py-3 rounded-2xl sm:rounded-full bg-white/85 hover:bg-white border border-primary/15 hover:border-secondary shadow-xs hover:shadow-md transition-all flex items-center justify-between gap-3 relative overflow-hidden backdrop-blur-sm"
+              >
+                {/* Circular Icon */}
+                <div className="w-10 h-10 rounded-full bg-primary/10 group-hover/item:bg-secondary group-hover/item:text-white text-primary flex items-center justify-center shrink-0 transition-all duration-300">
+                  <f.icon className="w-5 h-5" />
+                </div>
+
+                {/* Title & Details */}
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between gap-1">
+                    <h5 className="font-black text-primary text-xs sm:text-sm group-hover/item:text-secondary transition-colors truncate">
+                      {isAr ? f.nameAr : f.nameEn}
+                    </h5>
+                    <span className="text-[9.5px] font-bold px-2 py-0.5 rounded-full bg-secondary/15 text-primary-dark whitespace-nowrap">
+                      {isAr ? f.countAr : f.countEn}
                     </span>
                   </div>
-                  <p className="text-[11px] font-semibold text-slate-600 mt-1">
-                    {f.majorAr}
+                  <p className="text-[10.5px] sm:text-[11px] font-semibold text-primary-dark/70 mt-0.5 truncate">
+                    {isAr ? f.majorAr : f.majorEn}
                   </p>
                 </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Card 2: Bridging Requirements */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-2xs space-y-3">
-            <h4 className="text-sm font-black text-primary flex items-center gap-2">
-              <FileCheck className="w-4 h-4 text-secondary" />
-              <span>{isAr ? 'شروط وضوابط معادلة المواد:' : 'Equivalence Terms & Conditions:'}</span>
-            </h4>
-            <div className="space-y-2">
-              {bridgingRequirements.map((req, idx) => (
-                <div key={idx} className="flex items-start gap-2 bg-white border border-slate-100 rounded-xl p-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-700 leading-snug">
-                    {req}
-                  </span>
+                {/* End Round Arrow Button */}
+                <div className="w-8 h-8 rounded-full bg-primary/5 group-hover/item:bg-secondary group-hover/item:text-white text-primary flex items-center justify-center shrink-0 transition-all duration-300">
+                  <ArrowUpRight className="w-4 h-4" />
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Bottom Actions */}
-        <div className="bg-gradient-to-r from-sky-50 via-white to-sky-50 border border-sky-200 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center shrink-0">
-              <Sparkles className="w-5 h-5 text-accent" />
-            </div>
-            <div>
-              <span className="text-xs font-black text-primary block">
-                {isAr ? 'نيابة شؤون الطلاب وعمادة القبول والتسجيل' : 'Admissions & Student Affairs'}
-              </span>
-              <span className="text-[11px] text-slate-600 font-semibold">
-                {isAr ? 'التسجيل متاح حالياً للفصل الدراسي الجديد - المقاعد محدودة' : 'Enrollment open for the upcoming term - limited seats'}
-              </span>
-            </div>
-          </div>
+        {/* Section 2: Bridging Terms & Requirements (Crystal Frosted Strip) */}
+        <div>
+          <h4 className="text-xs sm:text-sm font-extrabold text-primary uppercase tracking-wider mb-3 flex items-center gap-2">
+            <FileCheck className="w-4 h-4 text-secondary" />
+            <span>{isAr ? 'شروط وضوابط معادلة المواد واحتساب الساعات:' : 'Equivalence Terms & Credit Transfer Requirements:'}</span>
+          </h4>
 
-          <div className="flex items-center gap-2 w-full sm:w-auto">
-            <button
-              onClick={() => {
-                if (onClose) onClose();
-                navigate('/faculties');
-              }}
-              className="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl border border-primary/20 text-xs font-bold text-primary hover:bg-white transition-all text-center"
-            >
-              {isAr ? 'دليل الكليات' : 'Faculties Guide'}
-            </button>
-            <button
-              onClick={() => {
-                if (onClose) onClose();
-                navigate('/admission');
-              }}
-              className="flex-1 sm:flex-initial bg-[#dc2626] hover:bg-[#b91c1c] text-white px-6 py-2.5 rounded-xl text-xs font-black shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5 active:scale-95"
-            >
-              <span>{isAr ? 'تقديم طلب التجسير الآن' : 'Apply for Bridging Now'}</span>
-              {isAr ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
-            </button>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            {bridgingRequirements.map((req, idx) => (
+              <div 
+                key={idx} 
+                className="flex items-start gap-2.5 p-3 rounded-2xl bg-white/70 hover:bg-white border border-primary/15 shadow-2xs transition-all backdrop-blur-sm"
+              >
+                <div className="w-5 h-5 rounded-full bg-emerald-500/15 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+                  <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+                </div>
+                <span className="text-[11px] sm:text-xs font-bold text-primary-dark/85 leading-snug">
+                  {req}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
 
-        {/* Official Contact Footer matching Screenshot 4 */}
-        <USTOfficialContactFooter isAr={isAr} />
+      {/* Modal Footer (Identical to Faculties Modal Style) */}
+      <div className="p-4 sm:p-5 bg-white/95 border-t border-primary/15 flex flex-wrap items-center justify-between gap-3 shrink-0">
+        <button
+          onClick={onClose}
+          className="px-6 py-2.5 rounded-full bg-white hover:bg-slate-100 text-primary-dark/80 font-bold text-xs sm:text-sm border border-primary/20 shadow-xs transition-all active:scale-95 cursor-pointer"
+        >
+          {isAr ? 'إغلاق' : 'Close'}
+        </button>
+
+        <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
+          <span className="text-xs text-primary-dark/70 font-semibold hidden md:inline">
+            {isAr ? 'جامعة العلوم والتكنولوجيا • الريادة والتميز في التعليم العالي' : 'UST • Excellence in Higher Education'}
+          </span>
+
+          <button
+            onClick={() => {
+              if (onClose) onClose();
+              navigate('/admission');
+            }}
+            className="flex-1 sm:flex-initial px-7 py-2.5 rounded-full bg-secondary hover:bg-secondary-light text-primary font-black text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all active:scale-95 cursor-pointer"
+          >
+            <GraduationCap className="w-4 h-4" />
+            <span>{isAr ? 'بدء إجراءات التجسير والقبول' : 'Start Bridging Application'}</span>
+          </button>
+        </div>
       </div>
     </div>
   );
