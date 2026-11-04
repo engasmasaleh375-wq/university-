@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
-import PublicLayout from './components/PublicLayout';
+import PublicLayout from './Components/PublicLayout';
 import Home from './pages/Home';
 import Faculties from './pages/Faculties';
 import AdmissionForm from './pages/AdmissionForm';
 import Login from './pages/Login';
-import StudentLayout from './components/StudentLayout';
+import StudentLayout from './Components/StudentLayout';
 import StudentDashboard from './pages/StudentDashboard';
 import AcademicRecord from './pages/AcademicRecord';
 import Schedule from './pages/Schedule';
