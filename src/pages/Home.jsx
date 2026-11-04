@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, BookOpen, Users, Globe, Globe2, Award, ChevronLeft, ChevronRight, X, CheckCircle2, Megaphone, PhoneCall, GraduationCap, ShieldCheck, Laptop } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
-import { InternationalPartnersCarousel, InternationalPartnersModalContent } from '../components/InternationalPartners';
-import ElearningAnnouncementsModal from '../components/ElearningAnnouncements';
-import BridgingAnnouncementModal from '../components/BridgingAnnouncementModal';
-import AcademicProgramsModal from '../components/AcademicProgramsModal';
-import { NewProgramsSection } from '../components/NewProgramsSection';
+import { InternationalPartnersCarousel, InternationalPartnersModalContent } from '../Components/InternationalPartners';
+import ElearningAnnouncementsModal from '../Components/ElearningAnnouncements';
+import BridgingAnnouncementModal from '../Components/BridgingAnnouncementModal';
+import AcademicProgramsModal from '../Components/AcademicProgramsModal';
+import { NewProgramsSection } from '../Components/NewProgramsSection';
 import { lockBodyScroll } from '../utils/scrollLock';
 
 const heroSlides = [
@@ -114,7 +114,7 @@ export default function Home() {
       badge: isAr ? 'الاعتماد الذهبي والدراسات العليا' : 'Golden Accreditation & Postgrad',
       isAcademicProgramsAds: true,
       tagline: isAr ? 'الاعتماد الأكاديمي البرامجي الذهبي الكامل لـ 5 برامج' : 'Full Golden Accreditation for 5 Programs',
-      title: isAr 
+      title: isAr
         ? 'جامعة العلوم والتكنولوجيا - الاعتماد الذهبي والبرامج الأكاديمية والدراسات العليا'
         : 'UST - Golden Accreditations, Academic Programs & Postgraduate Studies',
       image: '/hero-building.jpg',
@@ -245,14 +245,14 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-transparent text-primary-dark dark:text-slate-100 font-sans overflow-hidden transition-colors duration-500">
-      
+
       {/* Hero Section */}
       <section className="relative pt-22 sm:pt-28 md:pt-32 lg:pt-36 pb-10 sm:pb-16 lg:pb-24 overflow-hidden min-h-[85vh] md:min-h-[90vh] flex items-center z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
           <div className="flex flex-col md:flex-row items-center justify-between gap-7 sm:gap-8 lg:gap-16">
-            
+
             {/* Left side: Stadium Capsule Image Container Slideshow */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7 }}
@@ -261,7 +261,7 @@ export default function Home() {
               <div className="group relative p-2 sm:p-2.5 lg:p-3 rounded-full border-2 border-white/80 dark:border-white/10 w-[265px] sm:w-[335px] md:w-[385px] lg:w-[425px] h-[390px] sm:h-[480px] md:h-[510px] lg:h-[530px] bg-white/45 dark:bg-slate-900/45 hover:bg-white/60 dark:hover:bg-slate-900/60 backdrop-blur-3xl shadow-[0_20px_50px_rgba(11,59,96,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 flex items-center justify-center">
                 {/* Decorative Elements */}
                 <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-sky-400/20 rounded-full blur-xl pointer-events-none"></div>
-                
+
                 {/* Concentric Inner Outline Ring */}
                 <div className="absolute inset-2 sm:inset-2.5 rounded-full border border-white/60 dark:border-white/10 pointer-events-none z-20" />
 
@@ -271,12 +271,12 @@ export default function Home() {
                 {/* Inner Capsule Image Frame / Slideshow */}
                 <div className="w-full h-full rounded-full overflow-hidden relative shadow-inner border-2 border-white/80 dark:border-white/15 bg-slate-100 dark:bg-slate-800 z-10">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent z-10 pointer-events-none" />
-                  
+
                   <AnimatePresence initial={false}>
-                    <motion.img 
+                    <motion.img
                       key={currentSlide}
-                      src={heroSlides[currentSlide].url} 
-                      alt={isAr ? heroSlides[currentSlide].title : heroSlides[currentSlide].titleEn} 
+                      src={heroSlides[currentSlide].url}
+                      alt={isAr ? heroSlides[currentSlide].title : heroSlides[currentSlide].titleEn}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
@@ -287,7 +287,7 @@ export default function Home() {
                   </AnimatePresence>
 
                   {/* Navigation Arrows */}
-                  <button 
+                  <button
                     onClick={prevSlide}
                     aria-label="Previous slide"
                     className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/85 dark:bg-slate-800/85 hover:bg-white dark:hover:bg-slate-700 text-primary dark:text-slate-100 flex items-center justify-center backdrop-blur-md shadow-lg transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 cursor-pointer"
@@ -295,7 +295,7 @@ export default function Home() {
                     <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
                   </button>
 
-                  <button 
+                  <button
                     onClick={nextSlide}
                     aria-label="Next slide"
                     className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/85 dark:bg-slate-800/85 hover:bg-white dark:hover:bg-slate-700 text-primary dark:text-slate-100 flex items-center justify-center backdrop-blur-md shadow-lg transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 cursor-pointer"
@@ -315,11 +315,10 @@ export default function Home() {
                         <button
                           key={idx}
                           onClick={() => setCurrentSlide(idx)}
-                          className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                            idx === currentSlide 
-                              ? 'w-4 bg-primary' 
-                              : 'w-1.5 bg-primary/35 hover:bg-primary/65'
-                          }`}
+                          className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${idx === currentSlide
+                            ? 'w-4 bg-primary'
+                            : 'w-1.5 bg-primary/35 hover:bg-primary/65'
+                            }`}
                           aria-label={`Slide ${idx + 1}`}
                         />
                       ))}
@@ -331,7 +330,7 @@ export default function Home() {
             </motion.div>
 
             {/* Right side: Typography with Cairo Font Styling */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
@@ -350,19 +349,19 @@ export default function Home() {
               </div>
 
               {/* Main Title - Proportioned cleanly for Thmanyah */}
-              <h1 
+              <h1
                 className={`text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-black text-primary dark:text-white flex flex-col gap-1 tracking-tight mb-3 w-full ${isAr ? 'text-right' : 'text-left'}`}
                 style={{ fontFamily: "'ThmanyahSans', sans-serif" }}
               >
                 <span className="leading-snug" style={{ fontFamily: "'ThmanyahSans', sans-serif" }}>{t('heroTitle1')}</span>
-                <span 
+                <span
                   className={`text-transparent bg-clip-text ${isAr ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-secondary via-teal-600 to-primary dark:to-sky-400 block leading-snug`}
                   style={{ fontFamily: "'ThmanyahSans', sans-serif" }}
                 >
                   {t('heroTitle2')}
                 </span>
               </h1>
-              
+
               {/* Reference underline */}
               <div className={`w-16 sm:w-20 h-[3px] sm:h-[3.5px] bg-gradient-to-r from-sky-400 via-sky-300 to-secondary/60 mb-3.5 sm:mb-4 rounded-full ${isAr ? '' : 'self-start'}`}></div>
 
@@ -373,7 +372,7 @@ export default function Home() {
 
               {/* Buttons */}
               <div className={`flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5 w-full sm:w-auto ${isAr ? '' : 'self-start'}`}>
-                <button 
+                <button
                   onClick={() => navigate('/admission')}
                   className="relative overflow-hidden w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-sky-200/70 via-white/80 to-sky-100/75 hover:from-sky-200/85 hover:via-white/95 hover:to-sky-100/90 backdrop-blur-2xl saturate-150 text-primary border-2 border-white/90 hover:border-white rounded-full font-black text-xs sm:text-sm md:text-base shadow-[0_10px_28px_rgba(2,132,199,0.14),inset_0_1.5px_2px_rgba(255,255,255,1)] hover:shadow-[0_15px_35px_rgba(2,132,199,0.22),inset_0_2px_3px_rgba(255,255,255,1)] transition-all duration-500 ease-out hover:-translate-y-1 flex items-center justify-center gap-2.5 group active:scale-95 cursor-pointer"
                 >
@@ -384,7 +383,7 @@ export default function Home() {
                     <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
                   )}
                 </button>
-                <button 
+                <button
                   onClick={() => navigate('/faculties')}
                   className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl text-primary dark:text-slate-100 border-2 border-white/40 dark:border-white/10 hover:border-white dark:hover:border-white/20 hover:bg-white/70 dark:hover:bg-slate-800/70 rounded-full font-bold text-xs sm:text-sm md:text-base shadow-[0_4px_20px_rgba(11,59,96,0.08)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10 flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
                 >
@@ -428,7 +427,7 @@ export default function Home() {
       {/* Stats / Infographic Section */}
       <section className="py-10 sm:py-16 bg-transparent border-t border-sky-100/60 dark:border-white/10 relative z-10">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-          
+
           <div className="text-center mb-7 sm:mb-10">
             <h2 className="text-xl sm:text-3xl font-black text-primary dark:text-white mb-2">{t('statTitle', 'أرقام وحقائق')}</h2>
             <p className="text-xs sm:text-sm font-medium text-primary-dark/70 dark:text-slate-300 mb-3 max-w-xl mx-auto px-2">
@@ -453,8 +452,8 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 lg:gap-8 pt-2 sm:pt-4 pb-6 sm:pb-12">
             {stats.map((stat, idx) => (
-              <motion.div 
-                key={stat.id} 
+              <motion.div
+                key={stat.id}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -484,16 +483,16 @@ export default function Home() {
                     <div className="w-full h-full rounded-full bg-gradient-to-br from-white dark:from-slate-800 via-blue-50/60 dark:via-slate-800/70 to-indigo-50/30 dark:to-slate-900 border border-blue-100/90 dark:border-white/10 group-hover:border-blue-300/80 dark:group-hover:border-sky-400/40 flex items-center justify-center relative overflow-hidden shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-2px_4px_rgba(29,78,216,0.04)]">
                       {/* Subtle Crystal Gloss Reflection */}
                       <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/80 dark:via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
-                      
+
                       {/* Dark Blue Icon with refined stroke */}
-                      <stat.icon 
-                        className="w-6 h-6 sm:w-9 sm:h-9 md:w-10 md:h-10 text-blue-900 dark:text-sky-300 group-hover:text-blue-950 dark:group-hover:text-sky-200 transition-all duration-300 drop-shadow-[0_2px_8px_rgba(30,58,138,0.18)] group-hover:scale-110" 
-                        strokeWidth={1.65} 
+                      <stat.icon
+                        className="w-6 h-6 sm:w-9 sm:h-9 md:w-10 md:h-10 text-blue-900 dark:text-sky-300 group-hover:text-blue-950 dark:group-hover:text-sky-200 transition-all duration-300 drop-shadow-[0_2px_8px_rgba(30,58,138,0.18)] group-hover:scale-110"
+                        strokeWidth={1.65}
                       />
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="mb-2 sm:mb-3 relative z-10 flex-grow flex flex-col justify-center">
                   <h3 className="text-xs sm:text-base md:text-lg font-black text-slate-800 dark:text-slate-100 group-hover:text-blue-900 dark:group-hover:text-sky-300 transition-colors leading-snug">{stat.label}</h3>
                 </div>
@@ -518,7 +517,7 @@ export default function Home() {
       {/* Announcement / Advertisement Modal */}
       <AnimatePresence>
         {selectedStat && (
-          <div 
+          <div
             className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 select-none overflow-hidden touch-none"
           >
             {/* Backdrop with signature University Navy Frosted Refraction */}
@@ -539,15 +538,13 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.94, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className={`relative z-10 w-full ${
-                selectedStat.isAcademicProgramsAds
-                  ? 'max-w-5xl'
-                  : selectedStat.isBridgingAds || selectedStat.isPartnersAd || selectedStat.isElearningAds
+              className={`relative z-10 w-full ${selectedStat.isAcademicProgramsAds
+                ? 'max-w-5xl'
+                : selectedStat.isBridgingAds || selectedStat.isPartnersAd || selectedStat.isElearningAds
                   ? 'max-w-4xl'
                   : 'max-w-2xl'
-              } rounded-[44px] sm:rounded-[54px] md:rounded-[60px] crystal-modal shadow-[0_30px_80px_rgba(11,59,96,0.2)] text-primary-dark overflow-hidden flex flex-col max-h-[88vh] ${
-                isAr ? 'text-right' : 'text-left'
-              }`}
+                } rounded-[44px] sm:rounded-[54px] md:rounded-[60px] crystal-modal shadow-[0_30px_80px_rgba(11,59,96,0.2)] text-primary-dark overflow-hidden flex flex-col max-h-[88vh] ${isAr ? 'text-right' : 'text-left'
+                }`}
               dir={isAr ? 'rtl' : 'ltr'}
             >
               {/* Concentric Inner Outline Ring */}
