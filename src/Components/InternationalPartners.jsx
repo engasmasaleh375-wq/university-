@@ -126,9 +126,9 @@ export function InternationalPartnersCarousel({
 
                 {/* Hover Pill Indicator */}
                 <div className={`relative z-10 ${inModal ? 'mt-1.5' : 'mt-2.5'} w-full`}>
-                  <div className="py-1 px-3 rounded-full bg-primary/10 group-hover:bg-primary text-primary group-hover:text-white transition-all duration-300 flex items-center justify-center gap-1.5 text-[10.5px] font-extrabold shadow-2xs">
+                  <div className="py-1 px-3 rounded-full bg-gradient-to-r from-sky-200/65 via-white/80 to-sky-100/75 group-hover:from-sky-200/90 group-hover:via-white/95 group-hover:to-sky-100/90 backdrop-blur-xl text-primary border border-white/90 transition-all duration-300 flex items-center justify-center gap-1.5 text-[10.5px] font-extrabold shadow-[0_4px_12px_rgba(2,132,199,0.12),inset_0_1px_1.5px_rgba(255,255,255,1)]">
                     <span>{isAr ? 'تفاصيل الشراكة' : 'Partnership Details'}</span>
-                    <ArrowUpRight className="w-3 h-3" />
+                    <ArrowUpRight className="w-3 h-3 text-primary" />
                   </div>
                 </div>
               </motion.div>
@@ -224,9 +224,9 @@ export function InternationalPartnersModalContent({ isAr = true, highlightedPart
           <button
             key={tab.id}
             onClick={() => setSelectedFilter(tab.id)}
-            className={`px-3.5 py-2 rounded-xl text-xs font-black whitespace-nowrap transition-all flex items-center gap-1.5 ${
+            className={`px-3.5 py-2 rounded-full text-xs font-black whitespace-nowrap transition-all flex items-center gap-1.5 cursor-pointer ${
               selectedFilter === tab.id
-                ? 'bg-primary text-white shadow-md'
+                ? 'bg-gradient-to-r from-sky-200/75 via-white/85 to-sky-100/80 backdrop-blur-xl text-primary border border-white/95 shadow-[0_6px_16px_rgba(2,132,199,0.16),inset_0_1.5px_2px_rgba(255,255,255,1)]'
                 : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
             }`}
           >

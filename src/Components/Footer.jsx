@@ -67,15 +67,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative mt-16 mb-6 mx-4 sm:mx-6 lg:mx-8 z-20 select-none">
+    <footer className="relative mt-10 sm:mt-16 mb-4 sm:mb-6 mx-3 sm:mx-6 lg:mx-8 z-20 select-none">
       
-      {/* Pure Classical Frosted White Glass Horizon */}
-      <div className="relative rounded-[2.2rem] bg-white/70 hover:bg-white/80 backdrop-blur-2xl border border-white/80 shadow-[0_16px_45px_rgba(11,59,96,0.06),inset_0_1.5px_2px_rgba(255,255,255,0.95)] overflow-hidden transition-all duration-300">
+      {/* Pure Classical Frosted Glass Horizon */}
+      <div className="relative rounded-[1.75rem] sm:rounded-[2.2rem] bg-white/70 dark:bg-slate-900/70 hover:bg-white/80 dark:hover:bg-slate-900/80 backdrop-blur-2xl border border-white/80 dark:border-white/10 shadow-[0_16px_45px_rgba(11,59,96,0.06)] dark:shadow-[0_16px_45px_rgba(0,0,0,0.5)] overflow-hidden transition-all duration-300">
         
         {/* Fine top hairline reflection */}
-        <div className="absolute top-0 inset-x-8 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent pointer-events-none" />
+        <div className="absolute top-0 inset-x-8 h-[1px] bg-gradient-to-r from-transparent via-white/80 dark:via-white/20 to-transparent pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 pt-8 pb-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 pt-6 sm:pt-8 pb-5 sm:pb-6 relative z-10">
           
           {/* Main Focused Horizon */}
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6 pb-6">
@@ -89,28 +89,28 @@ export default function Footer() {
                 className="flex items-center gap-3 group"
                 title={isAr ? 'جامعة العلوم والتكنولوجيا' : 'UST'}
               >
-                <div className="w-11 h-11 rounded-full p-0.5 bg-white border border-sky-100 shadow-2xs flex items-center justify-center transition-transform group-hover:scale-105">
+                <div className="w-11 h-11 rounded-full p-0.5 bg-white dark:bg-slate-800 border border-sky-100 dark:border-white/10 shadow-2xs flex items-center justify-center transition-transform group-hover:scale-105">
                   <img src="/logo.png" alt="UST Logo" className="w-full h-full object-contain" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-base sm:text-lg font-black text-primary tracking-tight leading-tight group-hover:text-primary-dark transition-colors">
+                  <span className="text-base sm:text-lg font-black text-primary dark:text-slate-100 tracking-tight leading-tight group-hover:text-primary-dark dark:group-hover:text-sky-300 transition-colors">
                     {isAr ? 'جامعة العلوم والتكنولوجيا' : 'University of Science and Technology'}
                   </span>
-                  <span className="text-[11px] font-bold text-primary/60 tracking-wider">
+                  <span className="text-[11px] font-bold text-primary/60 dark:text-slate-400 tracking-wider">
                     {isAr ? 'المركز الرئيسي • صنعاء' : 'Main Campus • Sana\'a'}
                   </span>
                 </div>
               </Link>
 
               {/* Useful Quick Contact Chips */}
-              <div className="flex items-center gap-2 sm:mr-3 sm:rtl:mr-3 sm:ltr:ml-3 sm:border-r sm:rtl:border-r sm:ltr:border-l border-primary/15 sm:pr-3 sm:rtl:pr-3 sm:ltr:pl-3">
+              <div className="flex items-center gap-2 sm:mr-3 sm:rtl:mr-3 sm:ltr:ml-3 sm:border-r sm:rtl:border-r sm:ltr:border-l border-primary/15 dark:border-white/10 sm:pr-3 sm:rtl:pr-3 sm:ltr:pl-3">
                 {/* Toll-Free Hotline */}
                 <a 
                   href="tel:8000000" 
-                  className="px-3 py-1 rounded-full bg-white/80 hover:bg-white border border-white/90 text-primary text-xs font-black shadow-2xs hover:shadow-xs transition-all flex items-center gap-1.5"
+                  className="px-3 py-1 rounded-full bg-white/80 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-700 border border-white/90 dark:border-white/10 text-primary dark:text-slate-100 text-xs font-black shadow-2xs hover:shadow-xs transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-1.5"
                   title={isAr ? 'اتصل مجاناً' : 'Toll Free Call'}
                 >
-                  <span className="text-emerald-600 font-bold">📞</span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">📞</span>
                   <span>8000000</span>
                 </a>
 
@@ -119,10 +119,10 @@ export default function Footer() {
                   href="https://wa.me/967777761641" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-3 py-1 rounded-full bg-white/80 hover:bg-white border border-white/90 text-primary text-xs font-black shadow-2xs hover:shadow-xs transition-all flex items-center gap-1.5"
+                  className="px-3 py-1 rounded-full bg-white/80 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-700 border border-white/90 dark:border-white/10 text-primary dark:text-slate-100 text-xs font-black shadow-2xs hover:shadow-xs transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-1.5"
                   title="WhatsApp"
                 >
-                  <span className="text-emerald-600 font-bold">💬</span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">💬</span>
                   <span>777761641</span>
                 </a>
               </div>
@@ -143,7 +143,7 @@ export default function Footer() {
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }
                     }}
-                    className="px-3.5 py-1.5 rounded-full bg-white/60 hover:bg-white border border-white/80 hover:border-white text-xs font-bold text-primary hover:text-primary-dark transition-all duration-200 shadow-2xs"
+                    className="px-3.5 py-1.5 rounded-full bg-white/60 dark:bg-slate-800/60 hover:bg-white dark:hover:bg-slate-700 border border-white/80 dark:border-white/10 hover:border-white dark:hover:border-white/20 text-xs font-bold text-primary dark:text-slate-200 hover:text-primary-dark dark:hover:text-white transition-all duration-300 hover:-translate-y-0.5 shadow-2xs"
                   >
                     {isAr ? link.nameAr : link.nameEn}
                   </Link>
@@ -158,7 +158,7 @@ export default function Footer() {
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-8.5 h-8.5 rounded-full bg-white/70 border border-white/80 text-primary flex items-center justify-center transition-all duration-200 shadow-2xs hover:-translate-y-0.5 active:scale-95 ${item.hoverColor}`}
+                    className={`w-8.5 h-8.5 rounded-full bg-white/70 dark:bg-slate-800/70 border border-white/80 dark:border-white/10 text-primary dark:text-slate-200 flex items-center justify-center transition-all duration-300 shadow-2xs hover:-translate-y-1 active:scale-95 ${item.hoverColor}`}
                     title={item.name}
                     aria-label={item.name}
                   >
@@ -172,7 +172,7 @@ export default function Footer() {
           </div>
 
           {/* Clean Classical Bottom Strip */}
-          <div className="border-t border-primary/10 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-bold text-primary/65">
+          <div className="border-t border-primary/10 dark:border-white/10 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-bold text-primary/65 dark:text-slate-400">
             
             <span>
               {isAr 
@@ -185,7 +185,7 @@ export default function Footer() {
                 href="https://ust.edu.ye" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors font-mono text-[11px]"
+                className="hover:text-primary dark:hover:text-sky-300 transition-colors font-mono text-[11px]"
                 title="Official Portal"
               >
                 ust.edu.ye ↗

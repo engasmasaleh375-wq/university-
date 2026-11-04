@@ -1,12 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
   Award,
   CheckCircle2,
   X,
   GraduationCap,
   FileCheck,
-  ArrowUpRight,
   Sparkles,
   PhoneCall,
   Check
@@ -16,7 +14,6 @@ import {
  * Full Bridging Modal Component - Matches the Luxury Crystal Architecture of Faculties Modal
  */
 export default function BridgingAnnouncementModal({ isAr = true, onClose }) {
-  const navigate = useNavigate();
 
   const eligibleFaculties = [
     { 
@@ -122,21 +119,17 @@ export default function BridgingAnnouncementModal({ isAr = true, onClose }) {
             {eligibleFaculties.map((f, idx) => (
               <div
                 key={idx}
-                onClick={() => {
-                  if (onClose) onClose();
-                  navigate('/admission');
-                }}
-                className="group/item cursor-pointer px-4 sm:px-5 py-3 rounded-2xl sm:rounded-full bg-white/85 hover:bg-white border border-primary/15 hover:border-secondary shadow-xs hover:shadow-md transition-all flex items-center justify-between gap-3 relative overflow-hidden backdrop-blur-sm"
+                className="group/item px-4 sm:px-5 py-3 rounded-2xl sm:rounded-full bg-white/85 border border-primary/15 shadow-xs transition-all flex items-center justify-between gap-3 relative overflow-hidden backdrop-blur-sm"
               >
                 {/* Circular Icon */}
-                <div className="w-10 h-10 rounded-full bg-primary/10 group-hover/item:bg-secondary group-hover/item:text-white text-primary flex items-center justify-center shrink-0 transition-all duration-300">
+                <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 transition-all duration-300">
                   <f.icon className="w-5 h-5" />
                 </div>
 
                 {/* Title & Details */}
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between gap-1">
-                    <h5 className="font-black text-primary text-xs sm:text-sm group-hover/item:text-secondary transition-colors truncate">
+                    <h5 className="font-black text-primary text-xs sm:text-sm truncate">
                       {isAr ? f.nameAr : f.nameEn}
                     </h5>
                     <span className="text-[9.5px] font-bold px-2 py-0.5 rounded-full bg-secondary/15 text-primary-dark whitespace-nowrap">
@@ -146,11 +139,6 @@ export default function BridgingAnnouncementModal({ isAr = true, onClose }) {
                   <p className="text-[10.5px] sm:text-[11px] font-semibold text-primary-dark/70 mt-0.5 truncate">
                     {isAr ? f.majorAr : f.majorEn}
                   </p>
-                </div>
-
-                {/* End Round Arrow Button */}
-                <div className="w-8 h-8 rounded-full bg-primary/5 group-hover/item:bg-secondary group-hover/item:text-white text-primary flex items-center justify-center shrink-0 transition-all duration-300">
-                  <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>
             ))}
@@ -182,31 +170,14 @@ export default function BridgingAnnouncementModal({ isAr = true, onClose }) {
         </div>
       </div>
 
-      {/* Modal Footer (Identical to Faculties Modal Style) */}
-      <div className="p-4 sm:p-5 bg-white/95 border-t border-primary/15 flex flex-wrap items-center justify-between gap-3 shrink-0">
+      {/* Modal Footer - Close Button Only */}
+      <div className="p-4 sm:p-5 bg-white/95 border-t border-primary/15 flex items-center justify-end gap-3 shrink-0">
         <button
           onClick={onClose}
-          className="px-6 py-2.5 rounded-full bg-white hover:bg-slate-100 text-primary-dark/80 font-bold text-xs sm:text-sm border border-primary/20 shadow-xs transition-all active:scale-95 cursor-pointer"
+          className="w-full sm:w-auto px-8 py-2.5 rounded-full bg-white hover:bg-slate-100 text-primary-dark/80 font-bold text-xs sm:text-sm border border-primary/20 shadow-xs transition-all active:scale-95 cursor-pointer"
         >
           {isAr ? 'إغلاق' : 'Close'}
         </button>
-
-        <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
-          <span className="text-xs text-primary-dark/70 font-semibold hidden md:inline">
-            {isAr ? 'جامعة العلوم والتكنولوجيا • الريادة والتميز في التعليم العالي' : 'UST • Excellence in Higher Education'}
-          </span>
-
-          <button
-            onClick={() => {
-              if (onClose) onClose();
-              navigate('/admission');
-            }}
-            className="flex-1 sm:flex-initial px-7 py-2.5 rounded-full bg-secondary hover:bg-secondary-light text-primary font-black text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all active:scale-95 cursor-pointer"
-          >
-            <GraduationCap className="w-4 h-4" />
-            <span>{isAr ? 'بدء إجراءات التجسير والقبول' : 'Start Bridging Application'}</span>
-          </button>
-        </div>
       </div>
     </div>
   );

@@ -244,12 +244,12 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative min-h-screen text-primary-dark font-sans overflow-hidden">
+    <div className="relative min-h-screen bg-transparent text-primary-dark dark:text-slate-100 font-sans overflow-hidden transition-colors duration-500">
       
       {/* Hero Section */}
-      <section className="relative pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-16 lg:pb-24 overflow-hidden min-h-[90vh] flex items-center z-10">
+      <section className="relative pt-22 sm:pt-28 md:pt-32 lg:pt-36 pb-10 sm:pb-16 lg:pb-24 overflow-hidden min-h-[85vh] md:min-h-[90vh] flex items-center z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-16">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-7 sm:gap-8 lg:gap-16">
             
             {/* Left side: Stadium Capsule Image Container Slideshow */}
             <motion.div 
@@ -258,32 +258,31 @@ export default function Home() {
               transition={{ duration: 0.7 }}
               className="w-full md:w-1/2 flex justify-center order-2"
             >
-              <div className="group relative p-2 sm:p-2.5 lg:p-3 rounded-full border-2 border-white/80 hover:border-white w-[285px] sm:w-[335px] md:w-[385px] lg:w-[425px] h-[440px] sm:h-[480px] md:h-[510px] lg:h-[530px] bg-white/45 hover:bg-white/60 backdrop-blur-3xl shadow-[0_20px_50px_rgba(11,59,96,0.15)] transition-all duration-500 flex items-center justify-center">
+              <div className="group relative p-2 sm:p-2.5 lg:p-3 rounded-full border-2 border-white/80 dark:border-white/10 w-[265px] sm:w-[335px] md:w-[385px] lg:w-[425px] h-[390px] sm:h-[480px] md:h-[510px] lg:h-[530px] bg-white/45 dark:bg-slate-900/45 hover:bg-white/60 dark:hover:bg-slate-900/60 backdrop-blur-3xl shadow-[0_20px_50px_rgba(11,59,96,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 flex items-center justify-center">
                 {/* Decorative Elements */}
                 <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-sky-400/20 rounded-full blur-xl pointer-events-none"></div>
-                <div className="absolute top-1/6 -right-2 w-5 h-5 rotate-45 border border-white/60 bg-white/30 backdrop-blur-md rounded-sm"></div>
                 
                 {/* Concentric Inner Outline Ring */}
-                <div className="absolute inset-2 sm:inset-2.5 rounded-full border border-white/60 pointer-events-none z-20" />
+                <div className="absolute inset-2 sm:inset-2.5 rounded-full border border-white/60 dark:border-white/10 pointer-events-none z-20" />
 
                 {/* Subtle Ambient Backlight Glow */}
                 <div className="absolute inset-0 bg-gradient-to-b from-sky-400/10 via-emerald-400/5 to-primary/10 pointer-events-none rounded-full" />
 
                 {/* Inner Capsule Image Frame / Slideshow */}
-                <div className="w-full h-full rounded-full overflow-hidden relative shadow-inner border-2 border-white/80 bg-slate-900 z-10">
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent z-10 pointer-events-none"></div>
+                <div className="w-full h-full rounded-full overflow-hidden relative shadow-inner border-2 border-white/80 dark:border-white/15 bg-slate-100 dark:bg-slate-800 z-10">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent z-10 pointer-events-none" />
                   
-                  <AnimatePresence mode="wait">
+                  <AnimatePresence initial={false}>
                     <motion.img 
                       key={currentSlide}
                       src={heroSlides[currentSlide].url} 
                       alt={isAr ? heroSlides[currentSlide].title : heroSlides[currentSlide].titleEn} 
-                      initial={{ opacity: 0, scale: (heroSlides[currentSlide].scale || 1) * 1.05 }}
-                      animate={{ opacity: 1, scale: heroSlides[currentSlide].scale || 1 }}
-                      exit={{ opacity: 0, scale: (heroSlides[currentSlide].scale || 1) * 0.96 }}
-                      transition={{ duration: 0.7, ease: "easeInOut" }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.6, ease: "easeInOut" }}
                       style={{ objectPosition: heroSlides[currentSlide].objectPosition || 'center center' }}
-                      className="w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-cover"
                     />
                   </AnimatePresence>
 
@@ -291,7 +290,7 @@ export default function Home() {
                   <button 
                     onClick={prevSlide}
                     aria-label="Previous slide"
-                    className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/85 hover:bg-white text-primary flex items-center justify-center backdrop-blur-md shadow-lg transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 cursor-pointer"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/85 dark:bg-slate-800/85 hover:bg-white dark:hover:bg-slate-700 text-primary dark:text-slate-100 flex items-center justify-center backdrop-blur-md shadow-lg transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 cursor-pointer"
                   >
                     <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
                   </button>
@@ -299,27 +298,27 @@ export default function Home() {
                   <button 
                     onClick={nextSlide}
                     aria-label="Next slide"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/85 hover:bg-white text-primary flex items-center justify-center backdrop-blur-md shadow-lg transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 cursor-pointer"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/85 dark:bg-slate-800/85 hover:bg-white dark:hover:bg-slate-700 text-primary dark:text-slate-100 flex items-center justify-center backdrop-blur-md shadow-lg transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 cursor-pointer"
                   >
                     <ChevronRight className="w-4 h-4 rtl:rotate-180" />
                   </button>
 
                   {/* Slide Label & Indicators */}
-                  <div className="absolute bottom-6 sm:bottom-7 inset-x-4 z-20 flex flex-col items-center gap-1.5 pointer-events-none">
-                    <div className="bg-primary/90 backdrop-blur-md text-white text-[10px] sm:text-[11px] px-3.5 py-1 rounded-full shadow-lg border border-white/20 text-center font-bold max-w-[85%] truncate transition-all duration-300 pointer-events-auto">
+                  <div className="absolute bottom-5 sm:bottom-7 inset-x-3 sm:inset-x-4 z-20 flex flex-col items-center gap-1.5 pointer-events-none">
+                    <div className="bg-gradient-to-r from-sky-200/70 via-white/80 to-sky-100/75 hover:from-sky-200/85 hover:via-white/90 hover:to-sky-100/85 backdrop-blur-2xl saturate-150 text-primary text-[9.5px] sm:text-[11px] px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border border-white/90 shadow-[0_10px_28px_rgba(2,132,199,0.18),inset_0_1.5px_2px_rgba(255,255,255,1)] text-center font-extrabold max-w-[88%] truncate transition-all duration-300 pointer-events-auto">
                       {isAr ? heroSlides[currentSlide].title : heroSlides[currentSlide].titleEn}
                     </div>
 
                     {/* Pagination Dots */}
-                    <div className="flex items-center justify-center flex-wrap gap-1 bg-black/35 backdrop-blur-sm px-2.5 py-1 rounded-full border border-white/10 max-w-[90%] pointer-events-auto">
+                    <div className="flex items-center justify-center flex-wrap gap-1.5 bg-gradient-to-r from-sky-100/65 via-white/70 to-sky-100/65 backdrop-blur-xl saturate-150 px-3 py-1 rounded-full border border-white/85 shadow-[0_4px_15px_rgba(2,132,199,0.12),inset_0_1px_1.5px_rgba(255,255,255,0.95)] max-w-[90%] pointer-events-auto">
                       {heroSlides.map((_, idx) => (
                         <button
                           key={idx}
                           onClick={() => setCurrentSlide(idx)}
                           className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                             idx === currentSlide 
-                              ? 'w-4 bg-accent' 
-                              : 'w-1.5 bg-white/60 hover:bg-white'
+                              ? 'w-4 bg-primary' 
+                              : 'w-1.5 bg-primary/35 hover:bg-primary/65'
                           }`}
                           aria-label={`Slide ${idx + 1}`}
                         />
@@ -340,24 +339,24 @@ export default function Home() {
               dir={isAr ? 'rtl' : 'ltr'}
             >
               {/* Top Accent Badge */}
-              <div className={`flex items-center gap-2.5 mb-3 ${isAr ? '' : 'self-start'}`}>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/50 backdrop-blur-xl border border-white/80 shadow-[0_4px_20px_rgba(11,59,96,0.06)]">
-                  <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-                  <span className="text-xs font-bold text-primary tracking-wide">
+              <div className={`flex items-center gap-2 mb-2.5 sm:mb-3 ${isAr ? '' : 'self-start'}`}>
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_4px_20px_rgba(11,59,96,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+                  <span className="w-2 h-2 rounded-full bg-secondary animate-pulse shrink-0" />
+                  <span className="text-[11px] sm:text-xs font-bold text-primary dark:text-sky-300 tracking-wide">
                     {lang === 'ar' ? 'التميز الأكاديمي والاعتماد الدولي' : 'Academic Excellence & Global Accreditation'}
                   </span>
                 </div>
-                <div className="h-[1.5px] bg-gradient-to-r from-sky-300 to-transparent flex-grow max-w-[100px]" />
+                <div className="hidden sm:block h-[1.5px] bg-gradient-to-r from-sky-300 to-transparent flex-grow max-w-[100px]" />
               </div>
 
               {/* Main Title - Proportioned cleanly for Thmanyah */}
               <h1 
-                className={`text-2xl sm:text-3xl md:text-[2.2rem] lg:text-[2.5rem] font-black text-primary flex flex-col gap-1 tracking-tight mb-3 w-full ${isAr ? 'text-right' : 'text-left'}`}
+                className={`text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-black text-primary dark:text-white flex flex-col gap-1 tracking-tight mb-3 w-full ${isAr ? 'text-right' : 'text-left'}`}
                 style={{ fontFamily: "'ThmanyahSans', sans-serif" }}
               >
                 <span className="leading-snug" style={{ fontFamily: "'ThmanyahSans', sans-serif" }}>{t('heroTitle1')}</span>
                 <span 
-                  className={`text-transparent bg-clip-text ${isAr ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-secondary via-teal-600 to-primary block leading-snug`}
+                  className={`text-transparent bg-clip-text ${isAr ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-secondary via-teal-600 to-primary dark:to-sky-400 block leading-snug`}
                   style={{ fontFamily: "'ThmanyahSans', sans-serif" }}
                 >
                   {t('heroTitle2')}
@@ -365,57 +364,57 @@ export default function Home() {
               </h1>
               
               {/* Reference underline */}
-              <div className={`w-20 h-[3.5px] bg-gradient-to-r from-sky-400 via-sky-300 to-secondary/60 mb-4 rounded-full ${isAr ? '' : 'self-start'}`}></div>
+              <div className={`w-16 sm:w-20 h-[3px] sm:h-[3.5px] bg-gradient-to-r from-sky-400 via-sky-300 to-secondary/60 mb-3.5 sm:mb-4 rounded-full ${isAr ? '' : 'self-start'}`}></div>
 
               {/* Description */}
-              <p className={`text-xs sm:text-sm md:text-[15px] text-primary-dark/80 font-normal leading-relaxed mb-5 max-w-lg ${isAr ? 'text-right' : 'text-left'}`}>
+              <p className={`text-xs sm:text-sm md:text-[15px] text-primary-dark/80 dark:text-slate-300 font-normal leading-relaxed mb-4 sm:mb-5 max-w-lg ${isAr ? 'text-right' : 'text-left'}`}>
                 {t('heroDesc')}
               </p>
 
               {/* Buttons */}
-              <div className={`flex flex-col sm:flex-row items-center gap-3.5 ${isAr ? '' : 'self-start'}`}>
+              <div className={`flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5 w-full sm:w-auto ${isAr ? '' : 'self-start'}`}>
                 <button 
                   onClick={() => navigate('/admission')}
-                  className="w-full sm:w-auto px-8 py-3 bg-primary text-white rounded-full font-bold text-xs sm:text-sm md:text-base hover:bg-primary-dark shadow-[0_8px_25px_rgba(11,59,96,0.25)] hover:shadow-[0_12px_30px_rgba(11,59,96,0.35)] transition-all flex items-center justify-center gap-2.5 group active:scale-95 cursor-pointer"
+                  className="relative overflow-hidden w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-sky-200/70 via-white/80 to-sky-100/75 hover:from-sky-200/85 hover:via-white/95 hover:to-sky-100/90 backdrop-blur-2xl saturate-150 text-primary border-2 border-white/90 hover:border-white rounded-full font-black text-xs sm:text-sm md:text-base shadow-[0_10px_28px_rgba(2,132,199,0.14),inset_0_1.5px_2px_rgba(255,255,255,1)] hover:shadow-[0_15px_35px_rgba(2,132,199,0.22),inset_0_2px_3px_rgba(255,255,255,1)] transition-all duration-500 ease-out hover:-translate-y-1 flex items-center justify-center gap-2.5 group active:scale-95 cursor-pointer"
                 >
                   <span>{t('startAdmission')}</span>
                   {lang === 'ar' ? (
-                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                    <ArrowLeft className="w-4 h-4 text-primary group-hover:-translate-x-1 transition-transform" />
                   ) : (
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
                   )}
                 </button>
                 <button 
                   onClick={() => navigate('/faculties')}
-                  className="w-full sm:w-auto px-8 py-3 bg-white/50 backdrop-blur-2xl text-primary border-2 border-white/80 hover:border-white hover:bg-white/75 rounded-full font-bold text-xs sm:text-sm md:text-base shadow-[0_4px_20px_rgba(11,59,96,0.08)] hover:shadow-[0_8px_25px_rgba(11,59,96,0.15)] transition-all flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl text-primary dark:text-slate-100 border-2 border-white/40 dark:border-white/10 hover:border-white dark:hover:border-white/20 hover:bg-white/70 dark:hover:bg-slate-800/70 rounded-full font-bold text-xs sm:text-sm md:text-base shadow-[0_4px_20px_rgba(11,59,96,0.08)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10 flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
                 >
                   <span>{t('exploreFaculties')}</span>
                 </button>
               </div>
 
               {/* Trust Micro-Highlights */}
-              <div className={`mt-6 pt-4 border-t border-white/60 flex items-center gap-3 sm:gap-4 flex-wrap w-full ${isAr ? '' : 'justify-start'}`}>
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/70 backdrop-blur-md border border-white shadow-2xs">
-                  <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center text-blue-900 border border-blue-100 shrink-0">
-                    <GraduationCap className="w-3.5 h-3.5 text-blue-900" strokeWidth={1.75} />
+              <div className={`mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-white/60 dark:border-white/10 grid grid-cols-2 sm:flex sm:items-center gap-2 sm:gap-4 sm:flex-wrap w-full ${isAr ? '' : 'justify-start'}`}>
+                <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-lg rounded-xl text-slate-800 dark:text-slate-100 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10 cursor-pointer">
+                  <div className="w-5.5 h-5.5 sm:w-6 sm:h-6 rounded-full bg-blue-50 dark:bg-blue-950/80 flex items-center justify-center text-blue-900 dark:text-sky-300 border border-blue-100 dark:border-blue-900/40 shrink-0">
+                    <GraduationCap className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-blue-900 dark:text-sky-300" strokeWidth={1.75} />
                   </div>
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-800">
+                  <span className="text-[10.5px] sm:text-xs font-bold text-slate-800 dark:text-slate-100 truncate">
                     {isAr ? '+90 برنامجاً وتخصصاً' : '90+ Programs'}
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/70 backdrop-blur-md border border-white shadow-2xs">
-                  <div className="w-6 h-6 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 border border-emerald-100 shrink-0">
-                    <Award className="w-3.5 h-3.5 text-emerald-600" strokeWidth={1.75} />
+                <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-lg rounded-xl text-slate-800 dark:text-slate-100 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10 cursor-pointer">
+                  <div className="w-5.5 h-5.5 sm:w-6 sm:h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/80 flex items-center justify-center text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/40 shrink-0">
+                    <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-600 dark:text-emerald-400" strokeWidth={1.75} />
                   </div>
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-800">
+                  <span className="text-[10.5px] sm:text-xs font-bold text-slate-800 dark:text-slate-100 truncate">
                     {isAr ? 'الجامعة الأولى محلياً' : '#1 in Yemen'}
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/70 backdrop-blur-md border border-white shadow-2xs">
-                  <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center text-blue-900 border border-blue-100 shrink-0">
-                    <Globe2 className="w-3.5 h-3.5 text-blue-900" strokeWidth={1.75} />
+                <div className="col-span-2 sm:col-span-1 flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-lg rounded-xl text-slate-800 dark:text-slate-100 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10 cursor-pointer">
+                  <div className="w-5.5 h-5.5 sm:w-6 sm:h-6 rounded-full bg-blue-50 dark:bg-blue-950/80 flex items-center justify-center text-blue-900 dark:text-sky-300 border border-blue-100 dark:border-blue-900/40 shrink-0">
+                    <Globe2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-blue-900 dark:text-sky-300" strokeWidth={1.75} />
                   </div>
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-800">
+                  <span className="text-[10.5px] sm:text-xs font-bold text-slate-800 dark:text-slate-100 truncate">
                     {isAr ? '+35 شراكة دولية' : '35+ Global Partners'}
                   </span>
                 </div>
@@ -427,32 +426,32 @@ export default function Home() {
       </section>
 
       {/* Stats / Infographic Section */}
-      <section className="py-16 bg-transparent border-t border-primary/20 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 sm:py-16 bg-transparent border-t border-sky-100/60 dark:border-white/10 relative z-10">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           
-          <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-black text-primary mb-2">{t('statTitle', 'أرقام وحقائق')}</h2>
-            <p className="text-xs sm:text-sm font-medium text-primary-dark/70 mb-3 max-w-xl mx-auto">
+          <div className="text-center mb-7 sm:mb-10">
+            <h2 className="text-xl sm:text-3xl font-black text-primary dark:text-white mb-2">{t('statTitle', 'أرقام وحقائق')}</h2>
+            <p className="text-xs sm:text-sm font-medium text-primary-dark/70 dark:text-slate-300 mb-3 max-w-xl mx-auto px-2">
               {isAr ? 'اضغط على أي رقم لاستعراض أحدث الإعلانات الرسمية والتفاصيل المعتمدة من موقع الجامعة' : 'Click any stat to explore the latest official announcements and accredited details'}
             </p>
-            <div className="flex items-center justify-center gap-3 mt-3">
-              <div className="w-12 h-[2.5px] bg-sky-300 rounded-full"></div>
+            <div className="flex items-center justify-center gap-2 sm:gap-3 mt-3">
+              <div className="hidden xs:block w-8 sm:w-12 h-[2.5px] bg-sky-300 dark:bg-sky-500/50 rounded-full"></div>
               <button
                 type="button"
                 onClick={() => {
                   const programsSec = document.getElementById('new-programs-section');
                   if (programsSec) programsSec.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full crystal-card hover:bg-white/70 text-primary text-xs font-black transition-all cursor-pointer shadow-xs"
+                className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full crystal-card hover:bg-white/70 dark:hover:bg-slate-800/70 text-primary dark:text-slate-100 text-[11px] sm:text-xs font-black transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-lg cursor-pointer shadow-xs"
               >
-                <GraduationCap className="w-3.5 h-3.5 text-primary stroke-[2.2]" />
+                <GraduationCap className="w-3.5 h-3.5 text-primary dark:text-sky-300 stroke-[2.2]" />
                 <span>{isAr ? 'التخصصات والبرامج الجديدة بالجامعة ↓' : 'Newly Opened University Majors ↓'}</span>
               </button>
-              <div className="w-12 h-[2.5px] bg-sky-300 rounded-full"></div>
+              <div className="hidden xs:block w-8 sm:w-12 h-[2.5px] bg-sky-300 dark:bg-sky-500/50 rounded-full"></div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pt-4 pb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 lg:gap-8 pt-2 sm:pt-4 pb-6 sm:pb-12">
             {stats.map((stat, idx) => (
               <motion.div 
                 key={stat.id} 
@@ -460,49 +459,48 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15 }}
-                whileHover={{ scale: 1.04, y: -6 }}
                 onClick={() => setSelectedStat(stat)}
-                className={`relative flex flex-col items-center py-8 px-6 text-center border-2 border-white/80 hover:border-white rounded-full bg-white/55 hover:bg-white/75 backdrop-blur-3xl shadow-[0_15px_35px_rgba(2,132,199,0.08)] hover:shadow-[0_25px_50px_rgba(2,132,199,0.22)] transition-all duration-500 cursor-pointer group select-none min-h-[380px] justify-between overflow-hidden ${idx % 2 !== 0 ? 'lg:translate-y-12' : ''}`}
+                className={`relative flex flex-col items-center py-5 px-3 sm:py-8 sm:px-6 text-center rounded-[40px] sm:rounded-full bg-white/45 dark:bg-slate-900/45 hover:bg-white/70 dark:hover:bg-slate-900/70 backdrop-blur-3xl border-2 border-white/80 dark:border-white/10 hover:border-white dark:hover:border-white/20 text-slate-800 dark:text-slate-100 shadow-[0_15px_35px_rgba(2,132,199,0.08)] dark:shadow-[0_15px_35px_rgba(0,0,0,0.4)] transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10 cursor-pointer group select-none min-h-[240px] sm:min-h-[340px] lg:min-h-[380px] justify-between overflow-hidden ${idx % 2 !== 0 ? 'lg:translate-y-12' : ''}`}
               >
-                {/* Subtle Ambient Backlight Glow (No dark navy) */}
-                <div className="absolute inset-0 bg-gradient-to-b from-sky-400/10 via-emerald-400/5 to-sky-400/5 pointer-events-none rounded-full" />
+                {/* Subtle Ambient Backlight Glow */}
+                <div className="absolute inset-0 bg-gradient-to-b from-sky-400/10 dark:from-sky-500/5 via-emerald-400/5 dark:via-blue-600/5 to-sky-400/5 dark:to-sky-500/5 pointer-events-none rounded-full" />
 
                 {/* Connecting arrow (hidden on mobile, visible on desktop except last) */}
                 {idx < 3 && (
-                  <div className="hidden lg:block absolute top-1/2 rtl:-left-8 ltr:-right-8 w-8 h-[2px] bg-sky-300/40 z-0 group-hover:bg-sky-500 transition-colors">
+                  <div className="hidden lg:block absolute top-1/2 rtl:-left-8 ltr:-right-8 w-8 h-[2px] bg-sky-300/40 dark:bg-white/15 z-0 group-hover:bg-sky-500 transition-colors">
                     <ArrowLeft className="absolute -left-3 -top-[11px] text-sky-400/60 group-hover:text-sky-600 w-6 h-6 rtl:block ltr:hidden transition-colors" />
                     <ArrowRight className="absolute -right-3 -top-[11px] text-sky-400/60 group-hover:text-sky-600 w-6 h-6 rtl:hidden ltr:block transition-colors" />
                   </div>
                 )}
 
-                {/* Luxurious Circular Icon Emblem (Pure white glass, circular, royal blue icon) */}
-                <div className="relative z-10 mt-2 mb-3 flex items-center justify-center">
+                {/* Luxurious Circular Icon Emblem */}
+                <div className="relative z-10 mt-1 sm:mt-2 mb-2 sm:mb-3 flex items-center justify-center">
                   {/* Subtle Ambient Royal Blue Halo */}
-                  <div className="absolute -inset-2 bg-gradient-to-tr from-blue-400/15 via-indigo-300/10 to-transparent rounded-full blur-md opacity-60 group-hover:opacity-100 group-hover:scale-115 transition-all duration-500 pointer-events-none" />
+                  <div className="absolute -inset-2 bg-gradient-to-tr from-blue-400/15 via-indigo-300/10 to-transparent dark:from-sky-400/20 dark:via-blue-600/10 rounded-full blur-md opacity-60 group-hover:opacity-100 group-hover:scale-115 transition-all duration-500 pointer-events-none" />
 
                   {/* Outer Circular Medallion */}
-                  <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full border-2 border-white bg-white/95 backdrop-blur-xl p-1.5 shadow-[0_8px_25px_rgba(29,78,216,0.12)] group-hover:shadow-[0_14px_35px_rgba(29,78,216,0.22)] group-hover:scale-108 transition-all duration-500 flex items-center justify-center relative overflow-hidden">
+                  <div className="w-14 h-14 sm:w-20 sm:h-20 md:w-22 md:h-22 rounded-full border-2 border-white dark:border-white/20 bg-white/95 dark:bg-slate-800/90 backdrop-blur-xl p-1 sm:p-1.5 shadow-[0_8px_25px_rgba(29,78,216,0.12)] dark:shadow-[0_8px_25px_rgba(0,0,0,0.4)] group-hover:shadow-[0_14px_35px_rgba(29,78,216,0.22)] group-hover:scale-108 transition-all duration-500 flex items-center justify-center relative overflow-hidden">
                     {/* Inner Pristine Faceted Core */}
-                    <div className="w-full h-full rounded-full bg-gradient-to-br from-white via-blue-50/60 to-indigo-50/30 border border-blue-100/90 group-hover:border-blue-300/80 flex items-center justify-center relative overflow-hidden shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-2px_4px_rgba(29,78,216,0.04)]">
+                    <div className="w-full h-full rounded-full bg-gradient-to-br from-white dark:from-slate-800 via-blue-50/60 dark:via-slate-800/70 to-indigo-50/30 dark:to-slate-900 border border-blue-100/90 dark:border-white/10 group-hover:border-blue-300/80 dark:group-hover:border-sky-400/40 flex items-center justify-center relative overflow-hidden shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-2px_4px_rgba(29,78,216,0.04)]">
                       {/* Subtle Crystal Gloss Reflection */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/80 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/80 dark:via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
                       
                       {/* Dark Blue Icon with refined stroke */}
                       <stat.icon 
-                        className="w-9 h-9 sm:w-10 sm:h-10 text-blue-900 group-hover:text-blue-950 transition-all duration-300 drop-shadow-[0_2px_8px_rgba(30,58,138,0.18)] group-hover:scale-110" 
+                        className="w-6 h-6 sm:w-9 sm:h-9 md:w-10 md:h-10 text-blue-900 dark:text-sky-300 group-hover:text-blue-950 dark:group-hover:text-sky-200 transition-all duration-300 drop-shadow-[0_2px_8px_rgba(30,58,138,0.18)] group-hover:scale-110" 
                         strokeWidth={1.65} 
                       />
                     </div>
                   </div>
                 </div>
                 
-                <div className="mb-3 relative z-10 flex-grow flex flex-col justify-center">
-                  <h3 className="text-base sm:text-lg font-black text-slate-800 group-hover:text-blue-900 transition-colors leading-snug">{stat.label}</h3>
+                <div className="mb-2 sm:mb-3 relative z-10 flex-grow flex flex-col justify-center">
+                  <h3 className="text-xs sm:text-base md:text-lg font-black text-slate-800 dark:text-slate-100 group-hover:text-blue-900 dark:group-hover:text-sky-300 transition-colors leading-snug">{stat.label}</h3>
                 </div>
 
-                {/* Large Number at bottom (Dark Blue Tint) */}
-                <div className="mt-auto relative z-10 pb-2">
-                  <span className="text-5xl font-extrabold text-blue-900/20 group-hover:text-blue-900/40 transition-colors font-mono tracking-tight">
+                {/* Large Number at bottom */}
+                <div className="mt-auto relative z-10 pb-1 sm:pb-2">
+                  <span className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-blue-900/20 dark:text-sky-300/20 group-hover:text-blue-900/40 dark:group-hover:text-sky-300/50 transition-colors font-mono tracking-tight">
                     {stat.value}
                   </span>
                 </div>

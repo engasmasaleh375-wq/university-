@@ -145,10 +145,41 @@
   --font-display: 'ThmanyahSerifDisplay', serif;
   --font-serif-text: 'ThmanyahSerifText', serif;
   --font-mono: 'JetBrains Mono', monospace;
+
+  /* Animations & Keyframes */
+  --animate-blob: blob 10s infinite ease-in-out;
+
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+}
+
+/* Custom Animation Delay Utilities */
+.delay-2000, .animation-delay-2000 {
+  animation-delay: 2s !important;
+}
+.delay-4000, .animation-delay-4000 {
+  animation-delay: 4s !important;
 }
 
 *, ::before, ::after {
   font-family: 'ThmanyahSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -292,21 +323,48 @@ h1, h2, h3, h4, h5, h6 {
   background-attachment: fixed;
 }
 
-/* Scrollbar customizations */
+/* Scrollbar customizations - Sky-Blue & White Crystal Glass across the entire site */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(240, 249, 255, 0.45);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(186, 230, 253, 0.88) 0%, rgba(255, 255, 255, 0.95) 50%, rgba(125, 211, 252, 0.88) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: 9999px;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 1), 0 2px 8px rgba(2, 132, 199, 0.22);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(125, 211, 252, 0.95) 0%, rgba(255, 255, 255, 1) 50%, rgba(56, 189, 248, 0.9) 100%);
+  border-color: #ffffff;
+}
+
 .custom-scrollbar {
   overscroll-behavior: contain !important;
   overscroll-behavior-y: contain !important;
   -webkit-overflow-scrolling: touch;
 }
 .custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
+  width: 7px;
+  height: 7px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(224, 242, 254, 0.35);
+  border-radius: 9999px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: var(--color-primary);
-  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(186, 230, 253, 0.9) 0%, rgba(255, 255, 255, 0.96) 50%, rgba(125, 211, 252, 0.9) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: 9999px;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 1), 0 2px 8px rgba(2, 132, 199, 0.22);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(125, 211, 252, 0.95) 0%, rgba(255, 255, 255, 1) 50%, rgba(56, 189, 248, 0.9) 100%);
+  border-color: #ffffff;
 }
 
 /* Hide scrollbar but keep scrollability */
@@ -332,4 +390,23 @@ body.body-scroll-lock main,
 body.body-scroll-lock [class*="overflow-x-"] {
   overflow: hidden !important;
   max-height: 100vh !important;
+}
+
+/* Hide Header & Footer when any Modal / Dialog is Open */
+html.body-scroll-lock header,
+body.body-scroll-lock header {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  transform: translateY(-25px) !important;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease !important;
+}
+
+html.body-scroll-lock footer,
+body.body-scroll-lock footer {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  transform: translateY(25px) !important;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease !important;
 }

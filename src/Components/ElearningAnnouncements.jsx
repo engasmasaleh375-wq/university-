@@ -52,6 +52,7 @@ export const elearningAnnouncementsData = [
       deanship: 'عمادة التعليم الإلكتروني',
       deanshipEn: 'Deanship of E-Learning',
       slogan: 'The Road to a Better Future | الطريق إلى مستقبل أفضل',
+      sloganEn: 'The Road to a Better Future',
       accentColor: '#d97706',
       themeBg: 'from-[#0b2545] via-[#134074] to-[#0b2545]',
       phone: '777761641',
@@ -64,11 +65,24 @@ export const elearningAnnouncementsData = [
       '#عمادة_التعليم_الإلكتروني',
       '#جامعة_العلوم_والتكنولوجيا'
     ],
+    formattedTextEn: [
+      '🎓 Comprehensive Legal Education for a Promising Future! ⚖️',
+      'Join our online Bachelor of Sharia & Law program... and acquire the legal and judicial expertise needed to excel in law practice, corporate counseling, and the judiciary. 🏛️',
+      '📞 Inquiries & Admissions: 777761641 | www.ust.edu.ye',
+      '#Deanship_of_ELearning',
+      '#University_of_Science_and_Technology'
+    ],
     highlights: [
       'دراسة مرنة عن بُعد من أي مكان في العالم عبر أحدث المنصات الافتراضية',
       'هيئة تدريسية متخصصة ومناهج فقهية وقانونية معاصرة معتمدة',
       'شهادة بكالوريوس رسمية ومعتمدة ومطابقة لشهادات الانتظام بالجامعة',
       'مراكز امتحانية وتنسيقية متعددة لخدمة الطلاب داخل اليمن ودول الاغتراب'
+    ],
+    highlightsEn: [
+      'Flexible distance learning accessible globally via modern interactive virtual platforms',
+      'Distinguished specialized faculty with accredited contemporary legal and sharia curricula',
+      'Official accredited bachelor degree fully identical to on-campus university degrees',
+      'Multiple examination and coordination centers serving students in Yemen and abroad'
     ],
     applyUrl: '/admission'
   },
@@ -97,6 +111,7 @@ export const elearningAnnouncementsData = [
       deanship: 'عمادة التعليم الإلكتروني',
       deanshipEn: 'Deanship of E-Learning',
       slogan: 'The Road to a Better Future | الطريق إلى مستقبل أفضل',
+      sloganEn: 'The Road to a Better Future',
       accentColor: '#0284c7',
       themeBg: 'from-[#0f172a] via-[#1e3a8a] to-[#0f172a]',
       phone: '777761641',
@@ -109,11 +124,24 @@ export const elearningAnnouncementsData = [
       '#عمادة_التعليم_الإلكتروني',
       '#جامعة_العلوم_والتكنولوجيا'
     ],
+    formattedTextEn: [
+      '🚀 Launch Your Success into the Global Marketplace! 🌐',
+      'Earn an online Bachelor of International Business Administration, and master executive leadership and strategic management skills to compete in top regional and global firms. 📈',
+      '📞 Inquiries & Admissions: 777761641 | www.ust.edu.ye',
+      '#Deanship_of_ELearning',
+      '#University_of_Science_and_Technology'
+    ],
     highlights: [
       'تخصص نوعي باللغة الإنجليزية والعربية يواكب متطلبات الاقتصاد الرقمي والتجارة العالمية',
       'فصول افتراضية ومحاضرات تفاعلية مسجلة متاحة 24/7 مع كبار الخبراء والأكاديميين',
       'دراسات حالة وتدريب عملي على نماذج الشركات متعددة الجنسيات',
       'تسهيلات في السداد وأقساط ميسرة لكافة الطلاب داخل وخارج الوطن'
+    ],
+    highlightsEn: [
+      'High-demand program in English & Arabic tailored to the digital economy and international trade',
+      'Virtual classrooms & 24/7 interactive recorded lectures with top industry experts and academics',
+      'Practical case studies and applied simulations on multinational enterprise business models',
+      'Flexible payment installments available for domestic and international students'
     ],
     applyUrl: '/admission'
   },
@@ -142,6 +170,7 @@ export const elearningAnnouncementsData = [
       deanship: 'عمادة التعليم الإلكتروني',
       deanshipEn: 'Deanship of E-Learning',
       slogan: 'The Road to a Better Future | الطريق إلى مستقبل أفضل',
+      sloganEn: 'The Road to a Better Future',
       accentColor: '#0284c7',
       themeBg: 'from-[#0b2545] via-[#1e3a8a] to-[#0b2545]',
       phone: '777761641',
@@ -154,11 +183,24 @@ export const elearningAnnouncementsData = [
       '#عمادة_التعليم_الإلكتروني',
       '#جامعة_العلوم_والتكنولوجيا'
     ],
+    formattedTextEn: [
+      '🎓 Elite Qualification in Psychological Support & Counseling! 🧠',
+      'Join our online Bachelor of Psychology & Counseling program... and gain the scientific and applied expertise that qualifies you for excellence in psychological, educational, and organizational counseling fields. 🏛️',
+      '📞 Inquiries & Admissions: 777761641 | www.ust.edu.ye',
+      '#Deanship_of_ELearning',
+      '#University_of_Science_and_Technology'
+    ],
     highlights: [
       'دراسة مرنة عن بُعد من أي مكان في العالم عبر أحدث المنصات الافتراضية',
       'هيئة تدريسية متخصصة ومناهج معاصرة تجمع بين الأصالة والعلوم السلوكية الحديثة',
       'شهادة بكالوريوس رسمية ومعتمدة ومطابقة لشهادات الانتظام بالجامعة',
       'تأهيل تطبيقي واستشاري يفتح آفاق العمل في المراكز والمدارس والمستشفيات والمنظمات'
+    ],
+    highlightsEn: [
+      'Flexible distance learning accessible globally via modern interactive virtual platforms',
+      'Expert faculty and contemporary curriculum blending core theory with modern behavioral science',
+      'Official accredited bachelor degree fully identical to on-campus university degrees',
+      'Applied counseling qualification unlocking career opportunities in clinics, schools, hospitals, and NGOs'
     ],
     applyUrl: '/admission'
   }
@@ -185,17 +227,17 @@ export function AnnouncementPoster({ ad, isAr = true, isCompact = false }) {
       {/* Top Header of Poster */}
       <div className="relative bg-slate-50/80 px-3 py-1.5 flex items-center justify-between border-b border-slate-100">
         <div className="flex items-center gap-1">
-          <span className={`bg-gradient-to-r ${badgeGradient} text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow-xs`}>
+          <span className="bg-emerald-50 text-emerald-700 border border-emerald-200/80 text-[9px] font-black px-2 py-0.5 rounded-full shadow-2xs">
             {isAr ? p.badge : p.badgeEn}
           </span>
-          <span className="text-[9px] font-bold text-slate-600 bg-slate-200/60 px-1.5 py-0.5 rounded-full">
+          <span className="text-[9px] font-bold text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded-full">
             {p.year}
           </span>
         </div>
 
         {/* University Crest Mark */}
         <div className="flex items-center gap-1">
-          <span className="text-[8px] font-bold text-primary block leading-none">
+          <span className="text-[8px] font-bold text-slate-500 block leading-none">
             UST
           </span>
           <div className="w-6 h-6 rounded-full bg-white border border-slate-200 shadow-2xs flex items-center justify-center p-0.5">
@@ -204,21 +246,21 @@ export function AnnouncementPoster({ ad, isAr = true, isCompact = false }) {
         </div>
       </div>
 
-      {/* Main Stadium Oval Graphic Frame */}
+      {/* Main Stadium Oval Graphic Frame (Light Frosted Crystal) */}
       <div className="p-2.5 bg-gradient-to-b from-slate-50/60 to-white flex flex-col items-center">
         <div
-          className={`relative w-full h-24 rounded-[20px] overflow-hidden bg-gradient-to-br ${p.themeBg} shadow-inner flex flex-col items-center justify-center p-2 text-white text-center border border-white/80`}
+          className="relative w-full h-24 rounded-[20px] overflow-hidden bg-gradient-to-br from-white/95 via-sky-50/60 to-slate-50/90 shadow-xs flex flex-col items-center justify-center p-2 text-center border border-sky-100/80"
         >
           {/* Subtle Ambient Rings & Glow */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(2,132,199,0.06)_0%,transparent_70%)] pointer-events-none" />
 
           {/* Core Graphic Icon per type */}
           {ad.type === 'law' && (
             <div className="relative z-10 flex flex-col items-center">
-              <div className="w-10 h-10 rounded-full bg-white/15 border border-white/25 backdrop-blur-md flex items-center justify-center shadow-md mb-1 group-hover:scale-105 transition-transform">
-                <Scale className="w-5 h-5 text-amber-300 drop-shadow-md" />
+              <div className="w-10 h-10 rounded-full bg-white border border-slate-200/80 shadow-xs flex items-center justify-center mb-1 group-hover:scale-105 transition-transform">
+                <Scale className="w-5 h-5 text-amber-600" />
               </div>
-              <span className="text-[8.5px] text-sky-100 font-extrabold uppercase tracking-wider bg-white/10 px-2.5 py-0.5 rounded-full border border-white/15">
+              <span className="text-[8.5px] text-slate-700 font-extrabold uppercase tracking-wider bg-white/90 px-2.5 py-0.5 rounded-full border border-slate-200/70 shadow-2xs">
                 Justice & Jurisprudence
               </span>
             </div>
@@ -226,10 +268,10 @@ export function AnnouncementPoster({ ad, isAr = true, isCompact = false }) {
 
           {ad.type === 'business' && (
             <div className="relative z-10 flex flex-col items-center">
-              <div className="w-10 h-10 rounded-full bg-white/15 border border-white/25 backdrop-blur-md flex items-center justify-center shadow-md mb-1 group-hover:scale-105 transition-transform">
-                <Briefcase className="w-5 h-5 text-cyan-300 drop-shadow-md" />
+              <div className="w-10 h-10 rounded-full bg-white border border-slate-200/80 shadow-xs flex items-center justify-center mb-1 group-hover:scale-105 transition-transform">
+                <Briefcase className="w-5 h-5 text-teal-600" />
               </div>
-              <span className="text-[8.5px] text-cyan-100 font-extrabold uppercase tracking-wider bg-white/10 px-2.5 py-0.5 rounded-full border border-white/15">
+              <span className="text-[8.5px] text-slate-700 font-extrabold uppercase tracking-wider bg-white/90 px-2.5 py-0.5 rounded-full border border-slate-200/70 shadow-2xs">
                 Global Business
               </span>
             </div>
@@ -237,42 +279,42 @@ export function AnnouncementPoster({ ad, isAr = true, isCompact = false }) {
 
           {ad.type === 'psychology' && (
             <div className="relative z-10 flex flex-col items-center">
-              <div className="w-10 h-10 rounded-full bg-white/15 border border-white/25 backdrop-blur-md flex items-center justify-center shadow-md mb-1 group-hover:scale-105 transition-transform">
-                <GraduationCap className="w-5 h-5 text-amber-300 drop-shadow-md" />
+              <div className="w-10 h-10 rounded-full bg-white border border-slate-200/80 shadow-xs flex items-center justify-center mb-1 group-hover:scale-105 transition-transform">
+                <GraduationCap className="w-5 h-5 text-sky-600" />
               </div>
-              <span className="text-[8.5px] text-sky-100 font-extrabold uppercase tracking-wider bg-white/10 px-2.5 py-0.5 rounded-full border border-white/15">
+              <span className="text-[8.5px] text-slate-700 font-extrabold uppercase tracking-wider bg-white/90 px-2.5 py-0.5 rounded-full border border-slate-200/70 shadow-2xs">
                 Psychology & Counseling
               </span>
             </div>
           )}
 
           {/* Oval Border Overlay */}
-          <div className="absolute inset-1 border border-white/20 rounded-[18px] pointer-events-none" />
+          <div className="absolute inset-1 border border-sky-100/60 rounded-[18px] pointer-events-none" />
         </div>
 
         {/* Degree & Major Typography on Poster */}
         <div className="mt-2 text-center w-full">
-          <span className="text-[9px] font-black text-sky-700 uppercase tracking-widest block">
+          <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block">
             {isAr ? p.degree : 'Degree'}
           </span>
-          <h4 className="text-sm font-black text-primary tracking-tight leading-tight mt-0.5">
+          <h4 className="text-sm font-black text-slate-900 tracking-tight leading-tight mt-0.5">
             {isAr ? p.major : p.majorEn}
           </h4>
-          <p className="text-[9.5px] font-bold text-slate-600 mt-0.5 max-w-[95%] mx-auto line-clamp-1">
+          <p className="text-[9.5px] font-semibold text-slate-500 mt-0.5 max-w-[95%] mx-auto line-clamp-1">
             {isAr ? p.subtitle : p.subtitleEn}
           </p>
         </div>
 
         {/* Deanship Pill */}
         <div className="mt-1.5">
-          <span className="inline-block bg-gradient-to-r from-[#072541] to-[#0c4a6e] text-white text-[9px] font-black px-2.5 py-0.5 rounded-full shadow-xs">
+          <span className="inline-block bg-slate-100/90 border border-slate-200/80 text-slate-600 text-[9px] font-bold px-2.5 py-0.5 rounded-full shadow-2xs">
             {isAr ? p.deanship : p.deanshipEn}
           </span>
         </div>
 
         {/* Motto line */}
         <div className="mt-1.5 text-[8px] font-bold text-slate-400 border-t border-slate-100 pt-1 w-full text-center">
-          {p.slogan}
+          {isAr ? p.slogan : (p.sloganEn || p.slogan)}
         </div>
       </div>
     </div>
@@ -372,19 +414,19 @@ export default function ElearningAnnouncementsModal({
 
   return (
     <div className="w-full text-primary-dark flex flex-col select-none overflow-hidden" dir={isAr ? 'rtl' : 'ltr'}>
-      {/* Royal Curved Navy Header (Matching Faculties Modal) */}
-      <div className="relative p-5 sm:p-6 rounded-b-[28px] sm:rounded-b-[36px] shadow-sm bg-gradient-to-r from-primary via-primary to-primary-dark text-white flex items-start justify-between gap-4 shrink-0">
+      {/* Pure White Glass Header */}
+      <div className="relative p-5 sm:p-6 rounded-b-[28px] sm:rounded-b-[36px] shadow-[0_4px_20px_rgba(0,0,0,0.04)] bg-white/95 backdrop-blur-xl border-b border-slate-200/80 text-slate-800 flex items-start justify-between gap-4 shrink-0">
         <div className="flex items-center gap-3.5">
-          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-white/40 flex items-center justify-center shrink-0 shadow-lg overflow-hidden bg-slate-900 p-1">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-white flex items-center justify-center shrink-0 shadow-sm overflow-hidden bg-white p-1">
             <img src="/logo.png" alt="UST" className="w-full h-full object-contain" />
           </div>
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs font-black tracking-widest text-accent uppercase">
+              <span className="text-xs font-bold tracking-wider text-slate-500 uppercase">
                 {isAr ? 'عمادة التعليم الإلكتروني والتعليم عن بُعد' : 'DEANSHIP OF E-LEARNING'}
               </span>
             </div>
-            <h3 className="text-lg sm:text-2xl font-black text-white leading-tight">
+            <h3 className="text-lg sm:text-2xl font-black text-slate-900 leading-tight">
               {isAr ? 'الإعلانات الرسمية وبوابة القبول والتسجيل' : 'Official Announcements & E-Admissions'}
             </h3>
           </div>
@@ -393,7 +435,7 @@ export default function ElearningAnnouncementsModal({
         {onClose && (
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors shrink-0 cursor-pointer active:scale-95"
+            className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200/80 flex items-center justify-center transition-colors shrink-0 cursor-pointer active:scale-95 shadow-xs"
             title={isAr ? 'إغلاق' : 'Close'}
           >
             <X className="w-5 h-5" />
@@ -402,15 +444,15 @@ export default function ElearningAnnouncementsModal({
       </div>
 
       {/* Switcher Tabs */}
-      <div className="px-4 sm:px-6 py-2.5 bg-white/70 border-b border-primary/10 flex items-center justify-between gap-2 overflow-x-auto scrollbar-none shrink-0 backdrop-blur-sm">
+      <div className="px-4 sm:px-6 py-2.5 bg-white/70 border-b border-slate-200/70 flex items-center justify-between gap-2 overflow-x-auto scrollbar-none shrink-0 backdrop-blur-sm">
         <div className="flex items-center gap-2">
           {/* Back to all button */}
           <button
             onClick={() => setSelectedAdId(null)}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-extrabold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-black transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
               selectedAdId === null
-                ? 'bg-primary text-white shadow-sm'
-                : 'bg-white text-primary-dark hover:bg-slate-100 border border-primary/20'
+                ? 'bg-gradient-to-r from-sky-200/75 via-white/85 to-sky-100/80 backdrop-blur-xl text-primary border border-white/95 shadow-[0_6px_16px_rgba(2,132,199,0.16),inset_0_1.5px_2px_rgba(255,255,255,1)]'
+                : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-2xs'
             }`}
           >
             <Layers className="w-3.5 h-3.5" />
@@ -424,13 +466,13 @@ export default function ElearningAnnouncementsModal({
               onClick={() => setSelectedAdId(ad.id)}
               className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
                 selectedAdId === ad.id
-                  ? 'bg-secondary text-primary shadow-sm font-extrabold'
-                  : 'bg-white text-primary-dark/80 hover:bg-slate-100 border border-primary/20'
+                  ? 'bg-sky-50 text-sky-800 border border-sky-300/80 font-black shadow-xs'
+                  : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 shadow-2xs'
               }`}
             >
-              {ad.type === 'law' && <Scale className="w-3.5 h-3.5" />}
-              {ad.type === 'business' && <Briefcase className="w-3.5 h-3.5" />}
-              {ad.type === 'psychology' && <GraduationCap className="w-3.5 h-3.5" />}
+              {ad.type === 'law' && <Scale className="w-3.5 h-3.5 text-amber-600" />}
+              {ad.type === 'business' && <Briefcase className="w-3.5 h-3.5 text-teal-600" />}
+              {ad.type === 'psychology' && <GraduationCap className="w-3.5 h-3.5 text-sky-600" />}
               <span>{isAr ? ad.poster.major : ad.poster.majorEn}</span>
             </button>
           ))}
@@ -452,15 +494,15 @@ export default function ElearningAnnouncementsModal({
               {/* Compact Section Subtitle Strip */}
               <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-200" dir={isAr ? 'rtl' : 'ltr'}>
                 <div className="flex items-center gap-2">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-black">
-                    <Megaphone className="w-3.5 h-3.5 text-accent" />
+                  <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200/70 text-xs font-bold">
+                    <Megaphone className="w-3.5 h-3.5 text-slate-400" />
                     <span>{isAr ? 'عمادة التعليم الإلكتروني والمراكز النوعية' : 'E-Learning & Centers'}</span>
                   </div>
-                  <span className="text-xs sm:text-sm font-black text-primary">
+                  <span className="text-xs sm:text-sm font-black text-slate-800">
                     {isAr ? 'أحدث الإعلانات الرسمية للجامعة' : 'Latest Official Notices'}
                   </span>
                 </div>
-                <span className="text-[11px] font-bold text-slate-500 hidden sm:inline">
+                <span className="text-[11px] font-bold text-slate-400 hidden sm:inline">
                   {isAr ? 'انقر على أي إعلان لعرض التفاصيل الكاملة' : 'Click any notice for details'}
                 </span>
               </div>
@@ -469,26 +511,20 @@ export default function ElearningAnnouncementsModal({
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 items-stretch">
                 {elearningAnnouncementsData.map((ad) => {
                   const p = ad.poster;
-                  const badgeGradient =
-                    ad.type === 'law'
-                      ? 'from-[#0369a1] to-[#0284c7]'
-                      : ad.type === 'business'
-                      ? 'from-[#1e40af] to-[#2563eb]'
-                      : 'from-[#0284c7] to-[#1e40af]';
 
                   return (
                     <div
                       key={ad.id}
                       onClick={() => setSelectedAdId(ad.id)}
-                      className="group relative bg-white border-2 border-primary/15 hover:border-primary/50 rounded-[32px] p-3 sm:p-3.5 flex flex-col justify-between shadow-xs hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden select-none"
+                      className="group relative bg-white border border-slate-200/80 hover:border-sky-300 rounded-[32px] p-3 sm:p-3.5 flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_28px_rgba(2,132,199,0.08)] transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden select-none"
                     >
                       {/* Concentric Inner Outline Ring */}
-                      <div className="absolute inset-1.5 rounded-[26px] border border-primary/10 pointer-events-none group-hover:border-primary/25 transition-colors z-0" />
+                      <div className="absolute inset-1.5 rounded-[26px] border border-slate-100 pointer-events-none group-hover:border-sky-100 transition-colors z-0" />
 
                       {/* Card Top: Badges & Crest */}
                       <div className="relative z-10 flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
                         <div className="flex items-center gap-1.5">
-                          <span className={`bg-gradient-to-r ${badgeGradient} text-white text-[9.5px] font-black px-2.5 py-0.5 rounded-full shadow-2xs`}>
+                          <span className="bg-emerald-50 text-emerald-700 border border-emerald-200/80 text-[9.5px] font-black px-2.5 py-0.5 rounded-full shadow-2xs">
                             {isAr ? p.badge : p.badgeEn}
                           </span>
                           <span className="text-[9.5px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">
@@ -503,16 +539,16 @@ export default function ElearningAnnouncementsModal({
                         </div>
                       </div>
 
-                      {/* Stadium Capsule Graphic Box (Compact) */}
-                      <div className={`relative z-10 w-full h-24 rounded-[24px] overflow-hidden bg-gradient-to-br ${p.themeBg} shadow-inner flex flex-col items-center justify-center text-white text-center border border-white/70 mb-2`}>
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)] pointer-events-none" />
+                      {/* Stadium Capsule Graphic Box (Light Frosted Crystal) */}
+                      <div className="relative z-10 w-full h-24 rounded-[24px] overflow-hidden bg-gradient-to-br from-white/95 via-sky-50/60 to-slate-50/90 shadow-xs flex flex-col items-center justify-center text-center border border-sky-100/80 mb-2">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(2,132,199,0.06)_0%,transparent_70%)] pointer-events-none" />
                         <div className="relative z-10 flex flex-col items-center">
-                          <div className="w-10 h-10 rounded-full bg-white/15 border border-white/30 backdrop-blur-xs flex items-center justify-center shadow-md mb-1 group-hover:scale-105 transition-transform">
-                            {ad.type === 'law' && <Scale className="w-5 h-5 text-amber-300 drop-shadow-xs" />}
-                            {ad.type === 'business' && <Briefcase className="w-5 h-5 text-cyan-300 drop-shadow-xs" />}
-                            {ad.type === 'psychology' && <GraduationCap className="w-5 h-5 text-amber-300 drop-shadow-xs" />}
+                          <div className="w-10 h-10 rounded-full bg-white border border-slate-200/80 shadow-xs flex items-center justify-center mb-1 group-hover:scale-105 transition-transform">
+                            {ad.type === 'law' && <Scale className="w-5 h-5 text-amber-600" />}
+                            {ad.type === 'business' && <Briefcase className="w-5 h-5 text-teal-600" />}
+                            {ad.type === 'psychology' && <GraduationCap className="w-5 h-5 text-sky-600" />}
                           </div>
-                          <span className="text-[9px] text-white/90 font-extrabold uppercase tracking-wider bg-white/10 px-2.5 py-0.5 rounded-full border border-white/15">
+                          <span className="text-[9px] text-slate-700 font-extrabold uppercase tracking-wider bg-white/90 px-2.5 py-0.5 rounded-full border border-slate-200/70 shadow-2xs">
                             {ad.type === 'law' ? 'Justice & Law' : ad.type === 'business' ? 'Global Leadership' : 'Psychology & Counseling'}
                           </span>
                         </div>
@@ -520,10 +556,10 @@ export default function ElearningAnnouncementsModal({
 
                       {/* Title & Subtitle */}
                       <div className="relative z-10 text-center flex-grow flex flex-col justify-center my-0.5" dir={isAr ? 'rtl' : 'ltr'}>
-                        <span className="text-[9.5px] font-black text-sky-700 uppercase tracking-widest block">
+                        <span className="text-[9.5px] font-bold text-slate-400 uppercase tracking-widest block">
                           {isAr ? p.degree : 'Degree'}
                         </span>
-                        <h4 className="text-sm font-black text-primary tracking-tight leading-snug group-hover:text-primary-dark transition-colors mt-0.5">
+                        <h4 className="text-sm font-black text-slate-900 tracking-tight leading-snug group-hover:text-primary transition-colors mt-0.5">
                           {isAr ? p.major : p.majorEn}
                         </h4>
                         <p className="text-[10px] font-semibold text-slate-500 mt-0.5 line-clamp-1">
@@ -533,7 +569,7 @@ export default function ElearningAnnouncementsModal({
 
                       {/* Card Footer: Deanship, More Button & Date */}
                       <div className="relative z-10 pt-2 border-t border-slate-100 flex items-center justify-between mt-auto">
-                        <span className="text-[9.5px] font-black text-white bg-gradient-to-r from-[#072541] to-[#0c4a6e] px-2.5 py-0.5 rounded-full shadow-2xs">
+                        <span className="text-[9.5px] font-bold text-slate-600 bg-slate-100/90 border border-slate-200/80 px-2.5 py-0.5 rounded-full shadow-2xs">
                           {isAr ? p.deanship : p.deanshipEn}
                         </span>
 
@@ -543,7 +579,7 @@ export default function ElearningAnnouncementsModal({
                             e.stopPropagation();
                             setSelectedAdId(ad.id);
                           }}
-                          className="px-3 py-1 rounded-full bg-slate-100 hover:bg-primary hover:text-white text-slate-700 text-[10px] font-bold transition-all flex items-center gap-1 shadow-2xs cursor-pointer active:scale-95"
+                          className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10px] font-bold transition-all flex items-center gap-1 shadow-2xs cursor-pointer active:scale-95"
                         >
                           <span>{isAr ? 'المزيد...' : 'Details'}</span>
                           {isAr ? <ChevronLeft className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
@@ -605,37 +641,37 @@ export default function ElearningAnnouncementsModal({
                 </div>
 
                 {/* Formatted Text Description Column */}
-                <div className="md:col-span-7 space-y-2 text-right flex flex-col justify-between" dir={isAr ? 'rtl' : 'ltr'}>
+                <div className={`md:col-span-7 space-y-2 flex flex-col justify-between ${isAr ? 'text-right' : 'text-left'}`} dir={isAr ? 'rtl' : 'ltr'}>
                   {/* Text card */}
                   <div className="bg-white/60 backdrop-blur-md border border-white/80 rounded-2xl p-2.5 sm:p-3 shadow-2xs space-y-1.5">
                     <div className="text-xs sm:text-[13px] font-black text-primary leading-snug">
-                      {selectedAd.formattedText[0]}
+                      {isAr ? selectedAd.formattedText[0] : (selectedAd.formattedTextEn ? selectedAd.formattedTextEn[0] : selectedAd.formattedText[0])}
                     </div>
 
                     <p className="text-[10.5px] sm:text-[11px] font-semibold text-slate-700 leading-relaxed">
-                      {selectedAd.formattedText[1]}
+                      {isAr ? selectedAd.formattedText[1] : (selectedAd.formattedTextEn ? selectedAd.formattedTextEn[1] : selectedAd.formattedText[1])}
                     </p>
 
                     <div className="p-1.5 px-2.5 rounded-xl bg-white/80 border border-primary/15 flex items-center gap-2 text-primary text-[11px] font-black font-mono">
                       <Phone className="w-3.5 h-3.5 text-accent shrink-0" />
-                      <span>{selectedAd.formattedText[2]}</span>
+                      <span>{isAr ? selectedAd.formattedText[2] : (selectedAd.formattedTextEn ? selectedAd.formattedTextEn[2] : selectedAd.formattedText[2])}</span>
                     </div>
 
                     {/* Hashtags */}
                     <div className="flex flex-wrap gap-1.5 text-[9.5px] font-black text-sky-700">
-                      <span>{selectedAd.formattedText[3]}</span>
+                      <span>{isAr ? selectedAd.formattedText[3] : (selectedAd.formattedTextEn ? selectedAd.formattedTextEn[3] : selectedAd.formattedText[3])}</span>
                       <span>•</span>
-                      <span>{selectedAd.formattedText[4]}</span>
+                      <span>{isAr ? selectedAd.formattedText[4] : (selectedAd.formattedTextEn ? selectedAd.formattedTextEn[4] : selectedAd.formattedText[4])}</span>
                     </div>
                   </div>
 
                   {/* Highlights Grid */}
                   <div>
                     <h5 className="text-[10px] font-black text-primary uppercase tracking-wider mb-1">
-                      {isAr ? 'مزايا ومعايير البرنامج:' : 'Program Highlights:'}
+                      {isAr ? 'مزايا ومعايير البرنامج:' : 'PROGRAM HIGHLIGHTS:'}
                     </h5>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                      {selectedAd.highlights.map((h, i) => (
+                      {(isAr ? selectedAd.highlights : (selectedAd.highlightsEn || selectedAd.highlights)).map((h, i) => (
                         <div
                           key={i}
                           className="bg-white/60 backdrop-blur-md border border-white/80 rounded-xl p-1.5 px-2 flex items-start gap-1.5 shadow-2xs"

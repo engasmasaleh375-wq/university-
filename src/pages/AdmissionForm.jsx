@@ -190,27 +190,30 @@ export default function AdmissionForm() {
 
     if (searchMajorQuery.trim()) {
       const q = searchMajorQuery.toLowerCase().trim();
-      list = list.filter(m => m.name.toLowerCase().includes(q));
+      list = list.filter(m =>
+        m.name.toLowerCase().includes(q) ||
+        (m.nameEn && m.nameEn.toLowerCase().includes(q))
+      );
     }
 
     return list;
   }, [selectedFaculty, showOnlyEligible, parsedGpa, searchMajorQuery]);
 
   return (
-    <div className="relative min-h-screen bg-transparent text-primary-dark pt-28 sm:pt-32 md:pt-36 pb-14 px-3 sm:px-6 overflow-x-hidden font-sans">
-      {/* Decorative Brand Ambient Glowing Orbs */}
-      <div className="fixed top-20 right-10 w-96 h-96 bg-sky-400/8 rounded-full blur-3xl pointer-events-none" />
-      <div className="fixed bottom-10 left-10 w-[450px] h-[450px] bg-emerald-400/6 rounded-full blur-3xl pointer-events-none" />
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-white/50 rounded-full blur-3xl pointer-events-none" />
+    <div className="relative min-h-screen bg-transparent text-primary-dark pt-22 sm:pt-32 md:pt-36 pb-10 sm:pb-14 px-3 sm:px-6 overflow-x-hidden font-sans">
+      {/* Decorative Brand Ambient Glowing Orbs (Responsive sizes) */}
+      <div className="fixed top-20 right-10 w-60 h-60 md:w-96 md:h-96 bg-sky-400/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="fixed bottom-10 left-10 w-72 h-72 md:w-[450px] md:h-[450px] bg-emerald-400/6 rounded-full blur-3xl pointer-events-none" />
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] md:w-[650px] md:h-[650px] bg-white/50 rounded-full blur-3xl pointer-events-none" />
       
       <div className="max-w-3xl mx-auto relative z-10">
         
         {/* Header Section */}
-        <div className="text-center mb-3 sm:mb-4">
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-primary mb-1.5 tracking-tight">
+        <div className="text-center mb-4 sm:mb-6">
+          <h1 className="text-xl sm:text-3xl font-extrabold text-primary mb-2.5 sm:mb-4 tracking-tight">
             {t('admissionPortal')}
           </h1>
-          <p className="text-primary-dark/80 font-medium text-xs sm:text-[13px] max-w-md mx-auto leading-relaxed">
+          <p className="text-primary-dark/80 font-medium text-xs sm:text-[13.5px] max-w-lg mx-auto leading-relaxed px-2">
             {isAr 
               ? 'أدخل بياناتك ومعدل الثانوية العامة لتظهر لك التخصصات والكليات المتاحة لك فوراً.'
               : 'Enter your High School GPA to immediately discover and apply for eligible academic specializations.'}
@@ -218,10 +221,10 @@ export default function AdmissionForm() {
         </div>
 
         {/* Form Container - Frosted Glass Stadium Capsule */}
-        <div className="relative bg-white/20 backdrop-blur-md border border-white/30 rounded-[32px] sm:rounded-[44px] md:rounded-[52px] shadow-lg overflow-hidden">
+        <div className="relative bg-white/20 backdrop-blur-md border border-white/30 rounded-[28px] sm:rounded-[44px] md:rounded-[52px] shadow-lg overflow-hidden">
           {/* Stepper Header */}
-          <div className="bg-white/20 backdrop-blur-md px-4 sm:px-6 py-2 sm:py-2.5 border-b border-white/30 overflow-x-auto custom-scrollbar">
-            <div className="flex justify-between items-center relative min-w-[270px] max-w-md mx-auto">
+          <div className="bg-white/20 backdrop-blur-md px-3 sm:px-6 py-2 sm:py-2.5 border-b border-white/30 overflow-x-auto custom-scrollbar">
+            <div className="flex justify-between items-center relative min-w-[240px] max-w-md mx-auto">
               {/* Line background */}
               <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-0.5 bg-primary/10 -z-10 rounded-full"></div>
               {/* Active line */}
@@ -238,8 +241,8 @@ export default function AdmissionForm() {
                 return (
                   <div key={step.id} className="flex flex-col items-center">
                     <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center border-2 border-white transition-all duration-300 shadow-xs ${
-                      isActive ? 'bg-primary text-white scale-105 shadow-md shadow-primary/30 ring-2 ring-primary/20' 
-                      : isCompleted ? 'bg-primary text-white shadow-xs' 
+                      isActive ? 'bg-gradient-to-r from-sky-200/80 via-white/90 to-sky-100/85 text-primary scale-105 shadow-[0_6px_16px_rgba(2,132,199,0.2),inset_0_1px_1.5px_rgba(255,255,255,1)] ring-2 ring-sky-200/60' 
+                      : isCompleted ? 'bg-gradient-to-r from-sky-200/75 via-white/85 to-sky-100/80 text-primary shadow-xs' 
                       : 'bg-white/30 backdrop-blur-md text-primary-dark/60 border border-white/30'
                     }`}>
                       {isCompleted ? <Check className="w-3.5 h-3.5" /> : <Icon className="w-3.5 h-3.5" />}
@@ -280,8 +283,8 @@ export default function AdmissionForm() {
                     <div className="space-y-1 text-xs font-semibold text-primary-dark/80">
                       <div><span className="text-primary-dark/50">{isAr ? 'اسم الطالب' : 'Student Name'}:</span> {formData.fullName}</div>
                       <div><span className="text-primary-dark/50">{isAr ? 'المعدل' : 'GPA'}:</span> <span className="font-bold text-primary">{formData.gpa}%</span></div>
-                      <div><span className="text-primary-dark/50">{isAr ? 'الكلية' : 'Faculty'}:</span> {isAr ? selectedFaculty?.name : selectedFaculty?.id}</div>
-                      <div><span className="text-primary-dark/50">{isAr ? 'التخصص المختار' : 'Major'}:</span> <span className="font-extrabold text-primary">{isAr ? selectedMajor?.name : selectedMajor?.id}</span></div>
+                      <div><span className="text-primary-dark/50">{isAr ? 'الكلية' : 'Faculty'}:</span> {isAr ? selectedFaculty?.name : (selectedFaculty?.nameEn || selectedFaculty?.name)}</div>
+                      <div><span className="text-primary-dark/50">{isAr ? 'التخصص المختار' : 'Major'}:</span> <span className="font-extrabold text-primary">{isAr ? selectedMajor?.name : (selectedMajor?.nameEn || selectedMajor?.name)}</span></div>
                     </div>
                   </div>
 
@@ -293,7 +296,7 @@ export default function AdmissionForm() {
                   
                   <button 
                     onClick={resetForm}
-                    className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-8 rounded-full transition-all shadow-sm hover:shadow-md active:scale-95 text-xs sm:text-sm cursor-pointer"
+                    className="bg-gradient-to-r from-sky-200/75 via-white/85 to-sky-100/80 hover:from-sky-200/90 hover:via-white/95 hover:to-sky-100/90 backdrop-blur-2xl saturate-150 text-primary border border-white/90 font-black py-2 px-8 rounded-full transition-all shadow-[0_8px_24px_rgba(2,132,199,0.15),inset_0_1.5px_2px_rgba(255,255,255,1)] active:scale-95 text-xs sm:text-sm cursor-pointer"
                   >
                     {t('newAppBtn')}
                   </button>
@@ -462,7 +465,7 @@ export default function AdmissionForm() {
 
                                     {hasCompletedScan && (
                                       <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-black text-emerald-700 bg-emerald-500/15 px-2.5 py-0.5 rounded-full border border-emerald-500/25 shrink-0">
-                                        <span>✓ استحقاق مؤكد</span>
+                                        <span>{isAr ? '✓ استحقاق مؤكد' : '✓ Confirmed Eligibility'}</span>
                                       </span>
                                     )}
                                   </div>
@@ -508,13 +511,13 @@ export default function AdmissionForm() {
                         </div>
 
                         {/* Filter Toggle */}
-                        <div className="flex items-center gap-1 bg-white/30 backdrop-blur-md p-0.5 rounded-full border border-white/30 shadow-xs">
+                        <div className="flex items-center gap-1 bg-white/40 backdrop-blur-md p-0.5 rounded-full border border-white/60 shadow-xs">
                           <button
                             type="button"
                             onClick={() => setShowOnlyEligible(true)}
-                            className={`px-2 py-0.5 rounded-full text-[10px] font-bold transition-all cursor-pointer ${
+                            className={`px-2.5 py-0.5 rounded-full text-[10px] font-black transition-all cursor-pointer ${
                               showOnlyEligible 
-                                ? 'bg-primary text-white shadow-xs' 
+                                ? 'bg-gradient-to-r from-sky-200/80 via-white/90 to-sky-100/85 text-primary border border-white/90 shadow-xs' 
                                 : 'text-primary-dark/70 hover:text-primary'
                             }`}
                           >
@@ -523,9 +526,9 @@ export default function AdmissionForm() {
                           <button
                             type="button"
                             onClick={() => setShowOnlyEligible(false)}
-                            className={`px-2 py-0.5 rounded-full text-[10px] font-bold transition-all cursor-pointer ${
+                            className={`px-2.5 py-0.5 rounded-full text-[10px] font-black transition-all cursor-pointer ${
                               !showOnlyEligible 
-                                ? 'bg-primary text-white shadow-xs' 
+                                ? 'bg-gradient-to-r from-sky-200/80 via-white/90 to-sky-100/85 text-primary border border-white/90 shadow-xs' 
                                 : 'text-primary-dark/70 hover:text-primary'
                             }`}
                           >
@@ -536,10 +539,10 @@ export default function AdmissionForm() {
 
                       {/* Faculty Selector Pills */}
                       <div>
-                        <label className="block text-[10.5px] sm:text-[11px] font-bold text-primary-dark mb-0.5 px-1">
+                        <label className="block text-[10.5px] sm:text-[11px] font-bold text-primary-dark mb-1 px-1">
                           {isAr ? '1. اختر الكلية:' : '1. Select Faculty:'}
                         </label>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 p-0.5">
+                        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-1 p-0.5">
                           {facultiesData.map(faculty => {
                             const isSelected = formData.facultyId === faculty.id;
                             const eligibleCount = faculty.majors.filter(m => parsedGpa >= (m.minGpa || 50)).length;
@@ -554,7 +557,7 @@ export default function AdmissionForm() {
                                 }}
                                 className={`p-1 px-2.5 rounded-full border text-right transition-all flex items-center justify-between gap-1 cursor-pointer h-7 ${
                                   isSelected 
-                                    ? 'bg-primary text-white border-primary shadow-xs' 
+                                    ? 'bg-gradient-to-r from-sky-200/80 via-white/90 to-sky-100/85 text-primary border-white/95 shadow-[0_4px_12px_rgba(2,132,199,0.16),inset_0_1px_1.5px_rgba(255,255,255,1)]' 
                                     : hasEligible
                                     ? 'bg-white/25 hover:bg-white/40 backdrop-blur-md border border-white/30 hover:border-primary/50 text-primary-dark shadow-xs'
                                     : 'bg-white/10 backdrop-blur-sm border-dashed border-white/20 text-gray-400'
@@ -566,7 +569,7 @@ export default function AdmissionForm() {
                                 </span>
                                 <span className={`text-[9px] font-black px-1.5 py-0.2 rounded-full shrink-0 ${
                                   isSelected 
-                                    ? 'bg-white/20 text-white'
+                                    ? 'bg-primary/10 text-primary border border-primary/20'
                                     : hasEligible 
                                     ? 'bg-primary/10 text-primary border border-primary/20' 
                                     : 'bg-gray-200 text-gray-500'
@@ -582,13 +585,13 @@ export default function AdmissionForm() {
                       {/* Majors List Inside Selected Faculty */}
                       {formData.facultyId ? (
                         <div>
-                          <div className="flex items-center justify-between gap-1 mb-0.5">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 mb-1">
                             <label className="block text-[10.5px] sm:text-[11px] font-bold text-primary-dark">
                               {isAr ? '2. اختر التخصص المطلوب لمعدلك:' : '2. Select Major for your GPA:'}
                             </label>
                             
                             {/* Search inside majors */}
-                            <div className="relative w-36 sm:w-44">
+                            <div className="relative w-full sm:w-44">
                               <Search className="w-2.5 h-2.5 absolute right-2 top-1/2 -translate-y-1/2 text-primary-dark/40 rtl:right-2 rtl:left-auto ltr:left-2 ltr:right-auto" />
                               <input 
                                 type="text" 
@@ -786,7 +789,7 @@ export default function AdmissionForm() {
               {currentStep < 3 ? (
                 <button 
                   onClick={handleNext}
-                  className="bg-primary hover:bg-primary-dark text-white font-bold py-1.5 sm:py-2 px-6 rounded-full text-xs sm:text-[13px] transition-all flex items-center gap-1.5 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 cursor-pointer"
+                  className="bg-gradient-to-r from-sky-200/75 via-white/85 to-sky-100/80 hover:from-sky-200/90 hover:via-white/95 hover:to-sky-100/90 backdrop-blur-2xl saturate-150 text-primary border border-white/90 font-black py-1.5 sm:py-2 px-6 rounded-full text-xs sm:text-[13px] transition-all flex items-center gap-1.5 shadow-[0_8px_20px_rgba(2,132,199,0.14),inset_0_1.5px_2px_rgba(255,255,255,1)] hover:shadow-[0_12px_28px_rgba(2,132,199,0.22),inset_0_1.5px_2px_rgba(255,255,255,1)] disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 cursor-pointer"
                   disabled={
                     isScanning ||
                     (currentStep === 1 && (!formData.fullName || !formData.phone || !formData.gpa || parsedGpa < 50 || parsedGpa > 100)) ||
@@ -794,15 +797,15 @@ export default function AdmissionForm() {
                   }
                 >
                   <span>{t('next')}</span>
-                  {isAr ? <ChevronLeft className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
+                  {isAr ? <ChevronLeft className="w-3.5 h-3.5 text-primary" /> : <ChevronRight className="w-3.5 h-3.5 text-primary" />}
                 </button>
               ) : (
                 <button 
                   onClick={handleSubmit}
-                  className="bg-primary hover:bg-primary-dark text-white font-extrabold py-1.5 sm:py-2 px-6 rounded-full text-xs sm:text-[13px] transition-all flex items-center gap-1.5 shadow-sm hover:shadow-md active:scale-95 cursor-pointer"
+                  className="bg-gradient-to-r from-sky-200/75 via-white/85 to-sky-100/80 hover:from-sky-200/90 hover:via-white/95 hover:to-sky-100/90 backdrop-blur-2xl saturate-150 text-primary border border-white/90 font-black py-1.5 sm:py-2 px-6 rounded-full text-xs sm:text-[13px] transition-all flex items-center gap-1.5 shadow-[0_8px_20px_rgba(2,132,199,0.14),inset_0_1.5px_2px_rgba(255,255,255,1)] hover:shadow-[0_12px_28px_rgba(2,132,199,0.22),inset_0_1.5px_2px_rgba(255,255,255,1)] active:scale-95 cursor-pointer"
                 >
                   <span>{t('submitBtn')}</span>
-                  <CheckCircle className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
+                  <CheckCircle className="w-3.5 h-3.5 text-primary group-hover:scale-110 transition-transform" />
                 </button>
               )}
             </div>

@@ -470,12 +470,12 @@ export function MedicalFacultyNewsBanner({ isAr = true, onApply, onRegisterCours
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
                   {[
-                    { title: 'الكلى والمسالك', desc: 'Renal & Urinary System', icon: Activity },
-                    { title: 'الجهاز العصبي', desc: 'Central Nervous System', icon: Share2 },
-                    { title: 'الجهاز الهضمي', desc: 'Digestive & Visceral', icon: HeartPulse },
-                    { title: 'القلب والرئتين', desc: 'Cardiopulmonary Models', icon: Heart },
-                    { title: 'العين والحواس', desc: 'Sensory Organs & Eye', icon: Eye },
-                    { title: 'التشريح الجراحي', desc: 'Surgical Anatomy Desks', icon: Microscope }
+                    { titleAr: 'الكلى والمسالك', titleEn: 'Renal System', descAr: 'Renal & Urinary System', descEn: 'Urinary Tract Models', icon: Activity },
+                    { titleAr: 'الجهاز العصبي', titleEn: 'Nervous System', descAr: 'Central Nervous System', descEn: 'Brain & Neural Models', icon: Share2 },
+                    { titleAr: 'الجهاز الهضمي', titleEn: 'Digestive System', descAr: 'Digestive & Visceral', descEn: 'Visceral Organ Models', icon: HeartPulse },
+                    { titleAr: 'القلب والرئتين', titleEn: 'Cardiopulmonary', descAr: 'Cardiopulmonary Models', descEn: 'Heart & Lung Units', icon: Heart },
+                    { titleAr: 'العين والحواس', titleEn: 'Sensory Organs', descAr: 'Sensory Organs & Eye', descEn: 'Ophthalmic & ENT Models', icon: Eye },
+                    { titleAr: 'التشريح الجراحي', titleEn: 'Surgical Anatomy', descAr: 'Surgical Anatomy Desks', descEn: 'Clinical Dissection Units', icon: Microscope }
                   ].map((item, idx) => {
                     const Icon = item.icon;
                     return (
@@ -483,8 +483,8 @@ export function MedicalFacultyNewsBanner({ isAr = true, onApply, onRegisterCours
                         <div className="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-2">
                           <Icon className="w-4 h-4 text-secondary" />
                         </div>
-                        <span className="text-xs font-black text-primary">{item.title}</span>
-                        <span className="text-[10px] text-slate-500 font-medium">{item.desc}</span>
+                        <span className="text-xs font-black text-primary">{isAr ? item.titleAr : item.titleEn}</span>
+                        <span className="text-[10px] text-slate-500 font-medium">{isAr ? item.descAr : item.descEn}</span>
                       </div>
                     );
                   })}

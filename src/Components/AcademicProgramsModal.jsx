@@ -55,7 +55,9 @@ export function GoldenAccreditationBanner({ isAr = true }) {
           {/* 30 Years Badge */}
           <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-900/90 text-white shadow-md border border-sky-300/40 backdrop-blur-sm">
             <span className="text-accent font-extrabold text-xs">30</span>
-            <span className="text-[10px] font-bold text-sky-100">عاماً من الريادة والتميز</span>
+            <span className="text-[10px] font-bold text-sky-100">
+              {isAr ? 'عاماً من الريادة والتميز' : 'Years of Leadership & Excellence'}
+            </span>
           </div>
 
           <div className="w-12 h-12 rounded-full bg-white/30 backdrop-blur-md p-1 border border-white/30 shadow-sm flex items-center justify-center">
@@ -64,7 +66,7 @@ export function GoldenAccreditationBanner({ isAr = true }) {
         </div>
 
         <h4 className="text-xs sm:text-sm font-black text-primary uppercase tracking-wider">
-          جامعة العلوم والتكنولوجيا • المركز الرئيسي صنعاء
+          {isAr ? 'جامعة العلوم والتكنولوجيا • المركز الرئيسي صنعاء' : 'University of Science & Technology • Main Campus Sana\'a'}
         </h4>
       </div>
 
@@ -91,10 +93,10 @@ export function GoldenAccreditationBanner({ isAr = true }) {
             {/* Accreditation Badge - Pure White & Blue Palette */}
             <div className="relative z-10 my-2 space-y-1">
               <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full bg-blue-50/80 text-blue-900 border border-blue-200/60 text-[10px] sm:text-[11px] font-black shadow-xs">
-                <span>★ اعتماد أكاديمي كامل ★</span>
+                <span>{isAr ? '★ اعتماد أكاديمي كامل ★' : '★ Full Accreditation ★'}</span>
               </span>
               <span className="text-[10px] font-bold text-primary-dark/70 block">
-                مجلس الاعتماد الأكاديمي
+                {isAr ? 'مجلس الاعتماد الأكاديمي' : 'Academic Accreditation Council'}
               </span>
             </div>
 
@@ -361,14 +363,14 @@ export function InternationalBusinessEnglishBanner({ isAr = true, onApply }) {
  */
 export function RoadToBetterFutureBanner({ isAr = true }) {
   const students = [
-    { titleAr: 'طب بشري وجراحة', icon: Stethoscope },
-    { titleAr: 'طب وجراحة أسنان', icon: Activity },
-    { titleAr: 'صيدلة سريرية', icon: Pill },
-    { titleAr: 'مختبرات طبية', icon: ShieldCheck },
-    { titleAr: 'هندسة وعمارة', icon: Building2 },
-    { titleAr: 'حاسبات ونظم تقنية', icon: Globe },
-    { titleAr: 'إدارة أعمال ومحاسبة', icon: Briefcase },
-    { titleAr: 'لغات وإنسانيات', icon: GraduationCap }
+    { titleAr: 'طب بشري وجراحة', titleEn: 'Medicine & Surgery', icon: Stethoscope },
+    { titleAr: 'طب وجراحة أسنان', titleEn: 'Dentistry', icon: Activity },
+    { titleAr: 'صيدلة سريرية', titleEn: 'Clinical Pharmacy', icon: Pill },
+    { titleAr: 'مختبرات طبية', titleEn: 'Medical Laboratories', icon: ShieldCheck },
+    { titleAr: 'هندسة وعمارة', titleEn: 'Engineering & Architecture', icon: Building2 },
+    { titleAr: 'حاسبات ونظم تقنية', titleEn: 'Computing & IT', icon: Globe },
+    { titleAr: 'إدارة أعمال ومحاسبة', titleEn: 'Business & Accounting', icon: Briefcase },
+    { titleAr: 'لغات وإنسانيات', titleEn: 'Languages & Humanities', icon: GraduationCap }
   ];
 
   return (
@@ -378,12 +380,12 @@ export function RoadToBetterFutureBanner({ isAr = true }) {
           <div className="w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm p-1 border border-white/30 shadow-md">
             <img src="/logo.png" alt="UST" className="w-full h-full object-contain" />
           </div>
-          <div className="text-right" dir={isAr ? 'rtl' : 'ltr'}>
+          <div className={isAr ? 'text-right' : 'text-left'} dir={isAr ? 'rtl' : 'ltr'}>
             <h3 className="text-lg sm:text-xl font-black text-white">
               {isAr ? 'الطريق إلى مستقبل أفضل...' : 'The Road to a Better Future...'}
             </h3>
             <span className="text-[11px] text-sky-200">
-              جامعة العلوم والتكنولوجيا • ريادة أكاديمية واعتراف دولي
+              {isAr ? 'جامعة العلوم والتكنولوجيا • ريادة أكاديمية واعتراف دولي' : 'University of Science & Technology • Academic Leadership & Global Recognition'}
             </span>
           </div>
         </div>
@@ -404,7 +406,7 @@ export function RoadToBetterFutureBanner({ isAr = true }) {
               <s.icon className="w-5 h-5 text-sky-200" />
             </div>
             <span className="text-[10px] sm:text-[11px] font-black text-white leading-tight">
-              {s.titleAr}
+              {isAr ? s.titleAr : s.titleEn}
             </span>
           </div>
         ))}
@@ -441,74 +443,85 @@ export default function AcademicProgramsModal({ isAr = true, onClose }) {
       nameAr: 'الطب والجراحة العامة', 
       nameEn: 'Medicine & Surgery (MBBS)', 
       icon: Stethoscope, 
-      tag: 'WFME معتمد دولياً',
+      tagAr: 'WFME معتمد دولياً',
+      tagEn: 'WFME Internationally Accredited',
     },
     { 
       nameAr: 'طب وجراحة الفم والأسنان', 
       nameEn: 'Dentistry (BDS)', 
       icon: DentalToothIcon, 
-      tag: 'اعتماد أكاديمي كامل',
+      tagAr: 'معايير الجودة السريرية',
+      tagEn: 'Clinical Quality Standards',
     },
     { 
       nameAr: 'دكتور صيدلة / صيدلة عامة', 
       nameEn: 'Pharmacy (PharmD / BPharm)', 
       icon: Pill, 
-      tag: 'معايير GMP الدوائية',
+      tagAr: 'معايير GMP الدوائية',
+      tagEn: 'GMP Pharmaceutical Standards',
     },
     { 
       nameAr: 'الهندسة المدنية', 
       nameEn: 'Civil Engineering (B.Sc.)', 
       icon: Building2, 
-      tag: 'معايير ABET العالمية',
+      tagAr: 'معايير ABET العالمية',
+      tagEn: 'Global ABET Standards',
     },
     { 
       nameAr: 'إدارة الأعمال الدولية', 
       nameEn: 'Business Administration (B.Sc.)', 
       icon: Briefcase, 
-      tag: 'اعتماد جودة الأعمال',
+      tagAr: 'اعتماد جودة الأعمال',
+      tagEn: 'Business Quality Accreditation',
     }
   ];
 
   const standards = [
-    { textAr: 'مطابقة كاملة لمعايير الفيدرالية العالمية للتعليم الطبي (WFME)', icon: CheckCircle2 },
-    { textAr: 'أول جامعة أهلية بالجمهورية اليمنية تنال الاعتماد الذهبي الكامل', icon: Award },
-    { textAr: 'مختبرات سريرية وتصنيع دوائي وفق معايير ممارسات التصنيع الجيد (GMP)', icon: CheckCircle2 },
-    { textAr: '9 كليات بالمركز الرئيسي بصنعاء وأكثر من 90 برنامجاً وتخصصاً معتمداً', icon: BookOpen }
+    {
+      textAr: 'مطابقة كاملة لمعايير الفيدرالية العالمية للتعليم الطبي (WFME)',
+      textEn: 'Full compliance with World Federation for Medical Education (WFME) standards',
+      icon: CheckCircle2
+    },
+    {
+      textAr: 'أول جامعة أهلية بالجمهورية اليمنية تنال الاعتماد الذهبي الكامل',
+      textEn: 'First private university in Yemen to achieve Full Golden Accreditation',
+      icon: Award
+    },
+    {
+      textAr: 'مختبرات سريرية وتصنيع دوائي وفق معايير ممارسات التصنيع الجيد (GMP)',
+      textEn: 'Clinical & pharmaceutical manufacturing labs compliant with GMP standards',
+      icon: CheckCircle2
+    },
+    {
+      textAr: '9 كليات بالمركز الرئيسي بصنعاء وأكثر من 90 برنامجاً وتخصصاً معتمداً',
+      textEn: '9 faculties at the Main Campus in Sana\'a and over 90 accredited programs',
+      icon: BookOpen
+    }
   ];
 
   return (
     <div className="w-full text-primary-dark flex flex-col select-none overflow-hidden bg-white/20 backdrop-blur-md border border-white/30 shadow-lg rounded-[32px] sm:rounded-[44px]" dir={isAr ? 'rtl' : 'ltr'}>
-      {/* Royal Curved Navy Header - Frosted Glass Gradient */}
-      <div className="relative px-5 py-4 sm:px-6 sm:py-5 rounded-b-[24px] sm:rounded-b-[30px] shadow-md bg-gradient-to-r from-primary/90 via-primary/95 to-primary-dark/95 backdrop-blur-md border-b border-white/20 text-white flex items-center justify-between gap-3 shrink-0">
+      {/* Pure White Glass Header */}
+      <div className="relative px-5 py-4 sm:px-6 sm:py-5 rounded-b-[24px] sm:rounded-b-[30px] shadow-[0_4px_20px_rgba(0,0,0,0.04)] bg-white/95 backdrop-blur-xl border-b border-slate-200/80 text-slate-800 flex items-center justify-between gap-3 shrink-0">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-blue-100 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(0,51,102,0.15)] overflow-hidden bg-white/95 p-1">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-white flex items-center justify-center shrink-0 shadow-sm overflow-hidden bg-white p-1">
             <img src="/logo.png" alt="UST" className="w-full h-full object-contain drop-shadow-xs" />
           </div>
-          <div>
-            <div className="flex items-center gap-2 flex-wrap mb-0.5">
-              <span className="text-[11px] font-black tracking-widest text-accent uppercase">
-                {isAr ? 'الاعتماد الأكاديمي البرامجي' : 'ACADEMIC PROGRAM ACCREDITATION'}
-              </span>
-              <span className="inline-flex items-center gap-1 text-[9.5px] font-extrabold text-blue-900 bg-white/90 backdrop-blur-sm px-2.5 py-0.5 rounded-full border border-blue-100 shadow-xs">
-                <Award className="w-3 h-3 text-[#003366]" strokeWidth={1.5} />
-                <span>{isAr ? '9 كليات و 90+ برنامجاً معتمداً' : '9 Faculties & 90+ Programs'}</span>
-              </span>
-            </div>
-            <h3 className="text-base sm:text-xl font-black text-white leading-tight">
-              {isAr ? 'الريادة الأكاديمية والاعتماد الكامل' : 'Academic Leadership & Full Accreditation'}
-            </h3>
-            <p className="text-[11px] sm:text-xs text-white/80 mt-0.5 max-w-xl font-medium hidden sm:block">
-              {isAr 
-                ? 'شهادة تميز وطنية وإقليمية صادرة عن مجلس الاعتماد الأكاديمي وضمان جودة التعليم العالي' 
-                : 'National and regional certificate of excellence from the Council for Higher Education Accreditation'}
-            </p>
+          <div className="flex items-center gap-2.5 flex-wrap">
+            <span className="text-xs sm:text-sm font-black tracking-wide text-sky-800">
+              {isAr ? 'الاعتماد الأكاديمي البرامجي' : 'ACADEMIC PROGRAM ACCREDITATION'}
+            </span>
+            <span className="inline-flex items-center gap-1 text-[9.5px] font-extrabold text-blue-900 bg-blue-50/90 backdrop-blur-sm px-2.5 py-0.5 rounded-full border border-blue-200/70 shadow-xs">
+              <Award className="w-3 h-3 text-[#003366]" strokeWidth={1.5} />
+              <span>{isAr ? '9 كليات و 90+ برنامجاً معتمداً' : '9 Faculties & 90+ Programs'}</span>
+            </span>
           </div>
         </div>
 
         {onClose && (
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 text-white backdrop-blur-sm border border-white/30 flex items-center justify-center transition-all shrink-0 cursor-pointer active:scale-95 shadow-xs"
+            className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200/80 flex items-center justify-center transition-all shrink-0 cursor-pointer active:scale-95 shadow-xs"
             title={isAr ? 'إغلاق' : 'Close'}
           >
             <X className="w-4 h-4" />
@@ -534,7 +547,7 @@ export default function AcademicProgramsModal({ isAr = true, onClose }) {
             </div>
           </div>
           <span className="hidden md:inline-flex px-2.5 py-0.5 rounded-full bg-blue-50/80 text-blue-900 border border-blue-200/60 text-[9.5px] font-extrabold whitespace-nowrap shadow-2xs">
-            ★ معتمد رسمياً ★
+            {isAr ? '★ معتمد رسمياً ★' : '★ Officially Accredited ★'}
           </span>
         </div>
 
@@ -558,19 +571,16 @@ export default function AcademicProgramsModal({ isAr = true, onClose }) {
                 </div>
               </div>
 
-              {/* Accreditation Badge */}
-              <div className="relative z-10 my-1 space-y-0.5">
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-50/80 text-blue-900 border border-blue-200/60 text-[9px] font-black shadow-2xs">
-                  ★ اعتماد أكاديمي كامل ★
-                </span>
-                <span className="text-[8.5px] font-bold text-primary-dark/70 block">
-                  {prog.tag}
+              {/* Program Accreditation Tag */}
+              <div className="relative z-10 my-1.5">
+                <span className="text-[9.5px] sm:text-[10px] font-extrabold text-primary-dark/85 block leading-tight">
+                  {isAr ? prog.tagAr : prog.tagEn}
                 </span>
               </div>
 
-              {/* Pedestal Pill Label */}
-              <div className="relative z-10 w-full mt-1 py-1.5 px-2 rounded-full bg-gradient-to-r from-[#072541]/90 to-[#0c4a6e]/90 text-white text-center shadow-xs border border-white/30 backdrop-blur-xs">
-                <span className="text-[11px] sm:text-[12px] font-black block leading-tight">
+              {/* Pedestal Pill Label - أبيض على سماوي زجاجي */}
+              <div className="relative z-10 w-full mt-1.5 py-1.5 px-2 rounded-full bg-white/75 hover:bg-white/95 backdrop-blur-md border border-sky-200/80 shadow-[0_2px_8px_rgba(2,132,199,0.08)] transition-all duration-300">
+                <span className="text-[11px] sm:text-[11.5px] font-black block leading-tight text-primary">
                   {isAr ? prog.nameAr : prog.nameEn}
                 </span>
               </div>
@@ -583,14 +593,16 @@ export default function AcademicProgramsModal({ isAr = true, onClose }) {
           {standards.map((item, idx) => (
             <div key={idx} className="flex items-center gap-2 bg-white/25 hover:bg-white/40 backdrop-blur-md p-2 sm:p-2.5 rounded-2xl border border-white/35 transition-all shadow-xs">
               <item.icon className="w-3.5 h-3.5 text-blue-800 shrink-0" strokeWidth={1.5} />
-              <span className="text-[10px] sm:text-[10.5px] font-bold text-primary-dark leading-snug">{item.textAr}</span>
+              <span className="text-[10px] sm:text-[10.5px] font-bold text-primary-dark leading-snug">
+                {isAr ? item.textAr : item.textEn}
+              </span>
             </div>
           ))}
         </div>
 
         {/* Contact Strip */}
-        <div className="bg-white/25 backdrop-blur-md border border-white/35 rounded-2xl p-2.5 px-3 flex flex-wrap items-center justify-between gap-2 shadow-xs">
-          <div className="flex items-center gap-2 text-xs">
+        <div className="bg-white/25 backdrop-blur-md border border-white/35 rounded-2xl p-2.5 px-3 flex items-center justify-center gap-2 shadow-xs">
+          <div className="flex items-center gap-2.5 text-xs">
             <div className="w-7 h-7 rounded-full bg-white/90 border border-blue-100 shadow-[0_0_12px_rgba(0,51,102,0.12)] text-[#003366] flex items-center justify-center shrink-0">
               <Phone className="w-3.5 h-3.5 text-[#003366]" strokeWidth={1.5} />
             </div>
@@ -603,19 +615,11 @@ export default function AcademicProgramsModal({ isAr = true, onClose }) {
               </span>
             </div>
           </div>
-
-          <span className="text-[10.5px] font-bold text-primary-dark/60">
-            www.ust.edu.ye
-          </span>
         </div>
       </div>
 
       {/* Footer Close Only - Frosted Glass */}
-      <div className="p-3 sm:p-4 bg-white/25 backdrop-blur-md border-t border-white/30 flex items-center justify-between gap-3 shrink-0 shadow-sm">
-        <span className="text-[11px] text-primary-dark/80 font-semibold hidden sm:inline">
-          {isAr ? 'جامعة العلوم والتكنولوجيا • الريادة والتميز في التعليم العالي' : 'UST • Excellence in Higher Education'}
-        </span>
-
+      <div className="p-3 sm:p-4 bg-white/25 backdrop-blur-md border-t border-white/30 flex items-center justify-end gap-3 shrink-0 shadow-sm">
         <button
           onClick={onClose}
           className="w-full sm:w-auto px-8 py-2 rounded-full bg-white/40 hover:bg-white/60 backdrop-blur-md border border-white/40 hover:border-white/60 text-xs font-bold text-primary-dark transition-all text-center cursor-pointer shadow-xs active:scale-95"

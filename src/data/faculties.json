@@ -1214,42 +1214,6 @@
           "Consumer Behavior Analytics"
         ],
         "gpaRequirementEn": "60% and above"
-      },
-      {
-        "id": "business-intelligence-admin",
-        "name": "ذكاء الأعمال",
-        "minGpa": 60,
-        "gpaRequirement": "60% فأكثر",
-        "shortDescription": "تحليل مؤشرات الأداء المالي والتجاري وبناء النماذج التنبؤية لتعزيز الأرباح وحصة السوق.",
-        "futureBenefit": "دعم القيادات التنفيذية ببيانات وتقارير دقيقة توجه مسار النمو واستراتيجيات المنافسة.",
-        "studyDuration": "أربع سنوات",
-        "degree": "بكالوريوس",
-        "careers": [
-          "محلل ذكاء أعمال واستراتيجية",
-          "مستشار قرارات مالية وإدارية",
-          "مدير مؤشرات أداء KPI"
-        ],
-        "skills": [
-          "تحليل بيانات الأعمال المتقدمة",
-          "لوحات التحكم الاستراتيجية",
-          "التنبؤ بالأرباح والمبيعات"
-        ],
-        "nameEn": "Business Intelligence & Strategy",
-        "shortDescriptionEn": "Analyzing corporate KPI benchmarks, revenue modeling, and predictive financial simulations.",
-        "futureBenefitEn": "Guiding executive boards with actionable data reports to outmaneuver competitors.",
-        "studyDurationEn": "Four Years",
-        "degreeEn": "Bachelor of Science (B.Sc.)",
-        "careersEn": [
-          "Business Intelligence Consultant",
-          "Corporate Strategic Advisor",
-          "KPI & Performance Manager"
-        ],
-        "skillsEn": [
-          "Executive Dashboards & BI",
-          "Revenue Forecasting Models",
-          "Strategic Market Data Mining"
-        ],
-        "gpaRequirementEn": "60% and above"
       }
     ],
     "nameEn": "Faculty of Administrative & Financial Sciences",

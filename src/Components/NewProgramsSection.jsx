@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { lockBodyScroll } from '../utils/scrollLock';
@@ -23,7 +23,10 @@ import {
   Network,
   Layers,
   Compass,
-  Award
+  Award,
+  Maximize2,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 
 export const newlyLaunchedProgramsData = [
@@ -353,8 +356,8 @@ export const newlyLaunchedProgramsData = [
     partnerBadgeEn: '100% English Medium Curriculum',
     icon: Briefcase,
     themeGradient: 'from-slate-950 via-blue-950 to-slate-900',
-    accentColor: '#2563eb',
-    glowColor: 'rgba(37, 99, 235, 0.4)',
+    accentColor: '#0B3B60',
+    glowColor: 'rgba(11, 59, 96, 0.4)',
     summaryAr: 'برنامج نوعي يُدرّس بالكامل باللغة الإنجليزية وفق أحدث المناهج الدولية، لإعداد قادة أعمال ورواد قادرين على إدارة الشركات العالمية والصفقات الدولية.',
     summaryEn: 'A flagship program conducted entirely in English based on modern international curricula, preparing corporate executives.',
     highlightsAr: [
@@ -408,9 +411,141 @@ export const newlyLaunchedProgramsData = [
   }
 ];
 
+// ألوان الهوية البصرية للجامعة متناسقة وموزعة بالتساوي على البطاقات الـ 10
+const BRAND_IDENTITY_THEMES = [
+  // 1. الأمن السيبراني والتحري الرقمي: أزرق سماوي تقني
+  {
+    brandColor: '#0284c7',
+    glowColor: 'rgba(2, 132, 199, 0.32)',
+    lightBg: 'rgba(2, 132, 199, 0.08)',
+    borderColor: 'rgba(2, 132, 199, 0.25)',
+  },
+  // 2. الذكاء الاصطناعي وتعلم الآلة: كحلي ملكي (لون الهوية الأساسي)
+  {
+    brandColor: '#0B3B60',
+    glowColor: 'rgba(11, 59, 96, 0.32)',
+    lightBg: 'rgba(11, 59, 96, 0.08)',
+    borderColor: 'rgba(11, 59, 96, 0.22)',
+  },
+  // 3. علم البيانات وذكاء الأعمال: أخضر زمردي حيوي (لون الهوية الثانوي)
+  {
+    brandColor: '#059669',
+    glowColor: 'rgba(5, 150, 105, 0.32)',
+    lightBg: 'rgba(5, 150, 105, 0.08)',
+    borderColor: 'rgba(5, 150, 105, 0.22)',
+  },
+  // 4. هندسة البرمجيات والنظم السحابية: تركواز حديث
+  {
+    brandColor: '#0d9488',
+    glowColor: 'rgba(13, 148, 136, 0.32)',
+    lightBg: 'rgba(13, 148, 136, 0.08)',
+    borderColor: 'rgba(13, 148, 136, 0.22)',
+  },
+  // 5. علوم وتقنيات الطيران: أزرق ملاحة ياقوتي
+  {
+    brandColor: '#0369a1',
+    glowColor: 'rgba(3, 105, 161, 0.32)',
+    lightBg: 'rgba(3, 105, 161, 0.08)',
+    borderColor: 'rgba(3, 105, 161, 0.25)',
+  },
+  // 6. هندسة الروبوتات والذكاء الاصطناعي: كحلي ملكي (الهوية الأساسية)
+  {
+    brandColor: '#0B3B60',
+    glowColor: 'rgba(11, 59, 96, 0.32)',
+    lightBg: 'rgba(11, 59, 96, 0.08)',
+    borderColor: 'rgba(11, 59, 96, 0.22)',
+  },
+  // 7. هندسة السيارات الكهربائية EV: أخضر زمردي مستدام
+  {
+    brandColor: '#059669',
+    glowColor: 'rgba(5, 150, 105, 0.32)',
+    lightBg: 'rgba(5, 150, 105, 0.08)',
+    borderColor: 'rgba(5, 150, 105, 0.22)',
+  },
+  // 8. الدكتوراه السريرية MD في الطب البشري: أزرق سريري ملكي
+  {
+    brandColor: '#0284c7',
+    glowColor: 'rgba(2, 132, 199, 0.32)',
+    lightBg: 'rgba(2, 132, 199, 0.08)',
+    borderColor: 'rgba(2, 132, 199, 0.25)',
+  },
+  // 9. إدارة الأعمال الدولية (EN): كحلي ملكي للهوية الرسمية
+  {
+    brandColor: '#0B3B60',
+    glowColor: 'rgba(11, 59, 96, 0.35)',
+    lightBg: 'rgba(11, 59, 96, 0.08)',
+    borderColor: 'rgba(11, 59, 96, 0.25)',
+  },
+  // 10. الشريعة والقانون إلكترونياً: تركواز حديث
+  {
+    brandColor: '#0d9488',
+    glowColor: 'rgba(13, 148, 136, 0.32)',
+    lightBg: 'rgba(13, 148, 136, 0.08)',
+    borderColor: 'rgba(13, 148, 136, 0.22)',
+  }
+];
+
 export function NewProgramsSection({ isAr = true }) {
   const navigate = useNavigate();
   const [selectedProgram, setSelectedProgram] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [viewMode, setViewMode] = useState('carousel'); // 'carousel' | 'grid'
+
+  const total = newlyLaunchedProgramsData.length;
+
+  const lastWheelTimeRef = useRef(0);
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % total);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + total) % total);
+  };
+
+  // Smooth throttled mouse wheel scroll - moves ONLY when the user actively scrolls/moves the wheel
+  const handleWheel = (e) => {
+    const now = Date.now();
+    if (now - lastWheelTimeRef.current < 450) return;
+
+    const absX = Math.abs(e.deltaX);
+    const absY = Math.abs(e.deltaY);
+
+    if (absX > 15 || absY > 20) {
+      lastWheelTimeRef.current = now;
+
+      if (absX > absY) {
+        if (e.deltaX > 0) {
+          if (isAr) handlePrev();
+          else handleNext();
+        } else {
+          if (isAr) handleNext();
+          else handlePrev();
+        }
+      } else {
+        if (e.deltaY > 0) {
+          handleNext();
+        } else {
+          handlePrev();
+        }
+      }
+    }
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') {
+        if (isAr) handlePrev();
+        else handleNext();
+      } else if (e.key === 'ArrowLeft') {
+        if (isAr) handleNext();
+        else handlePrev();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentIndex, isAr]);
 
   // Freeze background page scroll when modal is open so the background never moves
   useEffect(() => {
@@ -422,150 +557,454 @@ export function NewProgramsSection({ isAr = true }) {
     }
   }, [selectedProgram]);
 
-  return (
-    <section className="py-20 bg-transparent relative z-10 select-none overflow-hidden">
-      {/* Decorative background ambient glows */}
-      <div className="absolute top-1/4 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 -left-24 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+  const activeProg = newlyLaunchedProgramsData[currentIndex];
+  const activeTheme = BRAND_IDENTITY_THEMES[currentIndex % BRAND_IDENTITY_THEMES.length];
+  const ActiveIcon = activeProg.icon;
 
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative">
+  return (
+    <section className="py-10 sm:py-16 md:py-18 bg-transparent relative z-10 select-none overflow-hidden">
+      {/* Decorative background ambient glows */}
+      <div className="absolute top-1/4 -right-24 w-60 h-60 md:w-96 md:h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -left-24 w-60 h-60 md:w-96 md:h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 relative">
         
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-5 sm:mb-8">
           {/* Top Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full crystal-card text-primary text-xs sm:text-sm font-black mb-4 shadow-sm">
-            <Compass className="w-4 h-4 text-accent-dark stroke-[2.2]" />
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full crystal-card text-primary text-[11px] sm:text-sm font-black mb-3 sm:mb-4 shadow-sm">
+            <Compass className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent-dark stroke-[2.2]" />
             <span>{isAr ? 'برامج وتخصصات نوعية رائدة لأول مرة بالجامعة' : 'Newly Launched UST Academic Programs'}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-4 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-primary mb-2.5 sm:mb-3 tracking-tight leading-tight px-2">
             {isAr ? 'التخصصات الأكاديمية والبرامج النوعية الجديدة' : 'Newly Opened University Majors'}
           </h2>
 
-          <p className="text-sm sm:text-base font-semibold text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-base font-medium text-[#244766] max-w-3xl mx-auto leading-relaxed px-2">
             {isAr
               ? 'تخصصات متقدمة تواكب الثورة الصناعية الرابعة وعصر الذكاء الاصطناعي، الأمن السيبراني بالشراكة مع EC-Council، هندسة الطيران، والدكتوراه السريرية بمستشفى الجامعة التعليمي.'
               : 'Cutting-edge academic disciplines introducing cybersecurity, artificial intelligence, aviation technology, robotics, and advanced clinical MD doctorate.'}
           </p>
 
           {/* Quick Features Row */}
-          <div className="flex items-center justify-center gap-3 sm:gap-6 mt-6 flex-wrap text-xs font-bold text-slate-700">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full crystal-card shadow-2xs">
+          <div className="flex items-center justify-center gap-2 sm:gap-5 mt-3.5 sm:mt-4 flex-wrap text-[11px] sm:text-xs font-bold text-[#1b3d58]">
+            <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full crystal-card shadow-2xs">
               <Award className="w-3.5 h-3.5 text-accent-dark stroke-[2.2]" />
               <span>{isAr ? '10 تخصصات مستقبلية جديدة' : '10 New Future Majors'}</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full crystal-card shadow-2xs">
+            <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full crystal-card shadow-2xs">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
               <span>{isAr ? 'اعتمادات وشراكات دولية معتمدة' : 'Accredited Global Partners'}</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full crystal-card shadow-2xs">
+            <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full crystal-card shadow-2xs">
               <Cpu className="w-3.5 h-3.5 text-primary" />
               <span>{isAr ? 'معامل تطبيقية وحوسبة فائقة' : 'Advanced Application Labs'}</span>
             </span>
           </div>
 
-          <div className="w-24 h-1.5 bg-gradient-to-r from-accent via-primary to-accent mx-auto mt-6 rounded-full shadow-xs" />
+          {/* View Mode Switcher: 3D Cover Flow vs All-in-One Compact Grid */}
+          <div className="flex items-center justify-center mt-4 sm:mt-5">
+            <div className="inline-flex flex-wrap justify-center p-1 rounded-full bg-white/60 backdrop-blur-2xl border border-white/90 shadow-[0_8px_24px_rgba(11,59,96,0.06),inset_0_1px_1.5px_rgba(255,255,255,0.9)]">
+              <button
+                type="button"
+                onClick={() => setViewMode('carousel')}
+                className={`px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer ${
+                  viewMode === 'carousel'
+                    ? 'bg-gradient-to-r from-sky-200/75 via-white/85 to-sky-100/80 backdrop-blur-2xl saturate-150 text-primary border border-white/95 shadow-[0_6px_18px_rgba(2,132,199,0.16),inset_0_1.5px_2px_rgba(255,255,255,1)]'
+                    : 'text-slate-600 hover:text-primary border border-transparent'
+                }`}
+              >
+                <Layers className="w-3.5 h-3.5" />
+                <span>{isAr ? 'منصة العرض ثلاثية الأبعاد' : '3D Cover Flow View'}</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode('grid')}
+                className={`px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer ${
+                  viewMode === 'grid'
+                    ? 'bg-gradient-to-r from-sky-200/75 via-white/85 to-sky-100/80 backdrop-blur-2xl saturate-150 text-primary border border-white/95 shadow-[0_6px_18px_rgba(2,132,199,0.16),inset_0_1.5px_2px_rgba(255,255,255,1)]'
+                    : 'text-slate-600 hover:text-primary border border-transparent'
+                }`}
+              >
+                <Building2 className="w-3.5 h-3.5" />
+                <span>{isAr ? 'شبكة الـ 10 تخصصات كاملة' : 'All 10 Majors Grid'}</span>
+              </button>
+            </div>
+          </div>
+
+          <div className="w-20 h-1 bg-gradient-to-r from-accent via-primary to-accent mx-auto mt-5 rounded-full shadow-xs" />
         </div>
 
-        {/* 5-Columns Circular / Stadium Programs Grid (صفين كل صف 5 تخصصات) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-4.5">
-          {newlyLaunchedProgramsData.map((prog, idx) => {
-            const Icon = prog.icon;
-            return (
-              <motion.div
-                key={prog.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: idx * 0.03 }}
-                whileHover={{ y: -6, scale: 1.02 }}
-                onClick={() => setSelectedProgram(prog)}
-                className="group relative flex flex-col items-center py-6 px-3.5 sm:px-4 text-center border-2 border-white/75 hover:border-white rounded-[52px] sm:rounded-[60px] bg-white/45 hover:bg-white/65 backdrop-blur-3xl shadow-[0_12px_30px_rgba(11,59,96,0.06)] hover:shadow-[0_20px_45px_rgba(2,132,199,0.2)] transition-all duration-500 cursor-pointer select-none justify-between overflow-hidden hover:-translate-y-1.5"
-              >
-                {/* Concentric Inner Outline Ring */}
-                <div className="absolute inset-1.5 sm:inset-2 rounded-[44px] sm:rounded-[52px] border border-white/50 pointer-events-none group-hover:border-white/80 transition-colors z-0" />
+        {/* CONDITION 1: 3D Cover Flow View Mode */}
+        {viewMode === 'carousel' && (
+          <div className="relative w-full py-2 overflow-hidden">
+            {/* Main 3D Deck Viewport */}
+            <div 
+              onWheel={handleWheel}
+              className="relative w-full h-[340px] sm:h-[360px] lg:h-[380px] flex items-center justify-center select-none"
+              style={{ perspective: '1200px', transformStyle: 'preserve-3d' }}
+            >
+              {newlyLaunchedProgramsData.map((prog, idx) => {
+                const Icon = prog.icon;
+                const theme = BRAND_IDENTITY_THEMES[idx % BRAND_IDENTITY_THEMES.length];
+                
+                // Calculate circular distance relative to currentIndex
+                let diff = idx - currentIndex;
+                if (diff > total / 2) diff -= total;
+                if (diff < -total / 2) diff += total;
 
-                {/* Subtle Ambient Backlight Glow */}
-                <div className="absolute inset-0 bg-gradient-to-b from-sky-400/10 via-emerald-400/5 to-primary/10 pointer-events-none rounded-[52px] sm:rounded-[60px]" />
+                const isCenter = diff === 0;
+                const absDiff = Math.abs(diff);
 
-                {/* Top Category Centered Row */}
-                <div className="relative z-10 w-full flex items-center justify-center mb-2 px-1">
-                  <span className="bg-white/60 backdrop-blur-md border border-white/80 text-primary text-[9.5px] font-bold px-3 py-0.5 rounded-full truncate max-w-[190px] shadow-2xs">
-                    {isAr ? prog.facultyAr : prog.facultyEn}
-                  </span>
-                </div>
+                // Direction multiplier for RTL
+                const dir = isAr ? -1 : 1;
+                const sign = Math.sign(diff) * dir;
 
-                {/* Circular Pure White Icon Container */}
-                <div className="relative my-2 z-10">
-                  {/* Ambient soft colored halo */}
-                  <div
-                    className="absolute -inset-1 rounded-full blur-md opacity-25 group-hover:opacity-60 transition-all duration-500 pointer-events-none"
-                    style={{ backgroundColor: prog.accentColor }}
-                  />
+                // Compute 3D transforms based on distance from center
+                let xOffset = 0;
+                let scale = 1;
+                let rotateY = 0;
+                let zIndex = 30;
+                let opacity = 1;
 
-                  {/* Outer pure white circle frame */}
-                  <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-full border-2 border-white bg-white/95 backdrop-blur-xl p-1 shadow-[0_6px_20px_rgba(0,0,0,0.06)] group-hover:shadow-[0_10px_28px_rgba(0,0,0,0.12)] transition-all duration-500 group-hover:scale-108 relative z-10 flex items-center justify-center">
-                    {/* Inner pure white circle with icon */}
-                    <div className="w-full h-full rounded-full bg-white border border-slate-100 flex items-center justify-center relative overflow-hidden shadow-[inset_0_1px_3px_rgba(255,255,255,1),inset_0_-1px_3px_rgba(0,0,0,0.03)]">
-                      {/* Subtle crystal gloss reflection */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/80 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
-                      <Icon
-                        className="w-8 h-8 drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)] group-hover:scale-110 transition-transform duration-300"
-                        style={{ color: prog.accentColor === '#0ea5e9' ? '#0284c7' : prog.accentColor === '#06b6d4' ? '#0891b2' : prog.accentColor }}
-                        strokeWidth={1.75}
-                      />
+                if (absDiff === 0) {
+                  xOffset = 0;
+                  scale = 1;
+                  rotateY = 0;
+                  zIndex = 40;
+                  opacity = 1;
+                } else if (absDiff === 1) {
+                  xOffset = sign * 185;
+                  scale = 0.88;
+                  rotateY = -sign * 22;
+                  zIndex = 30;
+                  opacity = 0.9;
+                } else if (absDiff === 2) {
+                  xOffset = sign * 335;
+                  scale = 0.76;
+                  rotateY = -sign * 32;
+                  zIndex = 20;
+                  opacity = 0.6;
+                } else if (absDiff === 3) {
+                  xOffset = sign * 460;
+                  scale = 0.65;
+                  rotateY = -sign * 40;
+                  zIndex = 10;
+                  opacity = 0.3;
+                } else {
+                  xOffset = sign * 580;
+                  scale = 0.5;
+                  rotateY = -sign * 45;
+                  zIndex = 0;
+                  opacity = 0;
+                }
+
+                return (
+                  <motion.div
+                    key={prog.id}
+                    animate={{
+                      x: xOffset,
+                      scale: scale,
+                      rotateY: rotateY,
+                      zIndex: zIndex,
+                      opacity: opacity,
+                    }}
+                    transition={{
+                      type: 'spring',
+                      stiffness: 55,
+                      damping: 18,
+                      mass: 1.1
+                    }}
+                    drag={isCenter ? 'x' : false}
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.2}
+                    onDragEnd={(e, { offset }) => {
+                      if (offset.x < -35) {
+                        handleNext();
+                      } else if (offset.x > 35) {
+                        handlePrev();
+                      }
+                    }}
+                    onClick={() => {
+                      if (isCenter) {
+                        setSelectedProgram(prog);
+                      } else {
+                        setCurrentIndex(idx);
+                      }
+                    }}
+                    className={`absolute w-[220px] sm:w-[240px] lg:w-[255px] h-[315px] sm:h-[330px] lg:h-[340px] cursor-pointer rounded-[42px] sm:rounded-[48px] ${
+                      absDiff > 3 ? 'pointer-events-none' : ''
+                    }`}
+                    style={{
+                      transformStyle: 'preserve-3d',
+                    }}
+                  >
+                    {/* Compact Pure White Luxury Circular Card - شكل دائري أنيق متناسق مع هوية الموقع بدون صور وبدون شريط علوي */}
+                    <div 
+                      className={`relative w-full h-full rounded-[42px] sm:rounded-[48px] bg-white border border-slate-100 overflow-hidden flex flex-col justify-between p-3.5 sm:p-4 transition-all duration-500 group select-none shadow-[0_10px_28px_rgba(11,59,96,0.07)] ${
+                        isCenter ? 'hover:-translate-y-2 hover:shadow-[0_22px_48px_rgba(11,59,96,0.18)]' : ''
+                      }`}
+                      style={{
+                        boxShadow: isCenter 
+                          ? `0 16px 40px rgba(11, 59, 96, 0.13), 0 0 0 1.5px ${theme.borderColor}`
+                          : '0 8px 24px rgba(11, 59, 96, 0.05)'
+                      }}
+                    >
+                      {/* Top Row: Faculty Badge + Program Counter */}
+                      <div className="flex items-center justify-between gap-1.5 mb-1.5">
+                        <span 
+                          className="text-[8.5px] sm:text-[9px] font-bold px-2.5 py-0.5 rounded-full truncate max-w-[155px] shadow-2xs border"
+                          style={{
+                            backgroundColor: theme.lightBg,
+                            color: theme.brandColor,
+                            borderColor: theme.borderColor
+                          }}
+                        >
+                          {isAr ? prog.facultyAr : prog.facultyEn}
+                        </span>
+
+                        <span className="w-6 h-6 rounded-full flex items-center justify-center text-[9.5px] font-black text-slate-500 tracking-wider shrink-0 bg-slate-50 border border-slate-200/70 shadow-2xs">
+                          0{idx + 1}
+                        </span>
+                      </div>
+
+                      {/* Hero Icon Centerpiece - أيقونة دائرية كريستالية تتطابق مع تصميم الموقع */}
+                      <div className="relative my-1 flex items-center justify-center">
+                        <div 
+                          className="w-13 h-13 sm:w-14 sm:h-14 rounded-full border-2 flex items-center justify-center shadow-xs transition-transform duration-500 group-hover:scale-108 relative z-10"
+                          style={{ 
+                            borderColor: theme.borderColor,
+                            backgroundColor: theme.lightBg
+                          }}
+                        >
+                          <Icon className="w-6 h-6 sm:w-6.5 sm:h-6.5 transition-transform duration-500 group-hover:rotate-6" style={{ color: theme.brandColor }} strokeWidth={1.8} />
+                        </div>
+                      </div>
+
+                      {/* Partner / Feature Credential Chip */}
+                      <div className="flex items-center justify-center mb-0.5">
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-50 border border-slate-200/70 text-[8.5px] sm:text-[9px] font-bold text-slate-700 shadow-2xs max-w-full">
+                          <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: theme.brandColor }} />
+                          <span className="truncate">{isAr ? prog.partnerBadgeAr : prog.partnerBadgeEn}</span>
+                        </span>
+                      </div>
+
+                      {/* Program Title - خط واضح عالي التباين */}
+                      <div className="min-h-[36px] flex items-center justify-center my-1 text-center px-0.5">
+                        <h3 
+                          className="text-[12px] sm:text-[13px] font-black leading-snug line-clamp-2 transition-colors text-primary group-hover:text-primary-dark"
+                        >
+                          {isAr ? prog.titleAr : prog.titleEn}
+                        </h3>
+                      </div>
+
+                      {/* Meta Badges (Duration & Degree) */}
+                      <div className="flex items-center justify-center gap-1.5 mb-2 flex-wrap">
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-50 border border-slate-200/60 text-[8.5px] sm:text-[9px] font-bold text-slate-600">
+                          <Clock className="w-2.5 h-2.5 text-slate-400" />
+                          <span>{isAr ? prog.durationAr : prog.durationEn}</span>
+                        </span>
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-50 border border-slate-200/60 text-[8.5px] sm:text-[9px] font-bold text-slate-600">
+                          <Award className="w-2.5 h-2.5 text-emerald-600" />
+                          <span>{isAr ? prog.degreeAr : prog.degreeEn}</span>
+                        </span>
+                      </div>
+
+                      {/* Action Button: "تفاصيل التخصص" - زر دائري متناسق */}
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedProgram(prog);
+                        }}
+                        className="w-full py-1.5 sm:py-2 px-3 rounded-full font-black text-[10.5px] sm:text-[11px] bg-gradient-to-r from-sky-200/65 via-white/80 to-sky-100/75 hover:from-sky-200/85 hover:via-white/95 hover:to-sky-100/90 backdrop-blur-xl saturate-150 text-primary border border-white/90 shadow-[0_6px_18px_rgba(2,132,199,0.12),inset_0_1.5px_2px_rgba(255,255,255,1)] hover:shadow-[0_10px_24px_rgba(2,132,199,0.2),inset_0_1.5px_2px_rgba(255,255,255,1)] transition-all duration-300 flex items-center justify-center gap-1 cursor-pointer group/btn active:scale-95 mt-auto"
+                      >
+                        <BookOpen className="w-3 h-3 text-primary transition-transform group-hover/btn:scale-110" />
+                        <span>{isAr ? 'تفاصيل التخصص' : 'Major Details'}</span>
+                        {isAr ? (
+                          <ArrowLeft className="w-3 h-3 text-primary group-hover/btn:-translate-x-1 transition-transform" />
+                        ) : (
+                          <ArrowRight className="w-3 h-3 text-primary group-hover/btn:translate-x-1 transition-transform" />
+                        )}
+                      </button>
+
+                      {/* Side card frosted click overlay */}
+                      {!isCenter && (
+                        <div 
+                          className="absolute inset-0 bg-white/35 hover:bg-white/10 backdrop-blur-[0.5px] transition-all duration-300 z-30 cursor-pointer rounded-[42px] sm:rounded-[48px]"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setCurrentIndex(idx);
+                          }}
+                        />
+                      )}
                     </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Floating Navigation Pill Bar */}
+            <div className="relative mt-5 sm:mt-6 flex flex-col items-center gap-3 z-40">
+              <div className="bg-white/85 backdrop-blur-2xl border border-white/90 shadow-[0_10px_30px_rgba(11,59,96,0.08),inset_0_1.5px_2px_rgba(255,255,255,1)] rounded-full px-3.5 py-1.5 sm:px-5 sm:py-2 flex items-center gap-2.5 sm:gap-5">
+                {/* Prev Button */}
+                <button
+                  type="button"
+                  onClick={isAr ? handlePrev : handlePrev}
+                  className="w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full bg-gradient-to-r from-sky-200/70 via-white/80 to-sky-100/75 hover:from-sky-200/90 hover:via-white/95 hover:to-sky-100/90 backdrop-blur-xl text-primary border border-white/90 flex items-center justify-center transition-all cursor-pointer shadow-[0_4px_12px_rgba(2,132,199,0.14),inset_0_1px_1.5px_rgba(255,255,255,1)] active:scale-90"
+                  aria-label="Previous Program"
+                  title={isAr ? 'التخصص السابق' : 'Previous Program'}
+                >
+                  {isAr ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+                </button>
+
+                {/* Center Active Summary Chip */}
+                <div 
+                  onClick={() => setSelectedProgram(activeProg)}
+                  className="flex items-center gap-2.5 cursor-pointer group px-1.5 py-0.5 rounded-full hover:bg-slate-50 transition-colors"
+                  title={isAr ? 'عرض التفاصيل الكاملة' : 'View Full Details'}
+                >
+                  <div 
+                    className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 border border-slate-200 shadow-xs overflow-hidden"
+                    style={{ backgroundColor: activeTheme.lightBg }}
+                  >
+                    <ActiveIcon className="w-4 h-4" style={{ color: activeTheme.brandColor }} />
+                  </div>
+
+                  <div className={`${isAr ? 'text-right' : 'text-left'} max-w-[140px] sm:max-w-[220px] truncate`}>
+                    <h4 className="text-[11.5px] sm:text-xs font-black text-primary group-hover:text-primary-dark transition-colors truncate">
+                      {isAr ? activeProg.titleAr : activeProg.titleEn}
+                    </h4>
+                    <p className="text-[9.5px] font-semibold text-slate-500 truncate">
+                      {isAr ? activeProg.partnerBadgeAr : activeProg.partnerBadgeEn}
+                    </p>
                   </div>
                 </div>
 
-                {/* Credential Badge Chip */}
-                <div className="relative z-10 mb-2 w-full px-1">
-                  <span className="inline-flex items-center justify-center gap-1 px-2.5 py-0.5 rounded-full bg-white/50 backdrop-blur-md border border-white/70 text-slate-700 text-[9px] font-black shadow-2xs max-w-full">
-                    <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: prog.accentColor }} />
-                    <span className="truncate">
-                      {isAr ? prog.partnerBadgeAr : prog.partnerBadgeEn}
+                {/* Next Button */}
+                <button
+                  type="button"
+                  onClick={isAr ? handleNext : handleNext}
+                  className="w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full bg-gradient-to-r from-sky-200/70 via-white/80 to-sky-100/75 hover:from-sky-200/90 hover:via-white/95 hover:to-sky-100/90 backdrop-blur-xl text-primary border border-white/90 flex items-center justify-center transition-all cursor-pointer shadow-[0_4px_12px_rgba(2,132,199,0.14),inset_0_1px_1.5px_rgba(255,255,255,1)] active:scale-90"
+                  aria-label="Next Program"
+                  title={isAr ? 'التخصص التالي' : 'Next Program'}
+                >
+                  {isAr ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+                </button>
+              </div>
+
+              {/* Pagination Dots */}
+              <div className="flex items-center gap-1.5">
+                {newlyLaunchedProgramsData.map((p, idx) => (
+                  <button
+                    key={p.id}
+                    type="button"
+                    onClick={() => setCurrentIndex(idx)}
+                    className={`transition-all duration-300 rounded-full cursor-pointer ${
+                      idx === currentIndex 
+                        ? 'w-6 h-2 bg-primary shadow-xs' 
+                        : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+                    }`}
+                    aria-label={`Go to program ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* CONDITION 2: All 10 Programs in Compact Grid (صفين كل صف 5 بطاقات صغيرة وأنيقة) */}
+        {viewMode === 'grid' && (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-3.5 py-2">
+            {newlyLaunchedProgramsData.map((prog, idx) => {
+              const Icon = prog.icon;
+              const theme = BRAND_IDENTITY_THEMES[idx % BRAND_IDENTITY_THEMES.length];
+
+              return (
+                <motion.div
+                  key={prog.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: idx * 0.03 }}
+                  whileHover={{ y: -8, scale: 1.03 }}
+                  onClick={() => setSelectedProgram(prog)}
+                  className="relative rounded-[36px] sm:rounded-[42px] bg-white border border-slate-200/80 hover:border-primary/40 shadow-[0_8px_24px_rgba(11,59,96,0.06)] hover:shadow-[0_16px_36px_rgba(11,59,96,0.15)] transition-all duration-300 p-3.5 sm:p-4 flex flex-col justify-between cursor-pointer select-none overflow-hidden min-h-[305px]"
+                >
+                  {/* Top Row: Faculty Badge + Counter */}
+                  <div className="flex items-center justify-between gap-1.5 mb-1.5">
+                    <span 
+                      className="text-[8.5px] font-bold px-2.5 py-0.5 rounded-full truncate max-w-[145px]"
+                      style={{
+                        backgroundColor: theme.lightBg,
+                        color: theme.brandColor,
+                        border: `1px solid ${theme.borderColor}`
+                      }}
+                    >
+                      {isAr ? prog.facultyAr : prog.facultyEn}
                     </span>
-                  </span>
-                </div>
 
-                {/* Duration Meta Pill */}
-                <div className="relative z-10 flex items-center justify-center gap-1 mb-2 flex-wrap">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/50 backdrop-blur-md text-slate-600 border border-white/70 text-[9px] sm:text-[10px] font-bold">
-                    <Clock className="w-2.5 h-2.5 text-slate-400" />
-                    <span>{isAr ? prog.durationAr : prog.durationEn}</span>
-                  </span>
-                </div>
+                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-[9px] font-black text-slate-500 bg-slate-50 border border-slate-200/70 shadow-2xs">
+                      0{idx + 1}
+                    </span>
+                  </div>
 
-                {/* Program Title */}
-                <div className="relative z-10 min-h-[38px] flex items-center justify-center mb-1 px-1">
-                  <h3 className="text-xs sm:text-[13px] font-black text-slate-900 leading-snug group-hover:text-primary transition-colors line-clamp-2">
-                    {isAr ? prog.titleAr : prog.titleEn}
-                  </h3>
-                </div>
+                  {/* Center Emblem Icon - أيقونة دائرية تتطابق مع هوية الموقع */}
+                  <div className="relative my-1 flex items-center justify-center">
+                    <div 
+                      className="w-13 h-13 rounded-full border-2 flex items-center justify-center shadow-xs transition-transform duration-300 group-hover:scale-108"
+                      style={{
+                        backgroundColor: theme.lightBg,
+                        borderColor: theme.borderColor
+                      }}
+                    >
+                      <Icon className="w-6 h-6" style={{ color: theme.brandColor }} strokeWidth={1.8} />
+                    </div>
+                  </div>
 
+                  {/* Partner Badge */}
+                  <div className="flex items-center justify-center mb-0.5">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-50 border border-slate-200/70 text-[8.5px] font-bold text-slate-700 max-w-full truncate">
+                      <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: theme.brandColor }} />
+                      <span className="truncate">{isAr ? prog.partnerBadgeAr : prog.partnerBadgeEn}</span>
+                    </span>
+                  </div>
 
-                {/* Single Full-Width Action Button: "تفاصيل التخصص" فقط */}
-                <div className="relative z-10 w-full mt-auto pt-1">
+                  {/* Program Title */}
+                  <div className="min-h-[36px] flex items-center justify-center text-center my-1 px-0.5">
+                    <h3 
+                      className="text-[12px] sm:text-[12.5px] font-black leading-snug line-clamp-2 text-primary"
+                    >
+                      {isAr ? prog.titleAr : prog.titleEn}
+                    </h3>
+                  </div>
+
+                  {/* Duration Meta */}
+                  <div className="flex items-center justify-center gap-1 mb-2">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-50 border border-slate-200/70 text-[8.5px] font-bold text-slate-600">
+                      <Clock className="w-2.5 h-2.5 text-slate-400" />
+                      <span>{isAr ? prog.durationAr : prog.durationEn}</span>
+                    </span>
+                  </div>
+
+                  {/* Action Button - زر دائري متناسق */}
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
                       setSelectedProgram(prog);
                     }}
-                    className="w-full py-2.5 px-3 rounded-full bg-primary hover:bg-primary-dark text-white font-black text-[11px] sm:text-xs shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer active:scale-95 group/btn"
+                    className="w-full py-1.5 px-3 rounded-full font-black text-[10.5px] bg-gradient-to-r from-sky-200/65 via-white/80 to-sky-100/75 hover:from-sky-200/85 hover:via-white/95 hover:to-sky-100/90 backdrop-blur-xl saturate-150 text-primary border border-white/90 shadow-[0_6px_18px_rgba(2,132,199,0.12),inset_0_1.5px_2px_rgba(255,255,255,1)] transition-all duration-300 flex items-center justify-center gap-1 cursor-pointer mt-auto"
                   >
-                    <BookOpen className="w-3.5 h-3.5 text-accent" />
-                    <span>{isAr ? 'تفاصيل التخصص' : 'Program Details'}</span>
-                    {isAr ? (
-                      <ArrowLeft className="w-3 h-3 group-hover/btn:-translate-x-0.5 transition-transform" />
-                    ) : (
-                      <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform" />
-                    )}
+                    <BookOpen className="w-3 h-3 text-primary" />
+                    <span>{isAr ? 'تفاصيل التخصص' : 'Major Details'}</span>
+                    {isAr ? <ArrowLeft className="w-3 h-3 text-primary" /> : <ArrowRight className="w-3 h-3 text-primary" />}
                   </button>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        )}
       </div>
 
       {/* Program Details Modal */}
@@ -593,36 +1032,36 @@ export function NewProgramsSection({ isAr = true }) {
               dir={isAr ? 'rtl' : 'ltr'}
             >
               {/* Modal Header */}
-              <div className={`relative bg-gradient-to-r ${selectedProgram.themeGradient} text-white p-4 sm:p-5 overflow-hidden shrink-0`}>
+              <div className="relative bg-white border-b border-slate-200/90 p-4 sm:p-5 overflow-hidden shrink-0">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <span className="bg-white/15 px-3 py-0.5 rounded-full text-[10.5px] font-bold text-sky-100 border border-white/20">
+                    <span className="bg-primary/10 text-primary border border-primary/20 px-3 py-0.5 rounded-full text-[10.5px] font-bold">
                       {isAr ? selectedProgram.partnerBadgeAr : selectedProgram.partnerBadgeEn}
                     </span>
                   </div>
 
                   <button
                     onClick={() => setSelectedProgram(null)}
-                    className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-all cursor-pointer shadow-2xs active:scale-90"
+                    className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-all cursor-pointer shadow-2xs active:scale-90 border border-slate-200/60"
                     title={isAr ? 'إغلاق' : 'Close'}
                   >
                     <X className="w-4 h-4" />
                   </button>
                 </div>
 
-                <span className="text-[11px] font-bold text-sky-200 block mb-0.5">
+                <span className="text-[11px] font-bold text-primary block mb-0.5">
                   {isAr ? selectedProgram.facultyAr : selectedProgram.facultyEn}
                 </span>
 
-                <h3 className="text-lg sm:text-xl font-black text-white leading-tight">
+                <h3 className="text-lg sm:text-xl font-black text-primary leading-tight">
                   {isAr ? selectedProgram.titleAr : selectedProgram.titleEn}
                 </h3>
 
                 <div className="flex items-center gap-2 mt-2 flex-wrap">
-                  <span className="bg-white/15 px-2.5 py-0.5 rounded-full text-[11px] font-bold text-sky-100 border border-white/20">
+                  <span className="bg-slate-100 px-2.5 py-0.5 rounded-full text-[11px] font-bold text-slate-700 border border-slate-200">
                     {isAr ? selectedProgram.degreeAr : selectedProgram.degreeEn}
                   </span>
-                  <span className="bg-white/15 px-2.5 py-0.5 rounded-full text-[11px] font-bold text-sky-100 border border-white/20">
+                  <span className="bg-slate-100 px-2.5 py-0.5 rounded-full text-[11px] font-bold text-slate-700 border border-slate-200">
                     {isAr ? selectedProgram.durationAr : selectedProgram.durationEn}
                   </span>
                 </div>
@@ -670,23 +1109,12 @@ export function NewProgramsSection({ isAr = true }) {
               </div>
 
               {/* Modal Footer Actions */}
-              <div className="p-3.5 sm:p-4 border-t border-slate-200/80 bg-slate-50/90 backdrop-blur-xl flex items-center justify-between gap-3 shrink-0">
+              <div className="p-3.5 sm:p-4 border-t border-slate-200/80 bg-slate-50/90 backdrop-blur-xl flex items-center justify-center shrink-0">
                 <button
                   onClick={() => setSelectedProgram(null)}
-                  className="px-6 py-2 rounded-full bg-white hover:bg-slate-100 text-slate-700 font-extrabold text-xs border border-slate-300 shadow-2xs transition-all cursor-pointer active:scale-95"
+                  className="px-8 py-2 rounded-full bg-white hover:bg-slate-100 text-slate-700 font-extrabold text-xs sm:text-sm border border-slate-300 shadow-2xs transition-all cursor-pointer active:scale-95 min-w-[120px] text-center"
                 >
                   {isAr ? 'إغلاق' : 'Close'}
-                </button>
-
-                <button
-                  onClick={() => {
-                    setSelectedProgram(null);
-                    navigate('/admission');
-                  }}
-                  className="px-6 py-2 rounded-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-black text-xs shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 cursor-pointer active:scale-95"
-                >
-                  <span>{isAr ? 'تقديم طلب القبول في هذا التخصص' : 'Apply for this Major'}</span>
-                  {isAr ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
                 </button>
               </div>
             </motion.div>

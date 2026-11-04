@@ -12,6 +12,18 @@ export default function Navbar() {
   const location = useLocation();
   const { lang, toggleLanguage, t } = useLanguage();
 
+  // Ensure dark mode class and storage are cleared
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.remove('dark');
+      try {
+        localStorage.removeItem('theme');
+      } catch {
+        // ignore storage errors
+      }
+    }
+  }, []);
+
   const barControls = useAnimationControls();
   const rightControls = useAnimationControls();
   const leftControls = useAnimationControls();
@@ -82,7 +94,7 @@ export default function Navbar() {
 
   return (
     <header 
-      className="fixed top-5 sm:top-6 md:top-7 lg:top-8 left-0 right-0 z-30 flex justify-center px-4 sm:px-6 pointer-events-none transition-all duration-300"
+      className="fixed top-3 sm:top-5 md:top-7 lg:top-8 left-0 right-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none transition-all duration-300"
     >
       <div className="relative w-full max-w-[860px] pointer-events-auto">
         <motion.nav 
@@ -90,7 +102,7 @@ export default function Navbar() {
           initial={{ scale: 1, y: 0 }}
           onClick={triggerInterlace}
           className={`transition-all duration-300 ease-out w-full ${
-            isOpen ? 'rounded-[32px]' : 'rounded-full'
+            isOpen ? 'rounded-[28px] sm:rounded-[32px]' : 'rounded-full'
           } border border-white/80 shadow-[0_16px_45px_rgba(11,59,96,0.08),inset_0_1.5px_2px_rgba(255,255,255,0.95),inset_0_-1px_2px_rgba(11,59,96,0.02)] backdrop-blur-2xl relative overflow-hidden select-none cursor-pointer ${
             isScrolled 
               ? 'bg-white/85 shadow-[0_20px_50px_rgba(11,59,96,0.12)] border-white/95' 
@@ -115,14 +127,14 @@ export default function Navbar() {
             className="absolute inset-0 rounded-full border border-white/90 pointer-events-none z-15"
           />
 
-          <div className="px-4 sm:px-6 md:px-7 relative z-10">
-            <div className="flex justify-between h-14 sm:h-15 md:h-[66px] items-center">
+          <div className="px-3 sm:px-6 md:px-7 relative z-10">
+            <div className="flex justify-between h-13 sm:h-15 md:h-[66px] items-center gap-2">
               
               {/* Right Side: University Brand & Emblem */}
               <motion.div
                 animate={rightControls}
                 initial={{ x: 0, rotate: 0 }}
-                className="flex items-center"
+                className="flex items-center min-w-0"
               >
                 <Link 
                   to="/" 
@@ -133,19 +145,19 @@ export default function Navbar() {
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
                   }}
-                  className="flex-shrink-0 flex items-center group/logo gap-3 cursor-pointer"
+                  className="flex items-center group/logo gap-2 sm:gap-3 cursor-pointer min-w-0"
                   title={lang === 'ar' ? 'الصفحة الرئيسية' : 'Home Page'}
                 >
                   {/* Clean Crystalline Logo Disc with Dual Ring Accent */}
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full p-0.5 bg-white/90 border border-white shadow-xs flex items-center justify-center transition-all duration-300 group-hover/logo:scale-108 group-hover/logo:shadow-md">
+                  <div className="w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full p-0.5 bg-white/90 border border-white shadow-xs flex items-center justify-center shrink-0 transition-all duration-300 group-hover/logo:scale-108 group-hover/logo:shadow-md">
                     <img src="/logo.png" alt="Logo" className="w-full h-full object-contain p-0.5" />
                   </div>
                   
-                  <div className="flex flex-col">
-                    <span className="font-black text-xs sm:text-sm md:text-[15px] text-primary group-hover/logo:text-primary-dark transition-colors tracking-tight leading-tight">
+                  <div className="flex flex-col min-w-0">
+                    <span className="font-black text-[11px] sm:text-sm md:text-[15px] text-primary group-hover/logo:text-primary-dark transition-colors tracking-tight leading-tight truncate">
                       {t('universityName')}
                     </span>
-                    <span className="text-[9.5px] sm:text-[10px] font-bold text-primary/65 tracking-wider mt-0.5">
+                    <span className="text-[9px] sm:text-[10px] font-bold text-primary/65 tracking-wider mt-0.5 truncate">
                       {lang === 'ar' ? 'المركز الرئيسي • صنعاء' : 'Main Campus • Sana\'a'}
                     </span>
                   </div>
@@ -158,7 +170,7 @@ export default function Navbar() {
                 initial={{ scale: 1 }}
                 className="hidden md:flex items-center"
               >
-                <div className="flex space-x-1.5 md:space-x-2 space-x-reverse rtl:space-x-reverse ltr:space-x-2 items-center p-1.5 rounded-full bg-white/40 border border-white/70 backdrop-blur-md shadow-2xs">
+                <div className="flex items-center gap-1 sm:gap-2">
                   {navLinks.map((link, index) => {
                     const isActive = location.pathname === link.path;
                     return (
@@ -168,9 +180,9 @@ export default function Navbar() {
                           onClick={() => triggerInterlace()}
                           className={`${
                             isActive 
-                              ? 'text-primary font-black bg-white/95 border border-white shadow-xs' 
-                              : 'text-primary/75 hover:text-primary hover:bg-white/60 font-bold border border-transparent'
-                          } transition-all px-4 sm:px-5 py-2 rounded-full text-xs sm:text-[13.5px] tracking-tight block`}
+                              ? 'text-primary font-black' 
+                              : 'text-primary/70 hover:text-primary font-extrabold'
+                          } transition-all px-3 sm:px-4 py-1.5 text-xs sm:text-[14px] tracking-tight block`}
                         >
                           {link.name}
                         </Link>
@@ -198,19 +210,19 @@ export default function Navbar() {
                   <Globe className="w-4 h-4 stroke-[2]" />
                 </button>
 
-                {/* Prestigious Academic "بوابة الطالب" Button */}
-                <Link
-                  to="/login"
-                  onClick={() => triggerInterlace()}
-                  className="bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white font-black px-4.5 sm:px-5 py-2 rounded-full shadow-[0_4px_14px_rgba(14,165,233,0.35)] hover:shadow-[0_6px_20px_rgba(14,165,233,0.45)] text-xs sm:text-[13px] flex items-center gap-2 border border-sky-400/40 select-none cursor-pointer transition-all active:scale-95"
+                {/* Academic "بوابة الجامعة" Button (Disabled / Display Only) */}
+                <button
+                  type="button"
+                  disabled
+                  className="bg-white/95 text-primary font-black px-4.5 sm:px-5 py-2 rounded-full shadow-xs text-xs sm:text-[13px] flex items-center gap-2 border border-white/90 select-none cursor-default"
                 >
                   {/* Academic Portal Monogram Icon */}
-                  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg className="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
                     <path d="M6 12v5c3 3 9 3 12 0v-5"/>
                   </svg>
-                  <span>{t('studentPortal')}</span>
-                </Link>
+                  <span>{lang === 'ar' ? 'بوابة الجامعة' : (lang === 'en' ? 'University Portal' : t('studentPortal'))}</span>
+                </button>
               </motion.div>
 
               {/* Mobile Menu Action Trigger */}
@@ -268,17 +280,17 @@ export default function Navbar() {
                     );
                   })}
                   <div className="pt-2 mt-2 border-t border-sky-200/80">
-                    <Link
-                      to="/login"
-                      onClick={() => setIsOpen(false)}
-                      className="w-full text-center bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white block px-4 py-2.5 rounded-full text-sm font-black shadow-md shadow-sky-500/25 border border-sky-400/30 select-none cursor-pointer flex items-center justify-center gap-2 transition-all active:scale-95"
+                    <button
+                      type="button"
+                      disabled
+                      className="w-full text-center bg-white text-primary font-black block px-4 py-2.5 rounded-full text-sm shadow-xs border border-white/90 select-none cursor-default flex items-center justify-center gap-2"
                     >
-                      <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <svg className="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
                         <path d="M6 12v5c3 3 9 3 12 0v-5"/>
                       </svg>
-                      <span>{t('studentPortal')}</span>
-                    </Link>
+                      <span>{lang === 'ar' ? 'بوابة الجامعة' : (lang === 'en' ? 'University Portal' : t('studentPortal'))}</span>
+                    </button>
                   </div>
                 </div>
               </motion.div>
