@@ -16,7 +16,7 @@ export default function Footer() {
   const socialLinks = [
     {
       name: 'Facebook',
-      url: 'https://www.facebook.com/ustyemen',
+      url: 'https://www.facebook.com/www.ust.edu',
       hoverColor: 'hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2]',
       icon: (
         <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -26,7 +26,7 @@ export default function Footer() {
     },
     {
       name: 'X (Twitter)',
-      url: 'https://x.com/ust_yemen',
+      url: 'https://twitter.com/ust_edu',
       hoverColor: 'hover:bg-slate-900 hover:text-white hover:border-slate-900',
       icon: (
         <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -36,7 +36,7 @@ export default function Footer() {
     },
     {
       name: 'Instagram',
-      url: 'https://www.instagram.com/ust_yemen/',
+      url: 'https://www.instagram.com/ustyemen',
       hoverColor: 'hover:bg-gradient-to-tr hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF] hover:text-white hover:border-transparent',
       icon: (
         <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -56,7 +56,7 @@ export default function Footer() {
     },
     {
       name: 'YouTube',
-      url: 'https://www.youtube.com/@ustyemen',
+      url: 'https://www.youtube.com/@ustchannel',
       hoverColor: 'hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000]',
       icon: (
         <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">

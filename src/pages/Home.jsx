@@ -176,8 +176,8 @@ export default function Home() {
     {
       id: 'elearning-announcement',
       icon: Laptop,
-      label: isAr ? 'التعليم الإلكتروني والمراكز' : 'E-Learning & Centers',
-      value: isAr ? '3 برامج' : '3 Programs',
+      label: isAr ? 'التعليم الإلكتروني والبرامج' : 'E-Learning & Programs',
+      value: isAr ? '19 برنامجاً' : '19 Programs',
       date: isAr ? 'أكتوبر 2026' : 'October 2026',
       badge: isAr ? 'إعلانات التعليم الإلكتروني والمراكز' : 'E-Learning & Centers Notices',
       tagline: isAr ? 'عمادة التعليم الإلكتروني • مركز الاستشارات النفسية' : 'Deanship of E-Learning & Counseling Centers',
